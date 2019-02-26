@@ -1,6 +1,7 @@
 from app import app, db
 from models.user import UserSchema
 from models.club import Club
+from models.event import Event
 
 user_schema = UserSchema()
 
@@ -41,3 +42,15 @@ with app.app_context():
         category='Sports'
     )
     badminton.save()
+
+    badminton_day = Event(
+        name='Badminton Club',
+        image='badminton.png',
+        owner=ed,
+        date='2019-02-11 14:00:00',
+        club=badminton,
+        location='Essex',
+        description='Lovely club',
+        category='Sports'
+    )
+    badminton_day.save()
