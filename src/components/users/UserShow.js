@@ -24,41 +24,18 @@ class UserShow extends React.Component {
   }
 
   userRequest(){
-    axios.get(`/api/user/${this.props.match.params.id}`)
+    axios.get(`/api/users/${this.props.match.params.id}`)
       .then(res => this.setState({ user: res.data }))
   }
 
+
   render(){
-    console.log(this.state)
     if(!this.state.user) return null
-    const { username } = this.state.user
     return (
       <div>
         <section className="section has-background-dark user-header">
           <div className="container">
-            <hr/>
-            <div className="columns is-centered">
-              <div className="column is-vcentered is-4">
-                <h1 className="title has-text-centered is-vcentered is-1 is-title-light has-text-white">
-                H1</h1>
-              </div>
-              <div className="column is-4 is-flex is-horizontial-center">
 
-                <figure className="image is-128x128">
-                  <img className="is-rounded"
-                    src={this.state.user.image}
-                    alt={this.state.user.name}/>
-                </figure>
-
-                <h2 className="title has-text-centered is-vcentered is-2 has-text-white"> {username} {Auth.hasFollowed(this.state.user._id, this.state.user.follows) && <i className="fas fa-check-circle"></i> }</h2>
-
-              </div>
-              <div className="column is-4">
-                <h1 className="title is-1 is-title-light has-text-white has-text-centered"> There was a Trips Length</h1>
-                <h1 className="title has-text-centered is-vcentered is-1 is-title-light has-text-white"><i className="fas fa-map-signs is-large"></i></h1>
-              </div>
-            </div>
-            <hr/>
           </div>
         </section>
         <div className="columns is-vcentered has-background-dark">
@@ -70,16 +47,81 @@ class UserShow extends React.Component {
         </div>
         <section className="section">
           <div className="container">
-            <h3 className="title is-3 has-text-primary is-title-light"> {Auth.ownUserPage(this.state.user._id) && 'Your'} Clubs </h3>
+            <h3 className="title is-3 has-text-primary is-title-light">  Events </h3>
             <hr/>
+            <div className="columns">
+              <div className="column columns is-6 is-multiline">
+                <h4 className="title is-4 has-text-primary">  Attending </h4>
+                {this.state.user.events_attending.map(attending =>
+                  <div key={attending.id} className="column is-4">
+                    <Link to={`/events/${attending.id}`}>
+                      <div>
+                        <h6 className="title is-6">Name: {attending.name} </h6>
+                        <h6 className="title is-6">Location: {attending.location} </h6>
+                        <h6 className="title is-6">Category: {attending.category} </h6>
 
-            <h3 className="title is-3 has-text-primary is-title-light"> {Auth.ownUserPage(this.state.user._id) && 'Your'} Events </h3>
-            <hr/>
-            <div className="columns is-multiline">
-              <h2>  H2 </h2>
+                      </div>
+                    </Link>
+                  </div>
+                )}
+                <div className="column columns is-4">
+                </div>
+              </div>
+              <div className="column columns is-6 is-multiline">
+                <h4 className="title is-4 has-text-primary">  Created </h4>
+                {this.state.user.events_created.map(created =>
+                  <div key={created.id} className="column is-4">
+                    <Link to={`/events/${created.id}`}>
+                      <div>
+                        <h6 className="title is-6">Name: {created.name} </h6>
+                        <h6 className="title is-6">Location: {created.location} </h6>
+                        <h6 className="title is-6">Category: {created.category} </h6>
+
+                      </div>
+                    </Link>
+                  </div>
+                )}
+                <div className="column columns is-4">
+                </div>
+              </div>
             </div>
-            <h3 className="title is-3 has-text-primary is-title-light"> Clubs Following</h3>
+
+            <h3 className="title is-3 has-text-primary is-title-light">  Clubs </h3>
             <hr/>
+            <div className="columns">
+              <div className="column columns is-6 is-multiline">
+
+                {this.state.user.clubs_following.map(follow =>
+                  <div key={follow.id} className="column is-4">
+                    <Link to={`/clubs/${follow.id}`}>
+                      <div>
+                        <h6 className="title is-6">Name: {follow.name} </h6>
+                        <h6 className="title is-6">Location: {follow.location} </h6>
+                        <h6 className="title is-6">Category: {follow.category} </h6>
+
+                      </div>
+                    </Link>
+                  </div>
+                )}
+              </div>
+              <div className="column columns is-6 is-multiline">
+                <h4 className="title is-4 has-text-primary">  Created </h4>
+                {this.state.user.clubs_created.map(created =>
+                  <div key={created.id} className="column is-4">
+                    <Link to={`/clubs/${created.id}`}>
+                      <div>
+                        <h6 className="title is-6">Name: {created.name} </h6>
+                        <h6 className="title is-6">Location: {created.location} </h6>
+                        <h6 className="title is-6">Category: {created.category} </h6>
+
+                      </div>
+                    </Link>
+                  </div>
+                )}
+                <div className="column columns is-4">
+                </div>
+              </div>
+            </div>
 
           </div>
         </section>

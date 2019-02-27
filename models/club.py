@@ -38,8 +38,9 @@ class ClubComment(db.Model, BaseModel):
 
     __tablename__ = 'club_comments'
 
-    id = db.Column(db.Integer, primary_key=True)
     content = db.Column(db.Text, nullable=False)
+    creator_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    creator = db.relationship('User')
     club_id = db.Column(db.Integer, db.ForeignKey('clubs.id'))
     club = db.relationship('Club', backref='club_comments')
 

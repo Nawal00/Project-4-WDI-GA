@@ -1,10 +1,12 @@
 from flask import Blueprint, request, jsonify, g
-from models.club import Club, ClubSchema
+from models.club import Club, ClubSchema, ClubComment, ClubCommentSchema
 from lib.secure_route import secure_route
 
 api = Blueprint('clubs', __name__)
 
-clubs_schema = ClubSchema(many=True, exclude=('events', 'followed_by', 'owner', 'description'))
+clubs_schema = ClubSchema(many=True, exclude=('events', 'followed_by', 'owner', 'description', 'club_comments'))
+club_comment_schema = ClubCommentSchema(exclude=('club',))
+club_comments_schema = ClubCommentSchema(exclude=('club',), many=True)
 club_schema = ClubSchema()
 
 @api.route('/clubs', methods=['GET'])
@@ -73,3 +75,23 @@ def club_follow(club_id):
     club.save()
 
     return club_schema.jsonify(club)
+
+@api.route('/clubs/<int:club_id>/comment', methods=['POST'])
+@secure_route
+def club_comment(club_id):
+
+    club = Club.query.get(club_id)
+
+    comment, errors = club_comment_schema.load(request.get_json())
+
+    if errors:
+        return jsonify(errors), 422
+
+    comment.creator = g.current_user
+    comment.club = club
+
+    comment.save()
+
+    comments = ClubComment.query.filter_by(club_id=club_id).all()
+
+    return club_comments_schema.jsonify(comments)
