@@ -69,7 +69,7 @@ class EventsIndex extends React.Component {
           <EventsSearchForm handleChange={this.handleChange} />
           <div className="columns is-multiline">
             {this.filteredEvents().map(event =>
-              <div key={event.id} className="column is-one-quarter">
+              <div key={event.id} className="column is-4">
                 <EventCard {...event} />
               </div>
             )}

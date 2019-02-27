@@ -9,7 +9,7 @@ import './style.scss'
 import EventsIndex from './components/events/EventsIndex'
 // import EventsNew from './components/events/EventsNew'
 // import EventsEdit from './components/events/EventsEdit'
-// import EventsShow from './components/events/EventsShow'
+import EventsShow from './components/events/EventsShow'
 //
 // import ClubsIndex from './components/clubs/ClubsIndex'
 // import ClubsNew from './components/clubs/ClubsNew'
@@ -35,8 +35,8 @@ class App extends React.Component {
           <Navbar />
           <FlashMessages />
           <Switch>
+            <Route path="/events/:id" component={EventsShow} />
             <Route path="/events" component={EventsIndex} />
-
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/" component={Home} />

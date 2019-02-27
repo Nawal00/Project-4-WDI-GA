@@ -44,6 +44,17 @@ with app.app_context():
     )
     badminton.save()
 
+    football = Club(
+        name='Football Club',
+        image='https://tinyurl.com/yxffo78s',
+        owner=nawal,
+        followed_by=[ed, nawal],
+        location='London',
+        description='Footy club',
+        category='Sports'
+    )
+    badminton.save()
+
     club_comment_1 = ClubComment(
         content='Lovely',
         club=badminton
@@ -52,7 +63,7 @@ with app.app_context():
 
     badminton_day = Event(
         name='Badminton Club',
-        image='badminton.png',
+        image='https://tinyurl.com/ydgt7qmu',
         owner=ed,
         max_attendees=4,
         date='2019-02-11',
@@ -64,3 +75,18 @@ with app.app_context():
         category='Sports'
     )
     badminton_day.save()
+
+    football_day = Event(
+        name='Football Club',
+        image='https://tinyurl.com/y3oyvtx9',
+        owner=nawal,
+        max_attendees=5,
+        date='2019-05-12',
+        time='16:00:00',
+        club=football,
+        attendees=[ed],
+        location='London',
+        description='Footy club',
+        category='Sports'
+    )
+    football_day.save()

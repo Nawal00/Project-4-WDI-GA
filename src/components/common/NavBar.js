@@ -42,7 +42,7 @@ class Navbar extends React.Component {
               className="navbar-item"
               onClick={this.toggleIcon} to="/"
             >
-              <strong className="has-text-white is-size-4">
+              <strong className="is-size-4">
               Bee Social
               </strong>
             </Link>
@@ -80,11 +80,11 @@ class Navbar extends React.Component {
                    Create
                   </a>
                   <div className="navbar-dropdown">
-                    <Link to="/events/new" className="navbar-item has-text-black">
+                    <Link to="/events/new" className="navbar-item">
                      Events
                     </Link>
                     <hr className="navbar-divider" />
-                    <Link to="/clubs/new" className="navbar-item has-text-black">
+                    <Link to="/clubs/new" className="navbar-item">
                      Clubs
                     </Link>
                   </div>
