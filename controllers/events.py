@@ -4,7 +4,10 @@ from lib.secure_route import secure_route
 
 api = Blueprint('events', __name__)
 
-events_schema = EventSchema(many=True)
+events_schema = EventSchema(
+    many=True,
+    exclude=('club', 'attendees', 'owner', 'description', 'max_attendees')
+)
 event_schema = EventSchema()
 
 @api.route('/events', methods=['GET'])

@@ -46,7 +46,8 @@ with app.app_context():
 
     club_comment_1 = ClubComment(
         content='Lovely',
-        club=badminton
+        club=badminton,
+        creator=ed
     )
     club_comment_1.save()
 
@@ -57,6 +58,7 @@ with app.app_context():
         max_attendees=4,
         date='2019-02-11',
         time='14:00:00',
+        duration=60,
         club=badminton,
         attendees=[ed],
         location='Essex',
