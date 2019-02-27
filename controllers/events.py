@@ -26,7 +26,9 @@ def create():
         return jsonify(errors), 422
 
     event.owner = g.current_user
-    
+
+    event.attendees.append(g.current_user)
+
     event.save()
 
     return event_schema.jsonify(event)
@@ -61,3 +63,15 @@ def delete(event_id):
     event.remove()
 
     return '', 204
+
+@api.route('/events/<int:event_id>/attend', methods=['GET'])
+@secure_route
+def event_attend(event_id):
+
+    event = Event.query.get(event_id)
+
+    event.attendees.append(g.current_user)
+
+    event.save()
+
+    return event_schema.jsonify(event)

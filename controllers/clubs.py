@@ -4,7 +4,7 @@ from lib.secure_route import secure_route
 
 api = Blueprint('clubs', __name__)
 
-clubs_schema = ClubSchema(many=True)
+clubs_schema = ClubSchema(many=True, exclude=('events', 'followed_by', 'owner', 'description'))
 club_schema = ClubSchema()
 
 @api.route('/clubs', methods=['GET'])
@@ -61,3 +61,15 @@ def delete(club_id):
     club.remove()
 
     return '', 204
+
+@api.route('/clubs/<int:club_id>/follow', methods=['GET'])
+@secure_route
+def club_follow(club_id):
+
+    club = Club.query.get(club_id)
+
+    club.followed_by.append(g.current_user)
+
+    club.save()
+
+    return club_schema.jsonify(club)

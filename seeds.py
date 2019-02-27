@@ -37,6 +37,7 @@ with app.app_context():
         name='Badminton Club',
         image='badminton.png',
         owner=ed,
+        followed_by=[ed, nawal],
         location='Essex',
         description='Lovely club',
         category='Sports'
@@ -51,6 +52,7 @@ with app.app_context():
         date='2019-02-11',
         time='14:00:00',
         club=badminton,
+        attendees=[ed],
         location='Essex',
         description='Lovely club',
         category='Sports'
