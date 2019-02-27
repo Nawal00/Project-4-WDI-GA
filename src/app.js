@@ -16,11 +16,11 @@ import EventsIndex from './components/events/EventsIndex'
 // import ClubsEdit from './components/clubs/ClubsEdit'
 // import ClubsShow from './components/clubs/ClubsShow'
 //
-// import SecureRoute from './components/common/SecureRoute'
+import SecureRoute from './components/common/SecureRoute'
 
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
-// import UserShow from './components/user/UserShow'
+import UserShow from './components/users/UserShow'
 
 import Home from './components/common/Home'
 import Navbar from './components/common/Navbar'
@@ -36,6 +36,7 @@ class App extends React.Component {
           <FlashMessages />
           <Switch>
             <Route path="/events" component={EventsIndex} />
+            <Route path="/users/:id" component={UserShow} />
 
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />

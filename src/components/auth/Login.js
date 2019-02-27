@@ -31,7 +31,7 @@ class Login extends React.Component {
       .then((res) => {
         Auth.setToken(res.data.token)
         Flash.setMessage('white', res.data.message)
-        this.props.history.push(`/user/${Auth.getUserId()}`)
+        this.props.history.push(`/users/${Auth.getUserId()}`)
       })
       .catch(() => this.setState({ error: 'Incorrect Credentials' }))
   }

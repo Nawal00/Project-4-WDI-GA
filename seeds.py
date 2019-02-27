@@ -52,7 +52,7 @@ with app.app_context():
     club_comment_1.save()
 
     badminton_day = Event(
-        name='Badminton Club',
+        name='Badminton Game',
         image='badminton.png',
         owner=ed,
         max_attendees=4,
