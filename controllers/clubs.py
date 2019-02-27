@@ -21,10 +21,11 @@ def show(club_id):
 @secure_route
 def create():
     club, errors = club_schema.load(request.get_json())
-    club.owner = g.current_user
 
     if errors:
         return jsonify(errors), 422
+
+    club.owner = g.current_user
 
     club.save()
 

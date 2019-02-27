@@ -21,11 +21,12 @@ def show(event_id):
 @secure_route
 def create():
     event, errors = event_schema.load(request.get_json())
-    event.owner = g.current_user
 
     if errors:
         return jsonify(errors), 422
 
+    event.owner = g.current_user
+    
     event.save()
 
     return event_schema.jsonify(event)

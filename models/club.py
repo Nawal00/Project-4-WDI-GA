@@ -15,10 +15,10 @@ class Club(db.Model, BaseModel):
     owner = db.relationship('User', backref='clubs_created')
 
 
-
 class ClubSchema(ma.ModelSchema, BaseSchema):
 
     owner = fields.Nested('UserSchema', only=('id', 'username'))
+    events = fields.Nested('EventSchema', only=('id', 'name'), many=True)
 
     class Meta:
         model = Club

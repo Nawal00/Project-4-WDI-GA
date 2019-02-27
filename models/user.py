@@ -58,7 +58,11 @@ class UserSchema(ma.ModelSchema, BaseSchema):
     )
     password_confirmation = fields.String(required=True)
 
-    clubs_created = fields.Nested('ClubSchema', many=True, exclude=('created_at', 'updated_at', 'owner'))
+    clubs_created = fields.Nested(
+        'ClubSchema',
+        many=True,
+        exclude=('created_at', 'updated_at', 'owner')
+    )
 
     class Meta:
         model = User
