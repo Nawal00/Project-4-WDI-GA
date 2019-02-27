@@ -30,3 +30,21 @@ class ClubSchema(ma.ModelSchema, BaseSchema):
 
     class Meta:
         model = Club
+
+    club_comments = fields.Nested('ClubCommentSchema', many=True)
+
+
+class ClubComment(db.Model, BaseModel):
+
+    __tablename__ = 'club_comments'
+
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.Text, nullable=False)
+    club_id = db.Column(db.Integer, db.ForeignKey('clubs.id'))
+    club = db.relationship('Club', backref='club_comments')
+
+
+class ClubCommentSchema(ma.ModelSchema, BaseSchema):
+
+    class Meta:
+        model = ClubComment

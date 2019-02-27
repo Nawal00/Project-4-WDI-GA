@@ -1,6 +1,6 @@
 from app import app, db
 from models.user import UserSchema
-from models.club import Club
+from models.club import Club, ClubComment
 from models.event import Event
 
 user_schema = UserSchema()
@@ -43,6 +43,12 @@ with app.app_context():
         category='Sports'
     )
     badminton.save()
+
+    club_comment_1 = ClubComment(
+        content='Lovely',
+        club=badminton
+    )
+    club_comment_1.save()
 
     badminton_day = Event(
         name='Badminton Club',
