@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import 'bulma'
 import './style.scss'
 
-// import EventsIndex from './components/events/EventsIndex'
+import EventsIndex from './components/events/EventsIndex'
 // import EventsNew from './components/events/EventsNew'
 // import EventsEdit from './components/events/EventsEdit'
 // import EventsShow from './components/events/EventsShow'
@@ -35,6 +35,8 @@ class App extends React.Component {
           <Navbar />
           <FlashMessages />
           <Switch>
+            <Route path="/events" component={EventsIndex} />
+
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/" component={Home} />
