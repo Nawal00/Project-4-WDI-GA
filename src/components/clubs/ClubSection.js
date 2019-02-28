@@ -1,19 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ClubSection = ({ id, name, image, location, date }) => {
+const ClubSection = ({ id, name, image, location }) => {
   return (
     <Link to={`/clubs/${id}`}>
 
-
-      <div className="hero clubHero">
-        <div className="hero-body">
-          <figure className="image is-128x128">
-            <img className="is-rounded" src={image} alt={name} />
-          </figure>
+      <div className="wrapper">
+        <div className="hero clubHero is-medium is-bold parent">
+          <div className="hero-body child" style={{ backgroundImage: `url(${image})`}}>
+            <h1 className="title has-text-white">{name}</h1>
+            <p className="subtitle has-text-white is-6">{location}</p>
+          </div>
         </div>
       </div>
-
 
     </Link>
   )

@@ -35,7 +35,7 @@ class Event(db.Model, BaseModel):
 class EventSchema(ma.ModelSchema, BaseSchema):
 
     owner = fields.Nested('UserSchema', only=('id', 'username'))
-    club = fields.Nested('ClubSchema', only=('id', 'name'))
+    club = fields.Nested('ClubSchema', only=('id', 'name', 'image', 'description'))
     attendees = fields.Nested('UserSchema', only=('id', 'username'), many=True)
 
 
