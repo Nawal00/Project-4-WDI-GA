@@ -2,6 +2,12 @@
 // @import "../node_modules/bulma/bulma.sass";
 // @import "../node_modules/bulma-carousel/dist/css/bulma-carousel.min.css";
 
+$yellow: #F1C400;
+$black: #3E332E;
+$info: $yellow;
+$dark: $black;
+
+
 .clubHero{
   margin: 10px 0 10px 0;
   background: rgba(0, 0, 0, 0.5);
@@ -74,3 +80,27 @@
 
 
 //---------------------------
+
+.columns{
+
+  >.date-icon{
+    background-color: $yellow;
+    >h1{
+      color: $black;
+      text-align: center;
+    }
+    >h6{
+      color: $black;
+      text-align: center;
+      border-bottom: #eee 2px solid;
+      padding-bottom: 10px;
+
+    }
+  }
+}
+
+.column{
+  .event-card{
+    background-color: #eee;
+  }
+}
