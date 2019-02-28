@@ -5,6 +5,7 @@ import ReactFilestack from 'react-filestack'
 
 const fileStack = process.env.FILESTACK_API_KEY
 
+// name, image, category, date, time, duration, lat, lng, description, max attendees, clubs(owners)
 
 const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
   return (
