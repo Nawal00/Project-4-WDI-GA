@@ -8,7 +8,7 @@ const mapboxAutoComplete = process.env.MAP_BOX_TOKEN
 console.log(mapboxAutoComplete)
 
 
-const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
+const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors, suggestionSelect, clubs  }) => {
   return (
     <div className="container">
       <div className="column is-6 is-offset-3 ">
@@ -82,7 +82,8 @@ const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect
               <div className="control">
                 <input
                   className="input"
-                  type="text"
+                  type="time"
+                  step="2"
                   placeholder="Time"
                   name="time"
                   onChange={handleChange}
@@ -147,15 +148,15 @@ const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect
                   <select
                     name="club"
                     defaultValue="Please Choose..."
-                    onChange={handleChange}
-                    value={data.club}
+                    onChange={handleClubChange}
+                    value={data.club_id.name}
+
                   >
                     <option disabled>Please Choose...</option>
+                    {clubs.map((club, i) =>
+                      <option key={i} value={`${club.value},${club.label}`} > {club.label} </option>
+                    )}
                     <option value="" > Search All </option>
-                    <option value="badminton_north_london"> Badminton Club </option>
-                    <option> Photography </option>
-                    <option> Gaming </option>
-
                   </select>
                 </div>
                 {errors.club && <small className="help is-danger">{errors.club}</small>}
