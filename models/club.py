@@ -26,7 +26,7 @@ class Club(db.Model, BaseModel):
 class ClubSchema(ma.ModelSchema, BaseSchema):
 
     owner = fields.Nested('UserSchema', only=('id', 'username'))
-    events = fields.Nested('EventSchema', only=('id', 'name'), many=True)
+    # events = fields.Nested('EventSchema', only=('id', 'name'), many=True)
     followed_by = fields.Nested('UserSchema', only=('id', 'username'), many=True)
 
     class Meta:

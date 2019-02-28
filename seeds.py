@@ -95,8 +95,8 @@ with app.app_context():
 
     chess_club_islington = Club(
         name='Badminton Club',
-        image='badminton.png',
-        owner=nawal,
+        image='https://tinyurl.com/yx8o8rff',
+        owner=ed,
         followed_by=[ed, nawal],
         lat=51.534969,
         lng=-0.103750,
@@ -153,6 +153,18 @@ with app.app_context():
     )
     east_london_five.save()
 
+    football = Club(
+        name='Football Club',
+        image='https://tinyurl.com/y3cv5536',
+        owner=nawal,
+        followed_by=[ed, nawal],
+        lat=51.515617,
+        lng=-0.070839,
+        description='Footy club',
+        category='Sports'
+    )
+    football.save()
+
     club_comment_1 = ClubComment(
         content='Has anyone can any ideas for the next group meeting?',
         club=london_photography,
@@ -196,14 +208,14 @@ with app.app_context():
     club_comment_6.save()
 
     badminton_day = Event(
-        name='Summer Badminton Party',
-        image='https://images.unsplash.com/photo-1466036692599-070d032f4711?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
+        name='Badminton Club',
+        image='https://tinyurl.com/y3cv5536',
         owner=ed,
         max_attendees=20,
         date='2019-02-11',
         time='14:00:00',
         duration=300,
-        club=badminton_north_london,
+        # club=badminton_north_london,
         attendees=[nawal, jody, dwight, wendy, mark],
         lat=51.5564869,
         lng=-0.1172063,
@@ -220,7 +232,7 @@ with app.app_context():
         date='2019-03-10',
         time='19:00:00',
         duration=60,
-        club=badminton_north_london,
+        # club=badminton_north_london,
         attendees=[nawal],
         lat=51.5564869,
         lng=-0.1172063,
@@ -237,7 +249,7 @@ with app.app_context():
         date='2019-03-15',
         time='14:00:00',
         duration=120,
-        club=london_photography,
+        # club=london_photography,
         attendees=[jody, ed],
         lat=51.4874009,
         lng=-0.012965,
@@ -254,7 +266,7 @@ with app.app_context():
         date='2019-03-01',
         time='16:00:00',
         duration=120,
-        club=london_photography,
+        # club=london_photography,
         attendees=[ed],
         lat=51.5150422,
         lng=-0.1107947,
@@ -271,7 +283,7 @@ with app.app_context():
         date='2019-03-15',
         time='14:00:00',
         duration=120,
-        club=east_london_five,
+        # club=east_london_five,
         attendees=[jody, ed],
         lat=51.4963099,
         lng=-0.1203346,
@@ -288,7 +300,7 @@ with app.app_context():
         date='2019-02-15',
         time='14:00:00',
         duration=120,
-        club=east_london_five,
+        # club=east_london_five,
         attendees=[jody, ed],
         lat=51.4963099,
         lng=-0.1203346,
@@ -305,7 +317,7 @@ with app.app_context():
         date='2019-03-20',
         time='18:00:00',
         duration=120,
-        club=chess_club_islington,
+        # club=chess_club_islington,
         attendees=[jody, ed],
         lat=51.5343973,
         lng=-0.1054455,
@@ -322,7 +334,7 @@ with app.app_context():
         date='2019-03-15',
         time='14:00:00',
         duration=120,
-        club=surrey_walkers,
+        # club=surrey_walkers,
         attendees=[jody, ed],
         lat=51.4463869,
         lng=-0.2779614,

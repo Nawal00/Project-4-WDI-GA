@@ -20,19 +20,6 @@ class EventsIndex extends React.Component {
   componentDidMount() {
     axios.get('/api/events')
       .then(res => this.setState({ events: res.data }))
-
-    // also get the user location...
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
-        console.log('LOCATION FOUND')
-        this.setState({
-          userLocation: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          }
-        })
-      })
-    }
   }
 
   handleChange({ target: { name, value } }) {
@@ -69,7 +56,7 @@ class EventsIndex extends React.Component {
           <EventsSearchForm handleChange={this.handleChange} />
           <div className="columns is-multiline">
             {this.filteredEvents().map(event =>
-              <div key={event.id} className="column is-one-quarter">
+              <div key={event.id} className="column is-4">
                 <EventCard {...event} />
               </div>
             )}
