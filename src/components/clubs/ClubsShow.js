@@ -48,7 +48,7 @@ class ClubsShow extends React.Component {
 
   render(){
     if(!this.state.club) return null
-    const { id, name, image, category, description, user, location, events, followed_by } = this.state.club
+    const { id, name, image, category, description, user, location, events, followed_by, club_comments} = this.state.club
     return (
       <section className="section">
         <div className="container">
@@ -67,13 +67,18 @@ class ClubsShow extends React.Component {
                 <h4 className="title is-4">Description</h4>
                 <p> {description}</p>
                 <h4 className="title is-4">Members ({followed_by.length})</h4>
-                {followed_by.map((follower) => {
-                  return <Link to={`/users/${follower.id}`} className="button pill is-rounded" key={follower.id}> {follower.username} </Link>
-                })}
-
+                <div className="members-area">
+                  {followed_by.map((follower) => {
+                    return <Link to={`/users/${follower.id}`}key={follower.id}>
+                      <div className="image-cropper">
+                        <img src="../../assets/images/BeeLogo.png" alt="avatar" className="profile-pic"/>
+                      </div>
+                    </Link>
+                  })}
+                </div>
                 <hr/>
               </div>
-              <button className="button is-info" onClick={this.handleFolllow}> Follow  </button>
+              <button className="button is-warning" onClick={this.handleFolllow}> Follow  </button>
             </div>
           </div>
 
@@ -115,9 +120,8 @@ class ClubsShow extends React.Component {
 
                         </div>
                         <div className="column is-9">
-                          <h6 className="title is-6">{event.name.toUpperCase()} - {event.time.substring(0, event.time.length - 3)} </h6>
-                          <h6 className="title is-6">Attendees: {event.attendees.length} </h6>
-                          <h6 className="title is-6">Spaces Left: {event.max_attendees - event.attendees.length} </h6>
+                          <h6 className="title is-6 has-text-dark">{event.name.toUpperCase()} - {event.time.substring(0, event.time.length - 3)} </h6>
+                          <h6 className="title is-6">Attendees: {event.attendees.length} - <span className="has-text-danger">Only {event.max_attendees - event.attendees.length} spots left! </span> </h6>
                         </div>
                       </div>
                     </Link>
@@ -132,10 +136,11 @@ class ClubsShow extends React.Component {
                 Date.parse(event.date) <= new Date() && (
                   <div key={event.id} className="column is-4">
                     <Link to={`/events/${event.id}`}>
-                      <div>
-                        <h6 className="title is-6">Date: {event.date} </h6>
-                        <h6 className="title is-6">Name: {event.name} </h6>
-                        <h6 className="title is-6">Time: {event.time} </h6>
+
+                      <div className="column is-12 date-icon">
+
+                        <h6 className="title is-6">{event.name} </h6>
+                        <h4 className="title is-4">{moment(event.date).format('MMMM Do YYYY')} </h4>
 
                       </div>
                     </Link>
@@ -144,8 +149,36 @@ class ClubsShow extends React.Component {
               )
             )}
           </div>
-        </div>
+          <h4 className="title is-4">Chat</h4>
+          <hr />
+          <div className="message-area">
+            <div className="messages-show">
+              {club_comments.map(comment => {
+                return (
+                  <div className="club-message" key={comment.id}>
+                    <h6 className="title is-6"> {comment.creator.username}: </h6>
+                    <h6 className="conversation">{comment.content}</h6>
+                  </div>
+                )
+              }
+              )}
 
+            </div>
+            <div className="messages-input">
+              <form>
+                <input
+                  placeholder="Add your comments!"
+                  maxLength="250"
+                >
+                </input>
+                <button className="button is-dark is-small is-rounded"> Add Commment </button>
+              </form>
+            </div>
+
+
+
+          </div>
+        </div>
       </section>
     )
   }

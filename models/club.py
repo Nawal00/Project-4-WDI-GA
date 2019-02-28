@@ -49,5 +49,8 @@ class ClubComment(db.Model, BaseModel):
 
 class ClubCommentSchema(ma.ModelSchema, BaseSchema):
 
+    creator = fields.Nested('UserSchema', only=('username', 'image'))
+
+
     class Meta:
         model = ClubComment

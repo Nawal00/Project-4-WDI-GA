@@ -6,6 +6,7 @@ $yellow: #F1C400;
 $black: #3E332E;
 $info: $yellow;
 $dark: $black;
+$tabs-link-active-color: $yellow;
 
 
 .clubHero{
@@ -82,7 +83,6 @@ $dark: $black;
 //---------------------------
 
 .columns{
-
   >.date-icon{
     background-color: $yellow;
     >h1{
@@ -102,5 +102,82 @@ $dark: $black;
 .column{
   .event-card{
     background-color: #eee;
+  }
+}
+
+
+.image-cropper {
+    width: 50px;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    border: $yellow solid 2px;
+    >.profile-pic {
+      display: inline;
+      margin: 0 auto;
+
+      height: 100%;
+      width: auto;
+
+    }
+}
+
+.members-area{
+  display: flex;
+  div{
+    margin: 4px;
+
+  }
+}
+
+.date-icon{
+  background-color: $yellow;
+  >h4{
+    color: $black;
+    text-align: center;
+  }
+  >h6{
+    color: $black;
+    text-align: center;
+    border-bottom: #eee 2px solid;
+    padding-bottom: 10px;
+
+  }
+}
+
+.message-area{
+  width: 50%;
+  height: 300px;
+  border: $yellow solid 2px;
+  margin: auto;
+  .messages-show{
+    height: 250px;
+    width: 100%;
+    overflow: scroll;
+    >.club-message{
+      margin: 30px;
+      h6.conversation{
+        background-color: $yellow;
+        border-radius: 15px;
+        padding: 5px;
+      }
+    }
+  }
+  .messages-input{
+    height: 50px;
+    background-color: $yellow;
+    margin-bottom:0;
+    form{
+      display: flex;
+      margin: auto;
+
+      input{
+        flex-grow: 1;
+        border-radius: 15px;
+      }
+    }
+
+
   }
 }
