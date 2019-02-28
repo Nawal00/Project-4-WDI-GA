@@ -8,7 +8,9 @@ class UserShow extends React.Component {
   constructor(){
     super()
 
-    this.state = {}
+    this.state = {
+      user: null
+    }
 
     // this.handleFollow = this.handleFollow.bind(this)
     // this.handleFollow = this.handleFollow.bind(this)
@@ -39,7 +41,7 @@ class UserShow extends React.Component {
             </div>
             <div className="column is-4">
               <h3 className="title is-3 has-text-primary"> {this.state.user.username} </h3>
-              <h4 className="title is-4 has-text-primary">  Clubs: {} </h4>
+              <h4 className="title is-4 has-text-primary">  Clubs: </h4>
             </div>
             <div className="column is-4">
               <h4 className="title is-4 has-text-primary">  Attending </h4>

@@ -13,11 +13,10 @@ class ClubsNew extends React.Component {
         name: '',
         image: '',
         description: '',
-        address: '',
-        location: {
-          lat: '',
-          lng: ''
-        }
+        location: '',
+        lat: '',
+        lng: '',
+        category: ''
       },
       errors: ''
     }
@@ -35,11 +34,9 @@ class ClubsNew extends React.Component {
 
   suggestionSelect(result, lat, lng, text) {
     const data = {...this.state.data,
-      location: {
-        lat: lat,
-        lng: lng
-      },
-      address: result, text
+      lat: lat,
+      lng: lng,
+      location: result, text
     }
     const errors = { ...this.state.errors, location: '' }
 

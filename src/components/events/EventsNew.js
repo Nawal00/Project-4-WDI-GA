@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import moment from 'moment'
 
 import Auth from '../../lib/Auth'
 import EventsForm from './EventsForm'
@@ -29,6 +30,9 @@ class EventsNew extends React.Component {
   }
 
   handleChange({ target: { name, value } }) {
+    // if(name === 'time'){
+    //   value = moment(value, 'HH:MM:SS')
+    // }
     const data = {...this.state.data, [name]: value }
     const errors = { ...this.state.errors, [name]: '' }
     this.setState({ data, errors })
@@ -36,7 +40,6 @@ class EventsNew extends React.Component {
 
   handleClubChange({ target }) {
     const valueArray = target.value.split(',')
-    console.log(valueArray)
     const data = {
       ...this.state.data,
       club: {
