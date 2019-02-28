@@ -89,7 +89,7 @@ class Navbar extends React.Component {
                     </Link>
                   </div>
                 </div>}
-              {Auth.isAuthenticated() &&<Link to={`/user/${Auth.getUserId()}`} className="navbar-item">
+              {Auth.isAuthenticated() &&<Link to={`/users/${Auth.getUserId()}`} className="navbar-item">
               Your events
               </Link>}
               {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Sign Up</Link>}

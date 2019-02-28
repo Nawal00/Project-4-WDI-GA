@@ -61,25 +61,25 @@ class UserSchema(ma.ModelSchema, BaseSchema):
     clubs_created = fields.Nested(
         'ClubSchema',
         many=True,
-        only=('category', 'name', 'location', 'id')
+        only=('category', 'name', 'id', 'image')
     )
 
     clubs_following = fields.Nested(
         'ClubSchema',
         many=True,
-        only=('category', 'name', 'location', 'id')
+        only=('category', 'name', 'id', 'image')
     )
 
     events_created = fields.Nested(
         'EventSchema',
         many=True,
-        only=('category', 'name', 'location', 'id')
+        only=('category', 'name', 'id', 'image', 'date', 'time')
     )
 
     events_attending = fields.Nested(
         'EventSchema',
         many=True,
-        only=('category', 'name', 'location', 'id')
+        only=('category', 'name', 'id', 'image', 'date', 'time', 'club')
     )
 
     class Meta:

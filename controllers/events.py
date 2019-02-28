@@ -1,3 +1,4 @@
+# import requests
 from flask import Blueprint, request, jsonify, g
 from models.event import Event, EventSchema
 from lib.secure_route import secure_route
@@ -18,6 +19,9 @@ def index():
 @api.route('/events/<int:event_id>', methods=['GET'])
 def show(event_id):
     event = Event.query.get(event_id)
+
+    #could make a call to the city mapper API to get the journey time
+
     return event_schema.jsonify(event)
 
 @api.route('/events', methods=['POST'])

@@ -13,12 +13,13 @@ class Event(db.Model, BaseModel):
     __tablename__ = 'events'
 
     name = db.Column(db.String(80), nullable=False)
-    image = db.Column(db.String(80), nullable=True)
+    image = db.Column(db.String(200), nullable=True)
     category = db.Column(db.String(80), nullable=False)
     date = db.Column(db.Date, nullable=False)
     time = db.Column(db.Time, nullable=False)
     duration = db.Column(db.Integer, nullable=False)
-    location = db.Column(db.String(80), nullable=False)
+    lat = db.Column(db.Integer, nullable=False)
+    lng = db.Column(db.Integer, nullable=False)
     description = db.Column(db.String(80), nullable=True)
     max_attendees = db.Column(db.Integer, nullable=False)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
