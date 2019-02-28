@@ -35,7 +35,7 @@ class Navbar extends React.Component {
   render() {
 
     return (
-      <nav className= {this.props.location.pathname === '/' ? 'navbar is-dark home' : 'navbar is-info'}>
+      <nav className= {this.props.location.pathname === '/' ? 'navbar is-dark home' : 'navbar is-dark'}>
         <div className="container">
           <div className="navbar-brand">
             <Link
@@ -43,7 +43,7 @@ class Navbar extends React.Component {
               onClick={this.toggleIcon} to="/"
             >
               <strong className="is-size-4">
-              Bee Social
+              Bee Social <span> <img src="../../assets/images/BeeLogo.png"/> </span>
               </strong>
             </Link>
             <a

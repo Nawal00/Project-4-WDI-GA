@@ -40,7 +40,7 @@ class EventsShow extends React.Component {
     axios.get(`/api/events/${this.state.event.id}/attend`, {
       headers: { Authorization: `Bearer ${Auth.getToken()}`}
     })
-      .then(res => console.log(res.data))
+      .then(res => this.setState({event: res.data}))
   }
 
   render(){
