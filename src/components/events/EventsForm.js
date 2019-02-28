@@ -4,6 +4,8 @@ import ReactFilestack from 'react-filestack'
 // import RegMap from '../common/RegMap'
 
 const fileStack = process.env.FILESTACK_API_KEY
+const mapboxAutoComplete = process.env.MAP_BOX_TOKEN
+console.log(mapboxAutoComplete)
 
 // name, image, category, date, time, duration, lat, lng, description, max attendees, clubs(owners)
 
@@ -63,6 +65,62 @@ const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect
               </div>
             </div>
             <div className="field">
+              <label className="label">Date</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="date"
+                  placeholder="Date"
+                  name="date"
+                  onChange={handleChange}
+                  value={data.date || ''}
+                />
+                {errors.date && <small className="help is-danger">{errors.date}</small>}
+              </div>
+            </div>
+            <div className="field">
+              <label className="label">Time</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="text"
+                  placeholder="Time"
+                  name="time"
+                  onChange={handleChange}
+                  value={data.time || ''}
+                />
+                {errors.time && <small className="help is-danger">{errors.time}</small>}
+              </div>
+            </div>
+            <div className="field">
+              <label className="label">Duration (Min)</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  placeholder="Duration"
+                  name="duration"
+                  onChange={handleChange}
+                  value={data.duration || ''}
+                />
+                {errors.duration && <small className="help is-danger">{errors.duration}</small>}
+              </div>
+            </div>
+            <div className="field">
+              <label className="label">Max Attendees</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  placeholder="Max Attendees"
+                  name="max_attendees"
+                  onChange={handleChange}
+                  value={data.max_attendees || ''}
+                />
+                {errors.max_attendees && <small className="help is-danger">{errors.max_attendees}</small>}
+              </div>
+            </div>
+            <div className="field">
               <label className="label">Category</label>
               <div className="control">
                 <div className="select is-fullwidth">
@@ -74,19 +132,40 @@ const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect
                   >
                     <option disabled>Please Choose...</option>
                     <option value="" > Search All </option>
-                    <option> Pubs </option>
-                    <option> Bars </option>
-                    <option> Cafes </option>
+                    <option> Sport </option>
+                    <option> Photography </option>
+                    <option> Gaming </option>
 
                   </select>
                 </div>
                 {errors.category && <small className="help is-danger">{errors.category}</small>}
               </div>
             </div>
+            <div className="field">
+              <label className="label">Club</label>
+              <div className="control">
+                <div className="select is-fullwidth">
+                  <select
+                    name="club"
+                    defaultValue="Please Choose..."
+                    onChange={handleChange}
+                    value={data.club}
+                  >
+                    <option disabled>Please Choose...</option>
+                    <option value="" > Search All </option>
+                    <option value="badminton_north_london"> Badminton Club </option>
+                    <option> Photography </option>
+                    <option> Gaming </option>
+
+                  </select>
+                </div>
+                {errors.club && <small className="help is-danger">{errors.club}</small>}
+              </div>
+            </div>
             <label className="label">Location</label>
             <div className="control">
               <MapboxAutocomplete
-                publicKey= {process.env.MAP_BOX_TOKEN}
+                publicKey= "pk.eyJ1IjoibmF3YWw5MyIsImEiOiJjanIyM2E1ZHcxMThiM3hwYzIxY2Nnb2c3In0.X6kjAz7ZDz_PCPHXaEqAxA"
                 inputClass="input"
                 onSuggestionSelect={suggestionSelect}
                 resetSearch={false}

@@ -14,10 +14,8 @@ class EventsNew extends React.Component {
         image: '',
         description: '',
         address: '',
-        location: {
-          lat: '',
-          lng: ''
-        }
+        lat: '',
+        lng: ''
       },
       errors: ''
     }
@@ -33,15 +31,13 @@ class EventsNew extends React.Component {
     this.setState({ data, errors })
   }
 
-  suggestionSelect(result, lat, lng, text) {
+  suggestionSelect(result, lat, lng) {
     const data = {...this.state.data,
-      location: {
-        lat: lat,
-        lng: lng
-      },
-      address: result, text
+      lat: lat,
+      lng: lng,
+      address: result
     }
-    const errors = { ...this.state.errors, location: '' }
+    const errors = { ...this.state.errors, address: '' }
 
     this.setState({data, errors})
   }
@@ -49,10 +45,10 @@ class EventsNew extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     axios
-      .post('/api/gems', this.state.data, {
+      .post('/api/events', this.state.data, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
-      .then(() => this.props.history.push('/gems'))
+      .then(() => this.props.history.push('/events'))
       .catch((err) => {
         return this.setState({errors: err.response.data})
       })
