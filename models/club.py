@@ -15,6 +15,7 @@ class Club(db.Model, BaseModel):
     name = db.Column(db.String(80), nullable=False)
     image = db.Column(db.String(80), nullable=True)
     category = db.Column(db.String(80), nullable=True)
+    location = db.Column(db.String(200), nullable=True)
     lat = db.Column(db.Float, nullable=False)
     lng = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(80), nullable=True)
@@ -26,7 +27,7 @@ class Club(db.Model, BaseModel):
 class ClubSchema(ma.ModelSchema, BaseSchema):
 
     owner = fields.Nested('UserSchema', only=('id', 'username'))
-    # events = fields.Nested('EventSchema', only=('id', 'name'), many=True)
+    events = fields.Nested('EventSchema', only=('id', 'name'), many=True)
     followed_by = fields.Nested('UserSchema', only=('id', 'username'), many=True)
 
     class Meta:

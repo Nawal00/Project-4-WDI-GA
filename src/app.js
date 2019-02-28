@@ -40,7 +40,7 @@ class App extends React.Component {
             <Route path="/events" component={EventsIndex} />
             <Route path="/users/:id" component={UserShow} />
 
-            <Route path="/clubs/new" component={ClubsNew} />
+            <SecureRoute path="/clubs/new" component={ClubsNew} />
             <Route path="/clubs/:id" component={ClubsShow} />
             <Route path="/clubs" component={ClubsIndex} />
 

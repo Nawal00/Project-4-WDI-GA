@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import moment from 'moment'
 
 import Auth from '../../lib/Auth'
 import EventsForm from './EventsForm'
@@ -13,21 +14,40 @@ class EventsNew extends React.Component {
         name: '',
         image: '',
         description: '',
+        club_id: '',
         address: '',
         lat: '',
         lng: ''
       },
-      errors: ''
+      errors: '',
+      clubs: []
     }
 
     this.handleChange = this.handleChange.bind(this)
+    this.handleClubChange = this.handleClubChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.suggestionSelect = this.suggestionSelect.bind(this)
   }
 
   handleChange({ target: { name, value } }) {
+    // if(name === 'time'){
+    //   value = moment(value, 'HH:MM:SS')
+    // }
     const data = {...this.state.data, [name]: value }
     const errors = { ...this.state.errors, [name]: '' }
+    this.setState({ data, errors })
+  }
+
+  handleClubChange({ target }) {
+    const valueArray = target.value.split(',')
+    const data = {
+      ...this.state.data,
+      club: {
+        id: valueArray[0],
+        name: valueArray[1]
+      }
+    }
+    const errors = { ...this.state.errors, club_id: '' }
     this.setState({ data, errors })
   }
 
@@ -54,13 +74,26 @@ class EventsNew extends React.Component {
       })
   }
 
+  componentDidMount() {
+    axios.get('/api/clubs')
+      .then(res => {
+        console.log(res)
+        const clubs = res.data.map(club => {
+          return {'value': club.id, 'label': club.name}
+        })
+        this.setState({ clubs })
+      })
+  }
+
   render() {
     return(
       <div className="section">
         <EventsForm
           data={this.state.data}
+          clubs={this.state.clubs}
           errors={this.state.errors}
           handleChange={this.handleChange}
+          handleClubChange={this.handleClubChange}
           handleSubmit={this.handleSubmit}
           suggestionSelect={this.suggestionSelect}
         />

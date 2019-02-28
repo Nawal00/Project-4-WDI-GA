@@ -1,6 +1,7 @@
 # import requests
 from flask import Blueprint, request, jsonify, g
 from models.event import Event, EventSchema
+from models.club import Club, ClubSchema
 from lib.secure_route import secure_route
 
 api = Blueprint('events', __name__)

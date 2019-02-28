@@ -71,10 +71,10 @@ const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect
                     value={data.category}
                   >
                     <option disabled>Please Choose...</option>
-                    <option value="" > Search All </option>
-                    <option> Pubs </option>
-                    <option> Bars </option>
-                    <option> Cafes </option>
+                    <option> Sport </option>
+                    <option> Gaming </option>
+                    <option> Mum Clubs </option>
+                    <option> Food & Drink </option>
 
                   </select>
                 </div>
@@ -84,7 +84,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect
             <label className="label">Location</label>
             <div className="control">
               <MapboxAutocomplete
-                publicKey= {process.env.MAP_BOX_TOKEN}
+                publicKey= "pk.eyJ1IjoibmF3YWw5MyIsImEiOiJjanIyM2E1ZHcxMThiM3hwYzIxY2Nnb2c3In0.X6kjAz7ZDz_PCPHXaEqAxA"
                 inputClass="input"
                 onSuggestionSelect={suggestionSelect}
                 resetSearch={false}
