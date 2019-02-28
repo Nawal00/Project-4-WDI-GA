@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import EventCard from './EventCard'
 import EventsSearchForm from './EventsSearchForm'
+import EventsShow from './EventsShow'
+
 
 class EventsIndex extends React.Component {
 
@@ -9,9 +11,7 @@ class EventsIndex extends React.Component {
     super()
     this.state = {
       events: [],
-      category: 'All',
-      location: ''
-      // userLocation: null,
+      category: 'All'
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -26,6 +26,7 @@ class EventsIndex extends React.Component {
     this.setState({ [name]: value })
   }
 
+
   filteredEvents() {
     const re = new RegExp(this.state.location, 'i')
     if(!this.state.category && !this.state.location) return this.state.events
@@ -33,6 +34,8 @@ class EventsIndex extends React.Component {
       return re.test(event.address) && (this.state.category === 'All' || event.category === this.state.category)
     })
   }
+
+
 
   render() {
 
