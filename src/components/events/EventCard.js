@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 const EventCard = ({ id, name, image, location, date }) => {
   return (
     <Link to={`/events/${id}`}>
-      <div className="card eventsCard">
+      <div className="card card-equal-height">
         <div className="card-image">
-          <figure className="image">
+          <figure className="image is-4by3">
             <img src={image} alt={name}  className="eventImage"/>
           </figure>
 
@@ -20,7 +20,7 @@ const EventCard = ({ id, name, image, location, date }) => {
             <div className="media-right">
               <h6 className="title is-6">{name}</h6>
               <p className="subtitle is-6">{date}</p>
-              <p className="subtitle is-6">{location}</p>
+              <p className="is-6">{location}</p>
             </div>
           </div>
 

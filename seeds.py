@@ -35,7 +35,7 @@ with app.app_context():
 
     badminton = Club(
         name='Badminton Club',
-        image='badminton.png',
+        image='https://tinyurl.com/yx8o8rff',
         owner=ed,
         followed_by=[ed, nawal],
         location='Essex',
@@ -46,7 +46,7 @@ with app.app_context():
 
     football = Club(
         name='Football Club',
-        image='https://tinyurl.com/yxffo78s',
+        image='https://tinyurl.com/y3cv5536',
         owner=nawal,
         followed_by=[ed, nawal],
         location='London',
@@ -64,7 +64,7 @@ with app.app_context():
 
     badminton_day = Event(
         name='Badminton Club',
-        image='https://tinyurl.com/ydgt7qmu',
+        image='https://tinyurl.com/yx8o8rff',
         owner=ed,
         max_attendees=4,
         date='2019-02-11',
@@ -80,7 +80,7 @@ with app.app_context():
 
     football_day = Event(
         name='Football Club',
-        image='https://tinyurl.com/y3oyvtx9',
+        image='https://tinyurl.com/y3cv5536',
         owner=nawal,
         max_attendees=5,
         date='2019-05-12',

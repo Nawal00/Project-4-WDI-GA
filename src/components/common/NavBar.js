@@ -59,7 +59,7 @@ class Navbar extends React.Component {
             <div className="navbar-item has-dropdown is-hoverable navbar-start">
               <a
                 className="navbar-link">
-                Discover
+                Browse
               </a>
               <div className="navbar-dropdown">
                 <Link to="/events" className="navbar-item has-text-black">
@@ -77,7 +77,7 @@ class Navbar extends React.Component {
               {Auth.isAuthenticated() &&
                 <div className="navbar-item has-dropdown is-hoverable">
                   <a className="navbar-link">
-                   Create
+                   Organise
                   </a>
                   <div className="navbar-dropdown">
                     <Link to="/events/new" className="navbar-item">
