@@ -223,10 +223,30 @@ body{
     overflow: scroll;
     >.club-message{
       margin: 30px;
+      display: flex;
+      align-items: center;
+      &.me{
+        flex-direction: row-reverse;
+      }
       h6.conversation{
         background-color: $yellow;
+        display: inline;
         border-radius: 15px;
         padding: 5px;
+        margin: 5px;
+      }
+      h4.user{
+        border: solid 2px $yellow;
+        display: inline;
+        border-radius: 40px;
+        min-width: 40px;
+        min-height: 40px;
+        padding: 5px;
+        margin-bottom: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
       }
     }
   }

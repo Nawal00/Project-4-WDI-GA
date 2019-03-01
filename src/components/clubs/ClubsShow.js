@@ -196,7 +196,6 @@ class ClubsShow extends React.Component {
           handleMessageSubmit={this.handleMessageSubmit}
           messageContent={this.state.data.content}
           club_comments={club_comments}
-
         />
 
         {/* <div className="section">

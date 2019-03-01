@@ -1,4 +1,5 @@
 import React from 'react'
+import Auth from '../../lib/Auth'
 
 class ClubsChat extends React.Component{
   constructor(){
@@ -36,8 +37,8 @@ class ClubsChat extends React.Component{
           <div className="messages-show">
             {club_comments.map(comment => {
               return (
-                <div className="club-message" key={comment.id}>
-                  <h6 className="title is-6"> {comment.creator.username}: </h6>
+                <div className={comment.creator.id == Auth.getUserId()  ? 'club-message me': 'club-message'} key={comment.id}>
+                  <h4 className="title is-4 user"> {comment.creator.username.charAt(0).toUpperCase()} </h4>
                   <h6 className="conversation">{comment.content}</h6>
                 </div>
               )
