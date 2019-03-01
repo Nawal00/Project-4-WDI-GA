@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import Auth from '../../lib/Auth'
+import EventsEmbedded from '../common/EventsEmbedded'
 
 import { Link } from 'react-router-dom'
 
@@ -9,11 +10,14 @@ class UserShow extends React.Component {
     super()
 
     this.state = {
-      user: null
+      user: null,
+      currentEventsActive: true,
+      manageClubActive: true
     }
 
     // this.handleFollow = this.handleFollow.bind(this)
-    // this.handleFollow = this.handleFollow.bind(this)
+    this.handleToggle = this.handleToggle.bind(this)
+    this.handleManageToggle = this.handleManageToggle.bind(this)
   }
 
   // handleFollow(){
@@ -28,6 +32,26 @@ class UserShow extends React.Component {
   userRequest(){
     axios.get(`/api/users/${this.props.match.params.id}`)
       .then(res => this.setState({ user: res.data }))
+  }
+
+  handleToggle(e) {
+    if(e.currentTarget.textContent === 'Future Events' && this.state.currentEventsActive){
+      return
+    }
+    if(e.currentTarget.textContent === 'Past Events' && !this.state.currentEventsActive){
+      return
+    }
+    this.setState({currentEventsActive: !this.state.currentEventsActive})
+  }
+
+  handleManageToggle(e) {
+    if(e.currentTarget.textContent === 'Clubs' && this.state.manageClubActive){
+      return
+    }
+    if(e.currentTarget.textContent === 'Events' && !this.state.manageClubActive){
+      return
+    }
+    this.setState({manageClubActive: !this.state.manageClubActive})
   }
 
 
@@ -50,7 +74,6 @@ class UserShow extends React.Component {
         </section>
         <div className="columns is-vcentered has-background-dark">
           <div className="column is-12 is-vcentered">
-            <h2> h2 </h2>
           </div>
           <div className="column is-12">
           </div>
@@ -58,14 +81,17 @@ class UserShow extends React.Component {
 
 
 
-        <div>
-        <h3 className="title is-3 has-text-primary is-title-light">  Events </h3>
 
-        </div>
-        <section className="section">
-          <div className="container">
-            <hr/>
-            <div className="columns is-multiline">
+        <div className="container">
+          <hr/>
+          <div>
+            <EventsEmbedded
+              events={this.state.user.events_attending}
+              currentEventsActive={this.state.currentEventsActive}
+              handleToggle={this.handleToggle}
+            />
+          </div>
+            {/*}<div className="columns is-multiline">
               <div className="column is-12 ">
                 <h4 className="title is-4 has-text-primary">  Upcoming Events {(this.state.user.events_attending).length} </h4>
                 <div className="columns is-multiline">
@@ -107,73 +133,116 @@ class UserShow extends React.Component {
                 </div>
               </div>
 
-            </div>
+            </div> */}
 
-            <h3 className="title is-3 has-text-primary is-title-light">  Clubs </h3>
-            <hr/>
+          <h3 className="title is-3 has-text-primary is-title-light">  Clubs </h3>
+          <hr/>
+          <div className="columns is-multiline">
+            {this.state.user.clubs_following.map(follow =>
+              <div key={follow.id} className="column is-2">
+                <Link to={`/clubs/${follow.id}`}>
+                  <div>
+                    <h6 className="title is-6">Name: {follow.name} </h6>
+                    <h6 className="title is-6">Location: {follow.location} </h6>
+                    <h6 className="title is-6">Category: {follow.category} </h6>
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
+          <div className="section">
+            <h4 className="title is-4">Manage You Events</h4>
+            <hr />
+            <div className="tabs is-boxed">
+              <ul>
+                <li className={this.state.manageClubActive ? 'is-active': ''} onClick={this.handleManageToggle}>
+                  <a>
+                    <span className="icon is-small"><i className="fas fa-image" aria-hidden="true"></i></span>
+                    <span>Clubs</span>
+                  </a>
+                </li>
+                <li className={this.state.manageClubActive ? '' : 'is-active'}  onClick={this.handleManageToggle}>
+                  <a>
+                    <span className="icon is-small"><i className="fas fa-music" aria-hidden="true"></i></span>
+                    <span>Events</span>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
             <div className="columns is-multiline">
-              {this.state.user.clubs_following.map(follow =>
-                <div key={follow.id} className="column is-2">
-                  <Link to={`/clubs/${follow.id}`}>
-                    <div>
-                      <h6 className="title is-6">Name: {follow.name} </h6>
-                      <h6 className="title is-6">Location: {follow.location} </h6>
-                      <h6 className="title is-6">Category: {follow.category} </h6>
+              {this.state.user.events_created.map(created =>
+                <div  key={created.id} className="column is-4">
+                  <Link  to={`/events/${created.id}`}>
+                    <div className="isImage">
+                      <figure className="image is-4by3">
+                        <img src={created.image} alt={created.name}  className="gemImage"/>
+                        <div className="middle">
+                          <div className="text">{created.name}</div>
+                          <div className="text">{created.category}</div>
+                          <div className="text">{created.date}</div>
+                        </div>
+                      </figure>
                     </div>
                   </Link>
                 </div>
               )}
             </div>
 
-            <h3 className="title is-3 has-text-primary is-title-light">  Manage Your Events & Clubs </h3>
-            <hr/>
-            <div className="columns">
-              <div className="column is-6 is-multiline">
-                <h4 className="title is-4 has-text-primary">  Events </h4>
-                <div className="columns is-multiline">
-                  {this.state.user.events_created.map(created =>
-                    <div  key={created.id} className="column is-4">
-                      <Link  to={`/events/${created.id}`}>
-                        <div className="isImage">
-                          <figure className="image is-4by3">
-                            <img src={created.image} alt={created.name}  className="gemImage"/>
-                            <div className="middle">
-                              <div className="text">{created.name}</div>
-                              <div className="text">{created.category}</div>
-                              <div className="text">{created.date}</div>
-                            </div>
-                          </figure>
-                        </div>
-                      </Link>
-                    </div>
-                  )}
-                </div>
 
-              </div>
-              <div className="column is-6 is-multiline">
-                <h4 className="title is-4 has-text-primary">  Clubs </h4>
-                <div className="columns is-multiline">
-                  {this.state.user.clubs_created.map(created =>
-                    <div key={created.id} className="column is-4">
-                      <Link to={`/clubs/${created.id}`}>
-                        <div>
-                          <h6 className="title is-6">Name: {created.name} </h6>
-                          <h6 className="title is-6">Location: {created.location} </h6>
-                          <h6 className="title is-6">Category: {created.category} </h6>
 
-                        </div>
-                      </Link>
-                    </div>
-                  )}
-                </div>
-                <div className="column columns is-4">
-                </div>
-              </div>
-            </div>
+
+
 
 
           </div>
-        </section>
+          {/*<hr/>
+          <div className="columns">
+            <div className="column is-6 is-multiline">
+              <h4 className="title is-4 has-text-primary">  Events </h4>
+              <div className="columns is-multiline">
+                {this.state.user.events_created.map(created =>
+                  <div  key={created.id} className="column is-4">
+                    <Link  to={`/events/${created.id}`}>
+                      <div className="isImage">
+                        <figure className="image is-4by3">
+                          <img src={created.image} alt={created.name}  className="gemImage"/>
+                          <div className="middle">
+                            <div className="text">{created.name}</div>
+                            <div className="text">{created.category}</div>
+                            <div className="text">{created.date}</div>
+                          </div>
+                        </figure>
+                      </div>
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+            </div>
+            <div className="column is-6 is-multiline">
+              <h4 className="title is-4 has-text-primary">  Clubs </h4>
+              <div className="columns is-multiline">
+                {this.state.user.clubs_created.map(created =>
+                  <div key={created.id} className="column is-4">
+                    <Link to={`/clubs/${created.id}`}>
+                      <div>
+                        <h6 className="title is-6">Name: {created.name} </h6>
+                        <h6 className="title is-6">Location: {created.location} </h6>
+                        <h6 className="title is-6">Category: {created.category} </h6>
+
+                      </div>
+                    </Link>
+                  </div>
+                )}
+              </div>
+              <div className="column columns is-4">
+              </div>
+            </div>
+          </div>*/}
+
+
+        </div>
       </div>
     )
   }

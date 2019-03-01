@@ -24,7 +24,7 @@ const EventsEmbedded = ({ events, currentEventsActive, handleToggle }) => {
 
         </ul>
       </div>
-      <div className="columns ">
+      <div className="columns is-multiline">
         {currentEventsActive && (
           events.map(event =>
             Date.parse(event.date) >= new Date() && (
