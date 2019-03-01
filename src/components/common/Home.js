@@ -1,6 +1,6 @@
 import React from 'react'
 // import {Link} from 'react-router-dom'
-// import Carousel from './Carousel'
+import Carousels from './Carousel'
 
 const Home = () => {
 
@@ -8,10 +8,11 @@ const Home = () => {
 
     <section>
       <div className="container">
-        <div className="hero-body">
+        <div className="hero">
+          <div className="hero-body">
 
-
-
+            <Carousels />
+          </div>
         </div>
       </div>
     </section>
