@@ -304,7 +304,7 @@ with app.app_context():
         image='https://images.unsplash.com/photo-1526232636376-53d03f24f092?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80',
         owner=mark,
         max_attendees=10,
-        date='2019-02-15',
+        date='2019-03-18',
         time='14:00:00',
         duration=120,
         club=east_london_five,
