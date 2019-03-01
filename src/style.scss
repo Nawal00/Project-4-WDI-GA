@@ -1,3 +1,5 @@
+
+
 body{
   background: #FAFAFA;
 }
@@ -42,15 +44,78 @@ $tabs-link-active-color: $yellow;
   justify-content: center;
 }
 
+.column.events-img-Col{
+  padding: 0 0 0 12px;
+}
+
 .eventsBox{
   margin: 3rem 0 3rem 0;
   padding: 0;
+}
+
+.des-col {
+  padding-left: 6rem;
+}
+
+.event-top-text {
+  padding: 3rem 0 0 12px;
+  background-color: #F6F8FA;
+  margin-bottom: -12px;
+  .content{
+    padding-left: 10px;
+    span:first-child{
+      color: red;
+      font-size: 17px;
+    }
+    span.date{
+      font-size: 14px;
+    }
+  }
+  p.subtitle {
+    margin: 20px 0 10px 0;
+  }
+}
+
+p.created {
+  font-size: 14px;
+}
+
+.mid-text {
+  padding-left: 2rem;
+  background-color: #F6F8FA;
+  margin-bottom: -24px;
+  margin-top: -12px;
+}
+
+.event-hr{
+  margin:0;
+}
+
+div.sticky {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  font-size: 20px;
+  margin: 20px;
+}
+
+.events-img-Col{
+  margin-bottom: -18px;
+}
+
+.more-col-box {
+  margin: 4px;
+}
+
+.is-outlined {
+  margin-top: 12px;
 }
 
 .map {
   padding-top: 2rem;
   height: 320px;
   width: 100%;
+  margin-top: 30px;
 }
 
 .All{
@@ -82,7 +147,9 @@ $tabs-link-active-color: $yellow;
   transform: rotate(45deg);
 }
 
-
+.column.is-4{
+    width: 32.3%;
+}
 //-------Club Index page ----
 .wrapper {
     text-align: center;
@@ -154,6 +221,7 @@ $tabs-link-active-color: $yellow;
 .image-cropper {
     width: 50px;
     height: 50px;
+    margin: auto;
     position: relative;
     overflow: hidden;
     border-radius: 50%;
@@ -161,10 +229,8 @@ $tabs-link-active-color: $yellow;
     >.profile-pic {
       display: inline;
       margin: 0 auto;
-
       height: 100%;
       width: auto;
-
     }
 }
 
