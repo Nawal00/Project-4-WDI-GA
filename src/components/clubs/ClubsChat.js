@@ -37,7 +37,7 @@ class ClubsChat extends React.Component{
           <div className="messages-show">
             {club_comments.map(comment => {
               return (
-                <div className={comment.creator.id == Auth.getUserId()  ? 'club-message me': 'club-message'} key={comment.id}>
+                <div className={comment.creator.id === Auth.getUserId()  ? 'club-message me': 'club-message'} key={comment.id}>
                   <h4 className="title is-4 user"> {comment.creator.username.charAt(0).toUpperCase()} </h4>
                   <h6 className="conversation">{comment.content}</h6>
                 </div>

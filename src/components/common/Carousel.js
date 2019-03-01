@@ -1,25 +1,19 @@
-// import React from 'react'
-//
-// // import bulmaCarousel from '~bulma-carousel/dist/js/bulma-carousel.min.js'
-//
-// class Carousel extends React.Component {
-//
-//   componentDidMount() {
-//     bulmaCarousel.attach('.carousel')
-//   }
-//
-//
-//   render() {
-//     return(
-//
-//       <div className="carousel">
-//         <div className="item-1"></div>
-//         <div className="item-2"></div>
-//         <div className="item-3"></div>
-//       </div>
-//
-//     )
-//   }
-// }
-//
-// export default Carousel
+import React from 'react'
+import Carousel from 'nuka-carousel'
+
+// 1200 × 600
+class Carousels extends React.Component {
+
+  render() {
+    return (
+      <Carousel autoplay={true} wrapAround={true} width={'100%'}>
+        <img src="../../assets/images/cooking.jpg" />
+        <img src="../../assets/images/run.jpeg" />
+        <img src="../../assets/images/together.jpg" />
+      </Carousel>
+    )
+  }
+}
+
+
+export default Carousels
