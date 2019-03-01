@@ -177,7 +177,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
               {errors.location && <small>{errors.location}</small>}
             </div>
             <div>
-              <button className="button is-rounded is-medium is-fullwidth is-primary">Submit</button>
+              <button className="button is-rounded is-medium is-fullwidth is-info">Submit</button>
             </div>
           </form>
         </div>

@@ -84,5 +84,5 @@ class UserSchema(ma.ModelSchema, BaseSchema):
 
     class Meta:
         model = User
-        exclude = ('password_hash', 'created_at', 'updated_at')
+        exclude = ('password_hash', 'updated_at')
         load_only = ('password', 'password_confirmation')

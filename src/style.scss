@@ -6,6 +6,9 @@ $info: $yellow;
 $dark: $black;
 $tabs-link-active-color: $info;
 $tabs-toggle-link-active-border-color: $yellow;
+$tabs-border-bottom-color: $yellow;
+$tabs-toggle-link-border-color: $yellow;
+$tabs-boxed-link-active-border-color: $yellow;
 
 @import "~bulma/sass/utilities/_all.sass";
 @import "~bulma/sass/base/_all.sass";
@@ -243,4 +246,72 @@ body{
 
 
   }
+}
+
+
+// User page
+
+.isImageCircle {
+  text-align: center;
+  max-height: 400px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+  background: rgba(0,0,0,0.8);
+  border-radius: 10px;
+  margin: 10px;
+  transition: all .2s ease-in-out;
+
+  width: 200px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  border: $yellow solid 2px;
+  .image img{
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+
+    display: inline;
+    margin: 0 auto;
+
+    height: 100%;
+    width: auto;
+  }
+  &:hover {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.3);
+    margin: 5px;
+  }
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text {
+  color: white;
+  font-weight: 200px;
+  padding: 10% 10%;
+}
+
+.isImageCircle:hover .clubImage {
+  opacity: 0.3;
+}
+
+.isImageCircle:hover .middle {
+  opacity: 1;
+}
+.isImage:hover .clubImage {
+  opacity: 0.3;
+}
+
+.isImage:hover .middle {
+  opacity: 1;
 }

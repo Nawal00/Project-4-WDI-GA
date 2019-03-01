@@ -21,7 +21,6 @@ const EventsEmbedded = ({ events, currentEventsActive, handleToggle }) => {
               <span>Past Events</span>
             </a>
           </li>
-
         </ul>
       </div>
       <div className="columns is-multiline">
@@ -32,12 +31,9 @@ const EventsEmbedded = ({ events, currentEventsActive, handleToggle }) => {
                 <Link to={`/events/${event.id}`}>
                   <h6 className="title is-6 has-text-info">{moment(event.date, 'YYYYMMDD').fromNow()} </h6>
                   <div className="columns event-card">
-
                     <div className="column is-3 date-icon">
-
                       <h6 className="title is-6">{moment(event.date).format('MMMM')} </h6>
                       <h1 className="title is-1">{moment(event.date).format('DD')} </h1>
-
                     </div>
                     <div className="column is-9">
                       <h6 className="title is-6 has-text-dark">{event.name.toUpperCase()} - {event.time.substring(0, event.time.length - 3)} </h6>
