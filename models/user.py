@@ -79,10 +79,10 @@ class UserSchema(ma.ModelSchema, BaseSchema):
     events_attending = fields.Nested(
         'EventSchema',
         many=True,
-        only=('category', 'name', 'id', 'image', 'date', 'time', 'club')
+        only=('category', 'name', 'id', 'image', 'date', 'time', 'club', 'attendees', 'max_attendees')
     )
 
     class Meta:
         model = User
-        exclude = ('password_hash', 'created_at', 'updated_at')
+        exclude = ('password_hash', 'updated_at')
         load_only = ('password', 'password_confirmation')

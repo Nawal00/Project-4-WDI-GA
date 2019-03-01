@@ -3,6 +3,8 @@ import MapboxAutocomplete from 'react-mapbox-autocomplete'
 import ReactFilestack from 'react-filestack'
 
 const fileStack = process.env.FILESTACK_API_KEY
+const mapbox = process.env.MAP_BOX_TOKEN
+
 
 
 const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
@@ -84,7 +86,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect
             <label className="label">Location</label>
             <div className="control">
               <MapboxAutocomplete
-                publicKey= "pk.eyJ1IjoibmF3YWw5MyIsImEiOiJjanIyM2E1ZHcxMThiM3hwYzIxY2Nnb2c3In0.X6kjAz7ZDz_PCPHXaEqAxA"
+                publicKey= {mapbox}
                 inputClass="input"
                 onSuggestionSelect={suggestionSelect}
                 resetSearch={false}
@@ -95,7 +97,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect
               {errors.location && <small>{errors.location}</small>}
             </div>
             <div>
-              <button className="button is-rounded is-medium is-fullwidth is-primary">Submit</button>
+              <button className="button is-rounded is-medium is-fullwidth is-info">Submit</button>
             </div>
           </form>
         </div>

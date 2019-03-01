@@ -141,8 +141,8 @@ with app.app_context():
         location='Teddington',
         lat=51.376163,
         lng=-0.098234,
-        description='Computers games club for those in and around Croydon',
-        category='Computer Games'
+        description='Lovely walks around the surrey countryside',
+        category='Sport'
     )
     surrey_walkers.save()
 

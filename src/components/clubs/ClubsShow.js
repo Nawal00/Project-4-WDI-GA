@@ -3,6 +3,8 @@ import axios from 'axios'
 import moment from 'moment'
 
 import Auth from '../../lib/Auth'
+import ClubsChat from './ClubsChat'
+import EventsEmbedded from '../common/EventsEmbedded'
 // import Comments from '../common/Comments'
 
 import {Link} from 'react-router-dom'
@@ -22,11 +24,11 @@ class ClubsShow extends React.Component {
     this.handleFolllow = this.handleFolllow.bind(this)
     this.handleMessageSubmit = this.handleMessageSubmit.bind(this)
     this.handleMessageChange = this.handleMessageChange.bind(this)
-    this.scrollToBottom = this.scrollToBottom.bind(this)
+    // this.scrollToBottom = this.scrollToBottom.bind(this)
 
   }
 
-  messagesEnd = React.createRef()
+  // messagesEnd = React.createRef()
 
   componentDidMount() {
     // this.scrollToBottom()
@@ -34,9 +36,9 @@ class ClubsShow extends React.Component {
       .then(res => this.setState({ club: res.data }))
   }
 
-  scrollToBottom() {
-    this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' })
-  }
+  // scrollToBottom() {
+  //   this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' })
+  // }
 
   handleToggle(e) {
     if(e.currentTarget.textContent === 'Future Events' && this.state.currentEventsActive){
@@ -78,43 +80,48 @@ class ClubsShow extends React.Component {
 
   render(){
     if(!this.state.club) return null
-    const { id, name, image, category, description, user, location, events, followed_by, club_comments} = this.state.club
+    const { name, image, category, description, user, location, events, followed_by, club_comments} = this.state.club
     return (
-      <section className="section">
-        <div className="container">
-          <h1 className="title is-1 is-title-light"> {name} </h1>
-          <hr />
-          <div className="columns is-variable is-5">
-            <div className="column">
-              <figure className="image is-4by2">
-                <img src={image} alt={name} />
-              </figure>
+      <div className="container">
+        <div className="section box clubBox">
 
-            </div>
-            <div className="column">
-              <div className="content">
-                <h4 className="title is-4">Category: {category}</h4>
-                <h4 className="title is-4">Description</h4>
-                <p> {description}</p>
-                <h4 className="title is-4">Members ({followed_by.length})</h4>
-                <div className="members-area">
-                  {followed_by.map((follower) => {
-                    return <Link to={`/users/${follower.id}`}key={follower.id}>
-                      <div className="image-cropper">
-                        <img src="../../assets/images/BeeLogo.png" alt="avatar" className="profile-pic"/>
-                      </div>
-                    </Link>
-                  })}
-                </div>
-                <hr/>
+          <div className="wrapper">
+            <div className="hero clubHero is-medium is-bold parent">
+              <div className="hero-body child" style={{ backgroundImage: `url(${image})`}}>
+                <h1 className="title has-text-white">{name}</h1>
+                <button className="button is-info" onClick={this.handleFolllow}> Follow  </button>
+
+                <p className="subtitle has-text-white is-6">in {location}</p>
               </div>
-              <button className="button is-warning" onClick={this.handleFolllow}> Follow  </button>
+            </div>
+          </div>
+          <div className="columns">
+            <div className="column is-4">
+              <h6 className="title is-6">Category: {category}</h6>
+              <h6 className="title is-6">Description</h6>
+            </div>
+            <div className="column is-4">
+              <h6 className="title is-6">About the Club</h6>
+              <p> {description}</p>
+            </div>
+
+            <div className="column is-4">
+              <h6 className="title is-6">Members ({followed_by.length})</h6>
+              <div className="members-area">
+                {followed_by.map((follower) => {
+                  return <Link to={`/users/${follower.id}`}key={follower.id}>
+                    <div className="image-cropper">
+                      <img src="../../assets/images/BeeLogo.png" alt="avatar" className="profile-pic"/>
+                    </div>
+                  </Link>
+                })}
+              </div>
             </div>
           </div>
 
         </div>
 
-        <div className="container">
+        {/*<div className="section">
           <h4 className="title is-4">Events</h4>
           <hr />
           <div className="tabs is-boxed">
@@ -134,13 +141,13 @@ class ClubsShow extends React.Component {
 
             </ul>
           </div>
-          <div className="columns">
+          <div className="columns ">
             {this.state.currentEventsActive && (
               events.map(event =>
                 Date.parse(event.date) >= new Date() && (
                   <div key={event.id} className="column is-6 ">
                     <Link to={`/events/${event.id}`}>
-                      <h6 className="title is-6">{moment(event.date, 'YYYYMMDD').fromNow()} </h6>
+                      <h6 className="title is-6 has-text-info">{moment(event.date, 'YYYYMMDD').fromNow()} </h6>
                       <div className="columns event-card">
 
                         <div className="column is-3 date-icon">
@@ -166,12 +173,9 @@ class ClubsShow extends React.Component {
                 Date.parse(event.date) <= new Date() && (
                   <div key={event.id} className="column is-4">
                     <Link to={`/events/${event.id}`}>
-
                       <div className="column is-12 date-icon">
-
                         <h6 className="title is-6">{event.name} </h6>
                         <h4 className="title is-4">{moment(event.date).format('MMMM Do YYYY')} </h4>
-
                       </div>
                     </Link>
                   </div>
@@ -179,9 +183,24 @@ class ClubsShow extends React.Component {
               )
             )}
           </div>
+        </div>
+        */}
+
+        <EventsEmbedded
+          events={events}
+          currentEventsActive={this.state.currentEventsActive}
+          handleToggle={this.handleToggle}
+        />
+        <ClubsChat
+          handleMessageChange={this.handleMessageChange}
+          handleMessageSubmit={this.handleMessageSubmit}
+          messageContent={this.state.data.content}
+          club_comments={club_comments}
+        />
+
+        {/* <div className="section">
           <h4 className="title is-4">Chat</h4>
           <hr />
-          
           <div className="message-area">
             <div className="messages-show">
               {club_comments.map(comment => {
@@ -198,21 +217,20 @@ class ClubsShow extends React.Component {
             <div className="messages-input">
               <form>
                 <input
-                  placeholder="Add your comments!"
+                  placeholder="Message..."
                   maxLength="250"
                   onChange={this.handleMessageChange}
                   value={this.state.data.content}
                 >
                 </input>
-                <button className="button is-dark is-small is-rounded" onClick={this.handleMessageSubmit}> Add Commment </button>
+                <button className="button is-dark is-small is-rounded" onClick={this.handleMessageSubmit}> Send </button>
               </form>
             </div>
-
           </div>
-
-
         </div>
-      </section>
+        */}
+
+      </div>
     )
   }
 }
