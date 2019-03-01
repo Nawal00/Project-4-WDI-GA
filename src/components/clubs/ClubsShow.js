@@ -20,12 +20,22 @@ class ClubsShow extends React.Component {
     }
     this.handleToggle = this.handleToggle.bind(this)
     this.handleFolllow = this.handleFolllow.bind(this)
+    this.handleMessageSubmit = this.handleMessageSubmit.bind(this)
+    this.handleMessageChange = this.handleMessageChange.bind(this)
+    this.scrollToBottom = this.scrollToBottom.bind(this)
 
   }
 
+  messagesEnd = React.createRef()
+
   componentDidMount() {
+    // this.scrollToBottom()
     axios.get(`/api/clubs/${this.props.match.params.id}`)
       .then(res => this.setState({ club: res.data }))
+  }
+
+  scrollToBottom() {
+    this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' })
   }
 
   handleToggle(e) {
@@ -36,6 +46,26 @@ class ClubsShow extends React.Component {
       return
     }
     this.setState({currentEventsActive: !this.state.currentEventsActive})
+  }
+
+  handleMessageChange(e) {
+    const data = {...this.state.data, content: e.target.value }
+    const error = null
+    this.setState({ data, error })
+  }
+
+  handleMessageSubmit(e){
+    e.preventDefault()
+    axios
+      .post(`/api/clubs/${this.state.club.id}/comment`,
+        this.state.data,
+        {headers: { Authorization: `Bearer ${Auth.getToken()}`}
+        })
+      .then((res) => {
+        this.setState({...this.state, club: res.data, data: {content: ''} })
+      })
+      .then(() => this.props.history.push(`/clubs/${this.state.club.id}`))
+      .catch(() => this.setState({ errors: 'An error occured' }))
   }
 
   handleFolllow(e){
@@ -151,6 +181,7 @@ class ClubsShow extends React.Component {
           </div>
           <h4 className="title is-4">Chat</h4>
           <hr />
+          
           <div className="message-area">
             <div className="messages-show">
               {club_comments.map(comment => {
@@ -162,22 +193,24 @@ class ClubsShow extends React.Component {
                 )
               }
               )}
-
+              <div ref={this.messagesEnd} />
             </div>
             <div className="messages-input">
               <form>
                 <input
                   placeholder="Add your comments!"
                   maxLength="250"
+                  onChange={this.handleMessageChange}
+                  value={this.state.data.content}
                 >
                 </input>
-                <button className="button is-dark is-small is-rounded"> Add Commment </button>
+                <button className="button is-dark is-small is-rounded" onClick={this.handleMessageSubmit}> Add Commment </button>
               </form>
             </div>
 
-
-
           </div>
+
+
         </div>
       </section>
     )

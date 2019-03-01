@@ -94,4 +94,4 @@ def club_comment(club_id):
 
     comments = ClubComment.query.filter_by(club_id=club_id).all()
 
-    return club_comments_schema.jsonify(comments)
+    return club_schema.jsonify(club)
