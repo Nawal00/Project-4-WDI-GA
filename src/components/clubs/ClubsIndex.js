@@ -44,10 +44,11 @@ class ClubsIndex extends React.Component {
         </section>
       )
     }
+    console.log(this.state.clubs)
     return (
 
       <section className="section">
-      
+
 
         <div className="container">
           <section className="section">

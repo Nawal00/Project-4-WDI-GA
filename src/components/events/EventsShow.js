@@ -46,10 +46,10 @@ class EventsShow extends React.Component {
   render(){
     if(!this.state.event) return null
     console.log(this.state)
-    const { id, name, owner, date, image, duration, description, lat, lng, time, attendees, max_attendees } = this.state.event
+    const { id, name, owner, date, image, duration, description, lat, lng, time, attendees, max_attendees, club } = this.state.event
     return (
       <div className="container">
-        <div className="box">
+        <div className="box eventsBox">
 
           <div className="columns is-variable is-8">
             <div className="column">
@@ -69,8 +69,9 @@ class EventsShow extends React.Component {
           </div>
           <hr/>
 
-          <button className="button is-info" onClick={this.handleAttendee}> Attend  </button>
-
+          <div className="has-text-right">
+            <button className="button is-info" onClick={this.handleAttendee}> Attend  </button>
+          </div>
 
           <hr/>
           <div className="columns is-variable is-8">
@@ -92,17 +93,31 @@ class EventsShow extends React.Component {
             </div>
           </div>
 
-          <div>
-            <Map
-              lat={lat}
-              lng={lng}
-              userLocation={this.state.userLocation}
-              events={[this.state.event]}
-              type= "event"
-            />
+          <hr />
+
+          <div className="columns is-centered">
+            <div className="column is-half has-text-centered">
+              <div className="is-flex image-cropper is-horizontal-center">
+                <figure className="image profile-pic">
+                  <img className="eventClubImg" src={club.image} alt={club.name} />
+                </figure>
+              </div>
+              <h4> {club.name} </h4>
+              <p> Organiser of {name} </p>
+              <p> {club.description} </p>
+            </div>
           </div>
 
+          <Map
+            lat={lat}
+            lng={lng}
+            userLocation={this.state.userLocation}
+            events={[this.state.event]}
+            type= "event"
+          />
         </div>
+
+
       </div>
     )
   }

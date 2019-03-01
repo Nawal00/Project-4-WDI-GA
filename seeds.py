@@ -83,7 +83,7 @@ with app.app_context():
 
     badminton_north_london = Club(
         name='North London Badminton Club',
-        image='badminton.png',
+        image='https://tinyurl.com/y2zjeusz',
         owner=nawal,
         followed_by=[ed, nawal],
         location='Finsbury Park',
@@ -95,7 +95,7 @@ with app.app_context():
     badminton_north_london.save()
 
     chess_club_islington = Club(
-        name='Badminton Club',
+        name='Tennis Club',
         image='https://tinyurl.com/yx8o8rff',
         owner=ed,
         followed_by=[ed, nawal],
@@ -109,7 +109,7 @@ with app.app_context():
 
     south_londoner_gamer = Club(
         name='South London Gamers',
-        image='gaming.png',
+        image='https://tinyurl.com/y3gc763z',
         owner=ed,
         followed_by=[ed, nawal],
         location='Croydon',
@@ -122,7 +122,7 @@ with app.app_context():
 
     london_photography = Club(
         name='London Photography Group',
-        image='photography.png',
+        image='https://tinyurl.com/j2lwsjz',
         owner=ed,
         followed_by=[ed, wendy, mark],
         location='London',
@@ -135,7 +135,7 @@ with app.app_context():
 
     surrey_walkers = Club(
         name='Surrey Walkers',
-        image='walking.png',
+        image='https://tinyurl.com/yxehbrk8',
         owner=ed,
         followed_by=[ed, nawal, jody, dwight],
         location='Teddington',
@@ -148,7 +148,7 @@ with app.app_context():
 
     east_london_five = Club(
         name='East London Five-a-Side',
-        image='football.png',
+        image='https://tinyurl.com/y5s8wns5',
         owner=ed,
         followed_by=[ed, mark, jody],
         location='Shoreditch',
@@ -161,7 +161,7 @@ with app.app_context():
 
     football = Club(
         name='Football Club',
-        image='https://tinyurl.com/y3cv5536',
+        image='https://tinyurl.com/yxq3hdqc',
         owner=nawal,
         followed_by=[ed, nawal],
         location='London',

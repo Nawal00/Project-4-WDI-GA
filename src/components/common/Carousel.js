@@ -1,6 +1,6 @@
 // import React from 'react'
 //
-// import bulmaCarousel from 'bulma-extensions/bulma-carousel/dist/js/bulma-carousel'
+// // import bulmaCarousel from '~bulma-carousel/dist/js/bulma-carousel.min.js'
 //
 // class Carousel extends React.Component {
 //
@@ -12,13 +12,12 @@
 //   render() {
 //     return(
 //
-//       <div className="photoCarousel" ref={carouselDiv => this.carouselDiv = carouselDiv}>
-//         <div className="carousel">
-//           <div className="item-1"></div>
-//           <div className="item-2"></div>
-//           <div className="item-3"></div>
-//         </div>
+//       <div className="carousel">
+//         <div className="item-1"></div>
+//         <div className="item-2"></div>
+//         <div className="item-3"></div>
 //       </div>
+//
 //     )
 //   }
 // }

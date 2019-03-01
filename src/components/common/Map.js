@@ -61,7 +61,7 @@ class Map extends React.Component {
         this.popup = new mapboxgl.Popup({offset: 20})
           .setHTML(
             `
-              <div class="event-image image is-96x96">
+              <div class="event-image image is-128x128">
               <img src="${image}" alt="${name}" />
               </div>
               <h4>${name}</h4>
