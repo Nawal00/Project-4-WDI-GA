@@ -1,19 +1,27 @@
-// @charset "utf-8";
-// // Import Bulma core
-// @import 'bulma.sass';
-// // Import component
-// @import "bulmaCarousel.sass";
-
-body{
-  background: #FAFAFA;
-}
+@charset "utf-8";
 
 $yellow: hsl(49, 100%, 47%);
 $black: #3E332E;
 $info: $yellow;
 $dark: $black;
-$tabs-link-active-color: $yellow;
+$tabs-link-active-color: $info;
+$tabs-toggle-link-active-border-color: $yellow;
 
+@import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/base/_all.sass";
+@import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/elements/container.sass";
+@import "~bulma/sass/elements/form.sass";
+@import "~bulma/sass/elements/title.sass";
+@import "~bulma/sass/components/navbar.sass";
+@import "~bulma/sass/components/tabs.sass";
+@import "~bulma/sass/components/card.sass";
+@import "~bulma/sass/grid/_all.sass";
+@import "~bulma/sass/layout/section.sass";
+
+body{
+  background: #FAFAFA;
+}
 
 .clubHero{
   margin: 10px 0 10px 0;
@@ -148,6 +156,10 @@ $tabs-link-active-color: $yellow;
 
     }
   }
+}
+
+.clubBox{
+  margin-top: 30px;
 }
 
 .column{

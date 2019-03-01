@@ -55,9 +55,15 @@ class UserShow extends React.Component {
           <div className="column is-12">
           </div>
         </div>
+
+
+
+        <div>
+        <h3 className="title is-3 has-text-primary is-title-light">  Events </h3>
+
+        </div>
         <section className="section">
           <div className="container">
-            <h3 className="title is-3 has-text-primary is-title-light">  Events </h3>
             <hr/>
             <div className="columns is-multiline">
               <div className="column is-12 ">
