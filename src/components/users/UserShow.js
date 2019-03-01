@@ -87,23 +87,25 @@ class UserShow extends React.Component {
           </div>
         </div>
         <div className="section">
-          <h4 className="title is-4 has-text-dark">Clubs</h4>
-          <hr/>
-          <div className="columns is-multiline">
-            {this.state.user.clubs_following.map(follow =>
-              <div key={follow.id} className="column is-2">
-                <Link to={`/clubs/${follow.id}`}>
-                  <div className="isImageCircle">
-                    <figure className="image is-4by3">
-                      <img src={follow.image} alt={follow.name}  className="clubImage"/>
-                      <div className="middle">
-                        <div className="text">{follow.name}</div>
-                      </div>
-                    </figure>
-                  </div>
-                </Link>
-              </div>
-            )}
+          <div className="section">
+            <h4 className="title is-4 has-text-dark">Clubs</h4>
+            <hr/>
+            <div className="columns is-multiline">
+              {this.state.user.clubs_following.map(follow =>
+                <div key={follow.id} className="column is-2">
+                  <Link to={`/clubs/${follow.id}`}>
+                    <div className="isImageCircle">
+                      <figure className="image is-4by3">
+                        <img src={follow.image} alt={follow.name}  className="clubImage"/>
+                        <div className="middle">
+                          <div className="text">{follow.name}</div>
+                        </div>
+                      </figure>
+                    </div>
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
         <div className="section">
@@ -163,7 +165,7 @@ class UserShow extends React.Component {
                         </figure>
                       </div>
                     </Link>
-                    </div>
+                  </div>
                 )}
               </div>
             )}

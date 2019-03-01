@@ -6,6 +6,7 @@ class ClubsChat extends React.Component{
 
     this.state = {
     }
+    this.scrollToBottom = this.scrollToBottom.bind(this)
 
   }
 
@@ -15,12 +16,12 @@ class ClubsChat extends React.Component{
     this.scrollToBottom()
 
   }
-
   componentDidUpdate() {
     this.scrollToBottom()
+
   }
 
-  scrollToBottom = () => {
+  scrollToBottom() {
     this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' })
   }
 
