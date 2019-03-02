@@ -58,41 +58,44 @@ class UserShow extends React.Component {
 
   render(){
     if(!this.state.user) return null
+    console.log(this.state.user)
     return (
+
       <div>
+
         <section className="section has-background-dark user-header">
-          <div className="container columns">
-            <div className="column is-4">
-            </div>
-            <div className="column is-4">
-              <h3 className="title is-3 has-text-info"> {this.state.user.username} </h3>
-              <h4 className="title is-4 has-text-info">Member since: {moment(this.state.user.created_at).format('YYYY')} </h4>
-            </div>
-            <div className="column is-4">
+          <div className="container">
+            <div className="columns is-variable is-8">
+              <div className="column is-2">
+                <figure className="image">
+                  <img className="image-cropper" src={this.state.user.image} alt={this.state.user.username} />
+                </figure>
+              </div>
+              <div className="column is-4">
+                <h3 className="title is-3 has-text-info"> {this.state.user.username} </h3>
+                <h6 className="title is-6 has-text-info">Member since: {moment(this.state.user.created_at).format('YYYY')} </h6>
+              </div>
+              <div className="column is-4">
+              </div>
             </div>
           </div>
         </section>
 
-
-
-
-
-        <div className="section">
-          <div>
-            <EventsEmbedded
-              events={this.state.user.events_attending}
-              currentEventsActive={this.state.currentEventsActive}
-              handleToggle={this.handleToggle}
-            />
-          </div>
+        <div>
+          <EventsEmbedded
+            events={this.state.user.events_attending}
+            currentEventsActive={this.state.currentEventsActive}
+            handleToggle={this.handleToggle}
+          />
         </div>
-        <div className="section">
-          <div className="section">
+
+        <section className="section">
+          <div className="container">
             <h4 className="title is-4 has-text-dark">Clubs</h4>
             <hr/>
-            <div className="columns is-multiline">
+            <div className="columns is-variable is-8">
               {this.state.user.clubs_following.map(follow =>
-                <div key={follow.id} className="column is-2">
+                <div key={follow.id} className="column event-show-col is-2">
                   <Link to={`/clubs/${follow.id}`}>
                     <div className="isImageCircle">
                       <figure className="image is-4by3">
@@ -107,9 +110,10 @@ class UserShow extends React.Component {
               )}
             </div>
           </div>
-        </div>
-        <div className="section">
-          <div className="section">
+        </section>
+
+        <section className="section">
+          <div className="container">
             <h4 className="title is-4">Manage Your Events</h4>
             <hr />
             <div className="tabs is-boxed">
@@ -134,9 +138,9 @@ class UserShow extends React.Component {
                 {this.state.user.events_created.map(created =>
                   <div  key={created.id} className="column is-3">
                     <Link  to={`/events/${created.id}`}>
-                      <div className="isImage">
+                      <div className="user-club-img">
                         <figure className="image is-4by3">
-                          <img src={created.image} alt={created.name}  className="gemImage"/>
+                          <img src={created.image} alt={created.name}/>
                           <div className="middle">
                             <div className="text">{created.name}</div>
                             <div className="text">{created.category}</div>
@@ -154,9 +158,9 @@ class UserShow extends React.Component {
                 {this.state.user.clubs_created.map(created =>
                   <div key={created.id} className="column is-3">
                     <Link  to={`/events/${created.id}`}>
-                      <div className="isImage">
+                      <div className="isImage user-club-img">
                         <figure className="image is-4by3">
-                          <img src={created.image} alt={created.name}  className="gemImage"/>
+                          <img src={created.image} alt={created.name}/>
                           <div className="middle">
                             <div className="text">{created.name}</div>
                             <div className="text">{created.category}</div>
@@ -170,14 +174,7 @@ class UserShow extends React.Component {
               </div>
             )}
 
-
-
-
-
-
-
-          </div>
-          {/*<hr/>
+            {/*<hr/>
           <div className="columns">
             <div className="column is-6 is-multiline">
               <h4 className="title is-4 has-text-primary">  Events </h4>
@@ -223,7 +220,8 @@ class UserShow extends React.Component {
           </div>*/}
 
 
-        </div>
+          </div>
+        </section>
       </div>
     )
   }

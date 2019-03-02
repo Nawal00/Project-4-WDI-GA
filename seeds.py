@@ -48,7 +48,7 @@ with app.app_context():
     nawal, errors = user_schema.load({
         'username': 'nawal',
         'email':'nawal@gmail.com',
-        'image': 'nawal.png',
+        'image': 'https://tinyurl.com/y3n62bu6',
         'password':'password',
         'password_confirmation':'password'
     })
