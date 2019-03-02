@@ -89,7 +89,12 @@ class ClubsShow extends React.Component {
             <div className="hero clubHero is-medium is-bold parent">
               <div className="hero-body child" style={{ backgroundImage: `url(${image})`}}>
                 <h1 className="title has-text-white">{name}</h1>
-                <button className="button is-info" onClick={this.handleFolllow}> Follow  </button>
+                {Auth.isAuthenticated() && !Auth.doesFollow(followed_by) &&(
+                  <button className="button is-info" onClick={this.handleFolllow}> Follow  </button>
+                )}
+                {Auth.isAuthenticated() && Auth.doesFollow(followed_by) &&(
+                  <button className="button is-info"  > Following  </button>
+                )}
 
                 <p className="subtitle has-text-white is-6">in {location}</p>
               </div>
@@ -191,12 +196,15 @@ class ClubsShow extends React.Component {
           currentEventsActive={this.state.currentEventsActive}
           handleToggle={this.handleToggle}
         />
-        <ClubsChat
-          handleMessageChange={this.handleMessageChange}
-          handleMessageSubmit={this.handleMessageSubmit}
-          messageContent={this.state.data.content}
-          club_comments={club_comments}
-        />
+        {Auth.isAuthenticated() && Auth.doesFollow(followed_by) && (
+          <ClubsChat
+            handleMessageChange={this.handleMessageChange}
+            handleMessageSubmit={this.handleMessageSubmit}
+            messageContent={this.state.data.content}
+            club_comments={club_comments}
+          />
+        )}
+
 
         {/* <div className="section">
           <h4 className="title is-4">Chat</h4>
