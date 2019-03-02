@@ -117,13 +117,13 @@ class UserShow extends React.Component {
                 <li className={this.state.manageClubActive ? 'is-active': ''} onClick={this.handleManageToggle}>
                   <a>
                     <span className="icon is-small"><i className="fas fa-image" aria-hidden="true"></i></span>
-                    <span>Clubs</span>
+                    <span>Events</span>
                   </a>
                 </li>
                 <li className={this.state.manageClubActive ? '' : 'is-active'}  onClick={this.handleManageToggle}>
                   <a>
                     <span className="icon is-small"><i className="fas fa-music" aria-hidden="true"></i></span>
-                    <span>Events</span>
+                    <span>Clubs</span>
                   </a>
                 </li>
 

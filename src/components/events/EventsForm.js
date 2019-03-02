@@ -1,7 +1,7 @@
 import React from 'react'
 import MapboxAutocomplete from 'react-mapbox-autocomplete'
 import ReactFilestack from 'react-filestack'
-// import RegMap from '../common/RegMap'
+import Auth from '../../lib/Auth'
 
 const fileStack = process.env.FILESTACK_API_KEY
 const mapboxAutoComplete = process.env.MAP_BOX_TOKEN
@@ -151,10 +151,9 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                     defaultValue="Please Choose..."
                     onChange={handleClubChange}
                     value={data.club_id.name}
-
                   >
                     <option disabled>Please Choose...</option>
-                    {clubs.map((club, i) =>
+                    {clubs.filter(club => club.owner === Auth.getUserId()).map((club, i) =>
                       <option key={i} value={`${club.value},${club.label}`} > {club.label} </option>
                     )}
                     <option value="" > Search All </option>
