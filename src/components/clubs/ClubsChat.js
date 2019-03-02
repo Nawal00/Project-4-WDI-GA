@@ -29,8 +29,6 @@ class ClubsChat extends React.Component{
 
   render(){
     const {club_comments, handleMessageChange, messageContent, handleMessageSubmit} = this.props
-
-    console.log(Auth.getUserId())
     return (
       <div className="section">
         <h4 className="title is-4">Chat</h4>
@@ -41,7 +39,7 @@ class ClubsChat extends React.Component{
               return (
                 <div className={comment.creator.id === Auth.getUserId()  ? 'club-message me': 'club-message'} key={comment.id}>
                   <h4 className="title is-4 user"> {comment.creator.username.charAt(0).toUpperCase()} </h4>
-                  <h6 className="conversation">{comment.content}{comment.creator.id} </h6>
+                  <h6 className="conversation">{comment.content} </h6>
                 </div>
               )
             }
@@ -55,6 +53,7 @@ class ClubsChat extends React.Component{
                 maxLength="250"
                 onChange={handleMessageChange}
                 value={messageContent}
+                className="message-input"
               >
               </input>
               <button className="button is-dark is-small is-rounded" onClick={handleMessageSubmit}> Send </button>

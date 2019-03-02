@@ -36,6 +36,12 @@ class Auth {
     return payload.sub === id
   }
 
+  static doesFollow(followed_by) {
+    const currentUser = this.getUserId()
+    followed_by = followed_by.map(follow => follow.id)
+    return followed_by.includes(currentUser)
+  }
+
   static getUserId() {
     const payload = this.getPayload()
     return payload.sub

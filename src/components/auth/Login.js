@@ -71,7 +71,7 @@ class Login extends React.Component {
                     />
                   </div>
                 </div>
-                <button className="button is-rounded is-medium is-fullwidth is-primary">Login</button>
+                <button className="button is-rounded is-medium is-fullwidth is-info">Login</button>
               </form>
             </div>
             <p className="has-text-grey">
