@@ -46,10 +46,10 @@ class UserShow extends React.Component {
   }
 
   handleManageToggle(e) {
-    if(e.currentTarget.textContent === 'Clubs' && this.state.manageClubActive){
+    if(e.currentTarget.textContent === 'Events' && this.state.manageClubActive){
       return
     }
-    if(e.currentTarget.textContent === 'Events' && !this.state.manageClubActive){
+    if(e.currentTarget.textContent === 'Clubs' && !this.state.manageClubActive){
       return
     }
     this.setState({manageClubActive: !this.state.manageClubActive})
@@ -121,13 +121,13 @@ class UserShow extends React.Component {
                 <li className={this.state.manageClubActive ? 'is-active': ''} onClick={this.handleManageToggle}>
                   <a>
                     <span className="icon is-small"><i className="fas fa-image" aria-hidden="true"></i></span>
-                    <span>Clubs</span>
+                    <span>Events</span>
                   </a>
                 </li>
                 <li className={this.state.manageClubActive ? '' : 'is-active'}  onClick={this.handleManageToggle}>
                   <a>
                     <span className="icon is-small"><i className="fas fa-music" aria-hidden="true"></i></span>
-                    <span>Events</span>
+                    <span>Clubs</span>
                   </a>
                 </li>
 

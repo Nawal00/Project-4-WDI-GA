@@ -42,8 +42,20 @@ class Auth {
     return followed_by.includes(currentUser)
   }
 
+  static isAttending(attendees) {
+    const currentUser = this.getUserId()
+    attendees = attendees.map(attendee => attendee.id)
+    return attendees.includes(currentUser)
+  }
+
+  static isOwner(eventOwner) {
+    const currentUser = this.getUserId()
+    return currentUser === eventOwner
+  }
+
   static getUserId() {
     const payload = this.getPayload()
+    console.log(payload.sub)
     return payload.sub
   }
 

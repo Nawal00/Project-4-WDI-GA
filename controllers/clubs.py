@@ -4,7 +4,7 @@ from lib.secure_route import secure_route
 
 api = Blueprint('clubs', __name__)
 
-clubs_schema = ClubSchema(many=True, exclude=('events', 'followed_by', 'owner', 'description', 'club_comments'))
+clubs_schema = ClubSchema(many=True, exclude=('events', 'followed_by', 'description', 'club_comments'))
 club_comment_schema = ClubCommentSchema(exclude=('club',))
 club_comments_schema = ClubCommentSchema(exclude=('club',), many=True)
 club_schema = ClubSchema()

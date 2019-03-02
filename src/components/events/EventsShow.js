@@ -79,6 +79,9 @@ class EventsShow extends React.Component {
                 <span className="subtitle date">{moment(date).format('DD')} </span>
                 <p className="subtitle is-6"><strong> {name} </strong></p>
                 <p className="subtitle created has-text-grey"> Created by: {owner.username}</p>
+                {Auth.isAuthenticated() && Auth.isOwner(owner.id) && (
+                  <Link to={`/events/${id}/edit`} className="button is-info"> Edit </Link>
+                )}
               </div>
             </div>
           </div>
@@ -86,7 +89,12 @@ class EventsShow extends React.Component {
 
           <div className="columns sticky is-centered">
             <div className="column is-4 has-text-centered">
-              <button className="button is-fullwidth is-info" onClick={this.handleAttendee}> Attend  </button>
+              {Auth.isAuthenticated() && !Auth.isAttending(attendees) && (
+                <button className="button is-fullwidth is-info" onClick={this.handleAttendee}> Attend  </button>
+              )}
+              {Auth.isAuthenticated() && Auth.isAttending(attendees) && (
+                <button className="button is-fullwidth is-info"> Attending  </button>
+              )}
             </div>
           </div>
 

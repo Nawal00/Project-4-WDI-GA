@@ -90,12 +90,12 @@ with app.app_context():
         lat=51.534969,
         lng=-0.103750,
         description='Friendly club to play weekly badminton on a Wednesday',
-        category='Sports'
+        category='Sport'
     )
     badminton_north_london.save()
 
     chess_club_islington = Club(
-        name='Tennis Club',
+        name='Chess Club Islington',
         image='https://tinyurl.com/yx8o8rff',
         owner=ed,
         followed_by=[ed, nawal],
@@ -103,7 +103,7 @@ with app.app_context():
         lat=51.534969,
         lng=-0.103750,
         description='Begineers chess club in Islington North London',
-        category='Sports'
+        category='Sport'
     )
     chess_club_islington.save()
 
@@ -168,7 +168,7 @@ with app.app_context():
         lat=51.515617,
         lng=-0.070839,
         description='Footy club',
-        category='Sports'
+        category='Sport'
     )
     football.save()
 
@@ -227,7 +227,7 @@ with app.app_context():
         lat=51.5564869,
         lng=-0.1172063,
         description='Team tournement followed by a BBQ and party',
-        category='Sports'
+        category='Sport'
     )
     badminton_day.save()
 
@@ -244,7 +244,7 @@ with app.app_context():
         lat=51.5564869,
         lng=-0.1172063,
         description='Friendly game of doubles for anyone who fancies it',
-        category='Sports'
+        category='Sport'
     )
     badminton_doubles.save()
 
@@ -295,7 +295,7 @@ with app.app_context():
         lat=51.4963099,
         lng=-0.1203346,
         description='The February issue of our monthly five-a-side',
-        category='Sports'
+        category='Sport'
     )
     feb_five_a_side.save()
 
@@ -312,7 +312,7 @@ with app.app_context():
         lat=51.4963099,
         lng=-0.1203346,
         description='The January issue of our monthly five-a-side',
-        category='Sports'
+        category='Sport'
     )
     jan_five_a_side.save()
 
@@ -329,7 +329,7 @@ with app.app_context():
         lat=51.5343973,
         lng=-0.1054455,
         description='It is that time of the year again!',
-        category='Sports'
+        category='Sport'
     )
     champions_chess.save()
 
@@ -346,6 +346,6 @@ with app.app_context():
         lat=51.4463869,
         lng=-0.2779614,
         description='Great walk around Richmond Park',
-        category='Sports'
+        category='Sport'
     )
     richmond_park.save()

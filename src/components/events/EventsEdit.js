@@ -5,7 +5,7 @@ import moment from 'moment'
 import Auth from '../../lib/Auth'
 import EventsForm from './EventsForm'
 
-class EventsNew extends React.Component {
+class EventsEdit extends React.Component {
   constructor() {
     super()
 
@@ -74,7 +74,23 @@ class EventsNew extends React.Component {
       })
   }
 
+  // componentDidMount() {
+  //   axios.get('/api/clubs')
+  //     .then(res => {
+  //       console.log(res)
+  //       const clubs = res.data.map(club => {
+  //         return {'value': club.id, 'label': club.name, 'owner': club.owner.id}
+  //       })
+  //       this.setState({ clubs })
+  //     })
+  // }
+
   componentDidMount() {
+    axios
+      .get(`/api/events/${this.props.match.params.id}`)
+      .then(res => this.setState({ data: res.data }))
+
+
     axios.get('/api/clubs')
       .then(res => {
         console.log(res)
@@ -102,4 +118,4 @@ class EventsNew extends React.Component {
   }
 }
 
-export default EventsNew
+export default EventsEdit

@@ -80,7 +80,7 @@ class ClubsShow extends React.Component {
 
   render(){
     if(!this.state.club) return null
-    const { name, image, category, description, user, location, events, followed_by, club_comments} = this.state.club
+    const { id, name, image, category, description, user, location, events, followed_by, club_comments} = this.state.club
     return (
       <div className="container">
         <div className="section box clubBox">
@@ -103,6 +103,8 @@ class ClubsShow extends React.Component {
           <div className="columns">
             <div className="column is-4">
               <h6 className="title is-6">Category: {category}</h6>
+              <Link to={`/clubs/${id}/edit`} className="button is-dark is-rounded"> Edit </Link>
+
               <h6 className="title is-6">Description</h6>
             </div>
             <div className="column is-4">
