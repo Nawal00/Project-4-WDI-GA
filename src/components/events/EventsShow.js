@@ -79,7 +79,9 @@ class EventsShow extends React.Component {
                 <span className="subtitle date">{moment(date).format('DD')} </span>
                 <p className="subtitle is-6"><strong> {name} </strong></p>
                 <p className="subtitle created has-text-grey"> Created by: {owner.username}</p>
-                <Link to={`/events/${id}/edit`} className="button is-dark is-rounded"> Edit </Link>
+                {Auth.isAuthenticated() && Auth.isOwner(owner.id) && (
+                  <Link to={`/events/${id}/edit`} className="button is-info"> Edit </Link>
+                )}
               </div>
             </div>
           </div>

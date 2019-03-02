@@ -46,10 +46,10 @@ class UserShow extends React.Component {
   }
 
   handleManageToggle(e) {
-    if(e.currentTarget.textContent === 'Clubs' && this.state.manageClubActive){
+    if(e.currentTarget.textContent === 'Events' && this.state.manageClubActive){
       return
     }
-    if(e.currentTarget.textContent === 'Events' && !this.state.manageClubActive){
+    if(e.currentTarget.textContent === 'Clubs' && !this.state.manageClubActive){
       return
     }
     this.setState({manageClubActive: !this.state.manageClubActive})

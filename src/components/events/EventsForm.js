@@ -150,10 +150,9 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                     name="club"
                     defaultValue="Please Choose..."
                     onChange={handleClubChange}
-                    value={data.name}
                   >
                     <option disabled>Please Choose...</option>
-                    {clubs.filter(club => club.owner === Auth.getUserId()).map((club, i) =>
+                    {clubs.map((club, i) =>
                       <option key={i} value={`${club.value},${club.label}`} > {club.label} </option>
                     )}
                     <option value="" > Search All </option>

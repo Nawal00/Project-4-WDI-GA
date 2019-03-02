@@ -48,6 +48,11 @@ class Auth {
     return attendees.includes(currentUser)
   }
 
+  static isOwner(eventOwner) {
+    const currentUser = this.getUserId()
+    return currentUser === eventOwner
+  }
+
   static getUserId() {
     const payload = this.getPayload()
     console.log(payload.sub)

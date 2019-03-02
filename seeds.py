@@ -95,7 +95,7 @@ with app.app_context():
     badminton_north_london.save()
 
     chess_club_islington = Club(
-        name='Tennis Club',
+        name='Chess Club Islington',
         image='https://tinyurl.com/yx8o8rff',
         owner=ed,
         followed_by=[ed, nawal],
