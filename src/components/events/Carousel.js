@@ -6,7 +6,7 @@ class Carousels extends React.Component {
 
   render() {
     return (
-      <Carousel autoplay={true} wrapAround={true} width={'100%'}>
+      <Carousel autoplay={true} wrapAround={true} withoutControls={true} heightMode={'first'}>
         <img src="../../assets/images/cooking.jpg" />
         <img src="../../assets/images/run.jpeg" />
         <img src="../../assets/images/together.jpg" />

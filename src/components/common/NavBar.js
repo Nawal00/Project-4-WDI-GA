@@ -40,7 +40,7 @@ class Navbar extends React.Component {
           <div className="navbar-brand">
             <Link
               className="navbar-item"
-              onClick={this.toggleIcon} to="/"
+              onClick={this.toggleIcon} to="/events"
             >
               <strong className="is-size-4">
               Bee Social <span> <img src="../../assets/images/BeeLogo.png"/> </span>

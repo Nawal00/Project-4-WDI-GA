@@ -1,6 +1,6 @@
 import React from 'react'
 // import {Link} from 'react-router-dom'
-import Carousels from './Carousel'
+// import Carousels from './Carousel'
 
 const Home = () => {
 
@@ -11,7 +11,7 @@ const Home = () => {
         <div className="hero">
           <div className="hero-body">
 
-            <Carousels />
+            hellow
           </div>
         </div>
       </div>
