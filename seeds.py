@@ -216,7 +216,7 @@ with app.app_context():
 
     badminton_day = Event(
         name='Badminton Club',
-        image='https://tinyurl.com/y3cv5536',
+        image='https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F55930430%2F3256470838%2F1%2Foriginal.jpg?w=800&auto=compress&rect=258%2C0%2C2180%2C1090&s=dff8d8034e2a483f7524662d89f5e58f',
         owner=ed,
         max_attendees=20,
         date='2019-02-11',
