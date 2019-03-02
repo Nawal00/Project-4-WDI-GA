@@ -3,7 +3,6 @@
 $yellow: hsl(49, 100%, 47%);
 $black: #3E332E;
 $info: $yellow;
-$dark: $black;
 $tabs-link-active-color: $info;
 $tabs-toggle-link-active-border-color: $yellow;
 $tabs-border-bottom-color: $yellow;
@@ -51,6 +50,10 @@ body{
   p:first-child  {
     color: red;
   }
+}
+.user-club-img{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	border-radius: 0.5rem;
 }
 
 //----- Eventshow page -----
@@ -165,6 +168,7 @@ div.sticky {
 .column.is-4{
     width: 32.3%;
 }
+
 //-------Club Index page ----
 .wrapper {
     text-align: center;
@@ -334,16 +338,17 @@ div.sticky {
 
 
 // User page
+.eventColum, .event-show-col {
+  margin-left: 15px;
+}
 
 .isImageCircle {
   text-align: center;
-  max-height: 400px;
+  max-height: 200px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
   background: rgba(0,0,0,0.8);
   border-radius: 10px;
-  margin: 10px;
   transition: all .2s ease-in-out;
-
   width: 200px;
   height: 200px;
   position: relative;
@@ -354,16 +359,14 @@ div.sticky {
     height: 100%;
     width: 100%;
     border-radius: 8px;
-
     display: inline;
     margin: 0 auto;
-
     height: 100%;
     width: auto;
   }
   &:hover {
-    box-shadow: 0 4px 5px 0 rgba(0,0,0,.3);
-    margin: 5px;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.3);
+    margin-left: 2px;
   }
 }
 
@@ -381,7 +384,7 @@ div.sticky {
 
 .text {
   color: white;
-  font-weight: 200px;
+  font-weight: 300px;
   padding: 10% 10%;
 }
 
