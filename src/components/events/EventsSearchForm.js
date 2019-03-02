@@ -12,15 +12,16 @@ const EventsForm = ({ handleChange }) => {
             <label className="label"> <strong className="has-text-white"> Explore by category </strong> </label>
 
             <select
-              className="select is-rounded"
+              className="select"
               name="category"
               onChange={handleChange}
             >
               <option> All </option>
-              <option> Mums Club </option>
-              <option> Sports Club </option>
-              <option> Music Club </option>
-              <option> Photography Club </option>
+              <option> Mums </option>
+              <option> Sports </option>
+              <option> Music </option>
+              <option> Computer Games </option>
+              <option> Photography </option>
             </select>
 
           </div>

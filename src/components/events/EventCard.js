@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 
-const EventCard = ({ id, name, image, location, date }) => {
+const EventCard = ({ id, name, image, address, date, time }) => {
   return (
     <Link to={`/events/${id}`}>
       <div className="card card-equal-height">
@@ -13,14 +14,15 @@ const EventCard = ({ id, name, image, location, date }) => {
           <div className="card-content is-flex">
             <div className="media"></div>
             <div className="media-left">
-              <p> MAR </p>
-              <p> 18 </p>
+              <p> {moment(date).format('MMM').toUpperCase()}</p>
+              <p> {moment(date).format('DD')} </p>
             </div>
 
             <div className="media-right">
-              <h6 className="title is-6">{name}</h6>
-              <p className="subtitle is-6">{date}</p>
-              <p className="is-6">{location}</p>
+              <h6><strong>{name}</strong></h6>
+              <span className="index-span">{moment(date).format('ddd, MMMM D')}</span>
+              <span className="index-span"> at {time.substring(0, time.length - 3)}</span>
+              <p className="index-span">{address}</p>
             </div>
           </div>
 

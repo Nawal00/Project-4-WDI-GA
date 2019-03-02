@@ -39,6 +39,7 @@ class EventsIndex extends React.Component {
 
 
   render() {
+    console.log(this.state.events)
 
     if(!this.state.events.length === 0){
       return(

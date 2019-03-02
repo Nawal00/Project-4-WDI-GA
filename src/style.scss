@@ -25,6 +25,10 @@ body{
   background: #FAFAFA;
 }
 
+.home{
+  background: white;
+}
+
 .card{
   p:first-child  {
     color: red;
@@ -201,6 +205,11 @@ div.sticky {
   margin: 10px 0 10px 0;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 4px;
+}
+
+.index-span {
+  font-size: 13px;
+  color: grey;
 }
 
 .wrapper {
