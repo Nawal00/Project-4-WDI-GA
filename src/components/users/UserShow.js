@@ -151,6 +151,10 @@ class UserShow extends React.Component {
                     </Link>
                   </div>
                 )}
+                <div className=" column columns is-3 add">
+                  <Link to={'/events/new'}>
+                  </Link>
+                </div>
               </div>
             )}
             {!this.state.manageClubActive &&(
