@@ -55,7 +55,6 @@ class Auth {
 
   static getUserId() {
     const payload = this.getPayload()
-    console.log(payload.sub)
     return payload.sub
   }
 

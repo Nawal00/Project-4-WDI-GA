@@ -13,7 +13,10 @@ class EventsShow extends React.Component {
 
     this.state = {
       event: null,
-      userLocation: null
+      userLocation: {
+        lat: '',
+        lng: ''
+      }
     }
 
     this.handleAttendee = this.handleAttendee.bind(this)
@@ -33,6 +36,20 @@ class EventsShow extends React.Component {
             lng: position.coords.longitude
           }
         })
+        axios.get(`/api/events/${this.props.match.params.id}/traveltime`, {
+          headers: {
+            lat: `${this.state.userLocation.lat}`,
+            lng: `${this.state.userLocation.lng}`
+          }
+        })
+          .then(res => {
+            const event = {...this.state.event, travelTime: res.data.travel_time_minutes }
+
+            this.setState({ event })
+          }
+
+
+          )
       })
     }
   }
@@ -61,8 +78,7 @@ class EventsShow extends React.Component {
 
   render(){
     if(!this.state.event) return null
-    console.log(this.state)
-    const { id, name, owner, date, image, duration, description, lat, lng, time, attendees, max_attendees, club } = this.state.event
+    const { id, name, owner, date, image, duration, description, lat, lng, time, attendees, max_attendees, travelTime, club } = this.state.event
     return (
       <div className="container">
         <div className="box eventsBox">
@@ -79,6 +95,9 @@ class EventsShow extends React.Component {
                 <span className="subtitle date">{moment(date).format('DD')} </span>
                 <p className="subtitle is-6"><strong> {name} </strong></p>
                 <p className="subtitle created has-text-grey"> Created by: {owner.username}</p>
+                <p className="subtitle created has-text-grey"> <i className="fas fa-map-marked"></i>: {travelTime} minutes to your event</p>
+                <a href={`https://citymapper.com/directions?startcoord=${this.state.userLocation.lat},${this.state.userLocation.lng}&endcoord=${lat},${lng}`}> Launch in City Mapper</a>
+                <a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.userLocation.lat},${this.state.userLocation.lng}&destination=${lat},${lng}`} target="blank" > Launch in Google Maps</a>
                 {Auth.isAuthenticated() && Auth.isOwner(owner.id) && (
                   <Link to={`/events/${id}/edit`} className="button is-info"> Edit </Link>
                 )}
