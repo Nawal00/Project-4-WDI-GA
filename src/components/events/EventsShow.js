@@ -114,7 +114,7 @@ class EventsShow extends React.Component {
             <div className="column mid-text is-4">
               <div className="content">
                 <p> Date And Time </p>
-                <span>{moment(date).format('dddd, MMMM Do YYYY')}, </span>
+                <span>{moment(date).format('dddd, MMMM Do YYYY')} </span>
                 <span>{time.substring(0, time.length - 3)}</span>
                 <p>Duration: {duration} mins</p>
                 <p>Max attendees: {max_attendees}</p>

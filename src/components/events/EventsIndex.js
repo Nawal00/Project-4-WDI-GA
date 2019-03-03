@@ -3,6 +3,7 @@ import axios from 'axios'
 import EventCard from './EventCard'
 import EventsSearchForm from './EventsSearchForm'
 import EventsShow from './EventsShow'
+import Carousels from './Carousel'
 
 
 class EventsIndex extends React.Component {
@@ -38,6 +39,7 @@ class EventsIndex extends React.Component {
 
 
   render() {
+    console.log(this.state.events)
 
     if(!this.state.events.length === 0){
       return(
@@ -50,22 +52,26 @@ class EventsIndex extends React.Component {
     }
     return (
 
-      <section className="section">
-        <div className="container">
-          <section className="section">
-            <h2 className="title has-text-centered is-title-light is-size-2">The Events</h2>
-          </section>
-          <hr />
-          <EventsSearchForm handleChange={this.handleChange} />
-          <div className="columns is-multiline">
-            {this.filteredEvents().map(event =>
-              <div key={event.id} className="column is-4">
-                <EventCard {...event} />
-              </div>
-            )}
+      <div>
+        <Carousels />
+        <section className="section">
+          <div className="container">
+            <EventsSearchForm handleChange={this.handleChange} />
           </div>
-        </div>
-      </section>
+        </section>
+
+        <section className="section">
+          <div className="container">
+            <div className="columns is-multiline">
+              {this.filteredEvents().map(event =>
+                <div key={event.id} className="column is-4">
+                  <EventCard {...event} />
+                </div>
+              )}
+            </div>
+          </div>
+        </section>
+      </div>
     )
   }
 }

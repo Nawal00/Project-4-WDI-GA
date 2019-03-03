@@ -22,7 +22,6 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import UserShow from './components/users/UserShow'
 
-import Home from './components/common/Home'
 import Navbar from './components/common/Navbar'
 import FlashMessages from './components/common/FlashMessages'
 
@@ -48,7 +47,7 @@ class App extends React.Component {
 
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
-            <Route path="/" component={Home} />
+            <Route path="/" component={EventsIndex} />
           </Switch>
         </main>
       </BrowserRouter>
