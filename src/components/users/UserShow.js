@@ -151,8 +151,16 @@ class UserShow extends React.Component {
                     </Link>
                   </div>
                 )}
-                <div className=" column columns is-3 add">
+                <div className="column is-3">
                   <Link to={'/events/new'}>
+                    <div className="user-club-img">
+                      <figure className="image is-4by3">
+                        <img src="../../assets/images/add.png" alt='add'/>
+                        <div className="middle">
+                          <div className="text">Add +</div>
+                        </div>
+                      </figure>
+                    </div>
                   </Link>
                 </div>
               </div>
@@ -175,6 +183,18 @@ class UserShow extends React.Component {
                     </Link>
                   </div>
                 )}
+                <div className="column is-3">
+                  <Link to={'/events/new'}>
+                    <div className="user-club-img">
+                      <figure className="image is-4by3">
+                        <img src="../../assets/images/add.png" alt='add'/>
+                        <div className="middle">
+                          <div className="text">Add +</div>
+                        </div>
+                      </figure>
+                    </div>
+                  </Link>
+                </div>
               </div>
             )}
 
