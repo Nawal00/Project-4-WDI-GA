@@ -61,7 +61,6 @@ class EventsShow extends React.Component {
 
   render(){
     if(!this.state.event) return null
-    console.log(this.state)
     const { id, name, owner, date, image, duration, description, lat, lng, time, attendees, max_attendees, club } = this.state.event
     return (
       <div className="container">

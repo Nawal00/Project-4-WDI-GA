@@ -8,7 +8,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 class Map extends React.Component {
 
   componentDidMount() {
-    console.log('props there on Mount', this.props)
+    // console.log('props there on Mount', this.props)
 
     // Creates bounds
     const bounds = new mapboxgl.LngLatBounds()

@@ -23,6 +23,7 @@ class Event(db.Model, BaseModel):
     lng = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(80), nullable=True)
     max_attendees = db.Column(db.Integer, nullable=False)
+    travel_time = db.Column(db.Integer, nullable=True)
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     owner = db.relationship('User', backref='events_created')
     club_id = db.Column(db.Integer, db.ForeignKey('clubs.id'), nullable=True)

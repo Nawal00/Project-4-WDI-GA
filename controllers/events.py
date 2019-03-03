@@ -1,8 +1,9 @@
-# import requests
+import requests
 from flask import Blueprint, request, jsonify, g
 from models.event import Event, EventSchema
 from models.club import Club, ClubSchema
 from lib.secure_route import secure_route
+from config.environment import city_mapper_key
 
 api = Blueprint('events', __name__)
 
@@ -17,12 +18,15 @@ def index():
     events = Event.query.all()
     return events_schema.jsonify(events)
 
-@api.route('/events/<int:event_id>', methods=['GET'])
+@api.route('/events/<int:event_id>/', methods=['GET'])
 def show(event_id):
     event = Event.query.get(event_id)
+    # print(event)
+    # response = requests.get(f"https://developer.citymapper.com/api/1/traveltime/?startcoord={event.lat}%2C{event.lng}&endcoord=51.4243877%2C-0.3474953&key={city_mapper_key}")
+    # print(response.json())
+    # event.travel_time = response.json()["travel_time_minutes"]
 
-    #could make a call to the city mapper API to get the journey time
-
+    # event.save()
     return event_schema.jsonify(event)
 
 @api.route('/events', methods=['POST'])
