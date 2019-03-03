@@ -27,6 +27,7 @@
     "node-sass": "^4.11.0",
     "nuka-carousel": "^4.4.8",
     "react": "^16.8.3",
+    "react-add-to-calendar": "^0.1.5",
     "react-dom": "^16.8.3",
     "react-filestack": "^0.9.7",
     "react-mapbox-autocomplete": "^0.2.3",
