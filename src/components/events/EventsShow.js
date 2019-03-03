@@ -33,6 +33,20 @@ class EventsShow extends React.Component {
             lng: position.coords.longitude
           }
         })
+        axios.get(`/api/events/${this.props.match.params.id}/traveltime`, {
+          headers: {
+            lat: `${this.state.userLocation.lat}`,
+            lng: `${this.state.userLocation.lng}`
+          }
+        })
+          .then(res => {
+            const event = {...this.state.event, travelTime: res.data.travel_time_minutes }
+
+            this.setState({ event })
+          }
+
+
+          )
       })
     }
   }
