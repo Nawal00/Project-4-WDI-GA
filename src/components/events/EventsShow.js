@@ -68,7 +68,8 @@ class EventsShow extends React.Component {
   render(){
     console.log(this.state.event)
     if(!this.state.event) return null
-    const { id, name, owner, date, image, duration, description, lat, lng, time, attendees, max_attendees, travelTime, club } = this.state.event
+    console.log(this.state)
+    const { id, name, owner, date, image, duration, description, lat, lng, hours, minutes, attendees, max_attendees, travelTime, club } = this.state.event
     return (
       <div className="container">
         <div className="box eventsBox">
@@ -129,7 +130,7 @@ class EventsShow extends React.Component {
               <div className="content">
                 <p> Date And Time </p>
                 <span>{moment(date).format('dddd, MMMM Do YYYY')} </span>
-                <span>{time.substring(0, time.length - 3)}</span>
+                <span>{('0' + hours).slice(-2)}:{('0' + minutes).slice(-2)}</span>
                 <p>Duration: {duration} mins</p>
                 <p>Max attendees: {max_attendees}</p>
                 <p>Attendees: {attendees.length}</p>

@@ -16,6 +16,8 @@ class EventsNew extends React.Component {
         description: '',
         club_id: '',
         address: '',
+        time: '',
+        date: '',
         lat: '',
         lng: ''
       },
