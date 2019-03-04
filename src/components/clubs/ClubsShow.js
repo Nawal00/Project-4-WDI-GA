@@ -88,29 +88,29 @@ class ClubsShow extends React.Component {
             <div className="hero clubHero is-medium is-bold parent">
               <div className="hero-body child" style={{ backgroundImage: `url(${image})`}}>
                 <h1 className="title has-text-white">{name}</h1>
+                <p className="subtitle has-text-white is-6">in {location}</p>
                 {Auth.isAuthenticated() && !Auth.doesFollow(followed_by) &&(
                   <button className="button is-info" onClick={this.handleFolllow}> Follow  </button>
                 )}
                 {Auth.isAuthenticated() && Auth.doesFollow(followed_by) &&(
                   <button className="button is-info"  > Following  </button>
                 )}
-                <p className="subtitle has-text-white is-6">in {location}</p>
+
               </div>
             </div>
           </div>
           <div className="columns">
-            <div className="column is-4">
+            <div className="column is-3 club-col">
               <h6 className="title is-6">Category: {category}</h6>
               {Auth.isAuthenticated() && Auth.isOwner(owner.id) && (
                 <Link to={`/clubs/${id}/edit`} className="button is-info"> Edit </Link>
               )}
-              <h6 className="title is-6">Description</h6>
             </div>
-            <div className="column is-4">
+            <div className="column is-3 club-col">
               <h6 className="title is-6">About the Club</h6>
               <p> {description}</p>
             </div>
-            <div className="column is-4">
+            <div className="column is-3 club-col">
               <h6 className="title is-6">Members ({followed_by.length})</h6>
               <div className="members-area">
                 {followed_by.map((follower) => {
