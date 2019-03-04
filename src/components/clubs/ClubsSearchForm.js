@@ -4,9 +4,9 @@ const ClubsForm = ({ handleChange }) => {
 
   return (
     <div className="field">
-      <div className="control clubFormDiv is-flex">
+      <div className="control">
         <label className="label is-searchform"> <strong> Explore by category </strong> </label>
-        <div className="select is-rounded">
+        <div className="select is-rounded ">
           <select
             name="category"
             onChange={handleChange}

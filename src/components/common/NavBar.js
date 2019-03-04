@@ -45,7 +45,9 @@ class Navbar extends React.Component {
               <strong className="is-size-4">
               Bee Social <span> <img src="../../assets/images/BeeLogo.png"/> </span>
               </strong>
+
             </Link>
+
             <a
               className={`navbar-burger ${this.state.navbarOpen ? 'is-active' : ''}`}
               onClick={this.toggleNavbar}
