@@ -29,7 +29,7 @@ class ClubSchema(ma.ModelSchema, BaseSchema):
     owner = fields.Nested('UserSchema', only=('id', 'username'))
     events = fields.Nested(
         'EventSchema',
-        only=('id', 'name', 'date', 'time', 'attendees', 'max_attendees'),
+        only=('id', 'name', 'date', 'hours', 'minutes', 'attendees', 'max_attendees'),
         many=True
         )
     followed_by = fields.Nested('UserSchema', only=('id', 'username'), many=True)

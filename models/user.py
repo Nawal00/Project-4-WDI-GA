@@ -73,7 +73,7 @@ class UserSchema(ma.ModelSchema, BaseSchema):
     events_created = fields.Nested(
         'EventSchema',
         many=True,
-        only=('category', 'name', 'id', 'image', 'date', 'time')
+        only=('category', 'name', 'id', 'image', 'date', 'hours', 'minutes')
     )
 
     events_attending = fields.Nested(
@@ -85,7 +85,8 @@ class UserSchema(ma.ModelSchema, BaseSchema):
             'id',
             'image',
             'date',
-            'time',
+            'hours',
+            'minutes',
             'club',
             'attendees',
             'max_attendees'

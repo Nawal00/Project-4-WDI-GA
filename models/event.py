@@ -16,7 +16,8 @@ class Event(db.Model, BaseModel):
     image = db.Column(db.String(200), nullable=True)
     category = db.Column(db.String(80), nullable=False)
     date = db.Column(db.Date, nullable=False)
-    time = db.Column(db.Time, nullable=False)
+    hours = db.Column(db.Integer, nullable=False)
+    minutes = db.Column(db.Integer, nullable=False)
     duration = db.Column(db.Integer, nullable=False)
     address = db.Column(db.String(200), nullable=True)
     lat = db.Column(db.Float, nullable=False)
@@ -35,7 +36,7 @@ class EventSchema(ma.ModelSchema, BaseSchema):
     owner = fields.Nested('UserSchema', only=('id', 'username'))
     club = fields.Nested('ClubSchema', only=('id', 'name', 'image', 'description', 'events'))
     attendees = fields.Nested('UserSchema', only=('id', 'username'), many=True)
-    
+
 
     class Meta:
         model = Event

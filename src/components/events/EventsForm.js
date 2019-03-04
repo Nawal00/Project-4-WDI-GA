@@ -79,18 +79,31 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
               </div>
             </div>
             <div className="field">
-              <label className="label">Time</label>
+              <label className="label">Hours</label>
               <div className="control">
                 <input
                   className="input"
-                  type="time"
-                  step="2"
-                  placeholder="Time"
-                  name="time"
+                  type="number"
+                  placeholder="Hours"
+                  name="hours"
                   onChange={handleChange}
-                  value={data.time || ''}
+                  value={data.hours || ''}
                 />
-                {errors.time && <small className="help is-danger">{errors.time}</small>}
+                {errors.hours && <small className="help is-danger">{errors.hours}</small>}
+              </div>
+            </div>
+            <div className="field">
+              <label className="label">Minutes</label>
+              <div className="control">
+                <input
+                  className="input"
+                  type="number"
+                  placeholder="Minutes"
+                  name="minutes"
+                  onChange={handleChange}
+                  value={data.minutes || ''}
+                />
+                {errors.minutes && <small className="help is-danger">{errors.minutes}</small>}
               </div>
             </div>
             <div className="field">
@@ -133,7 +146,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                   >
                     <option disabled>Please Choose...</option>
                     <option value="" > Search All </option>
-                    <option> Sport </option>
+                    <option> Sports </option>
                     <option> Photography </option>
                     <option> Gaming </option>
                   </select>
@@ -169,6 +182,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                 resetSearch={false}
                 onchange={handleChange}
                 name="location"
+                autocomplete={true}
                 value={data.address}
               />
               {errors.location && <small>{errors.location}</small>}
