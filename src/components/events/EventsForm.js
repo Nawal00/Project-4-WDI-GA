@@ -9,9 +9,10 @@ const mapboxAutoComplete = process.env.MAP_BOX_TOKEN
 // name, image, category, date, time, duration, lat, lng, description, max attendees, clubs(owners)
 
 const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors, suggestionSelect, clubs  }) => {
+  console.log(data.address)
   return (
     <div className="container">
-      <div className="column is-8 is-offset-2 is-info">
+      <div className="column is-8 is-offset-2">
         <h3 className="title has-text-centered">Organise Event</h3>
         <div className="box">
           <form onSubmit={handleSubmit}>
@@ -28,7 +29,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                       placeholder="Name"
                       name="name"
                       onChange={handleChange}
-                      value={data.name || ''}
+                      result={data.name || ''}
                     />
                   </div>
                   {errors.name && <small className="help is-danger">{errors.name}</small>}
@@ -58,7 +59,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                       buttonClass={'button is-info'}
                     />
                   </div>
-                  {data.image &&<small> Imaged Uploaded</small>}
+                  {data.image &&<span> Imaged Uploaded</span>}
 
                   {errors.image && <small className="help is-danger">{errors.image}</small>}
                 </div>
@@ -124,6 +125,9 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                     <input
                       className="input is-info"
                       type="number"
+                      name="hours"
+                      value={data.hours || ''}
+                      onChange={handleChange}
                       placeholder="Hours"/>
                   </p>
                 </div>
@@ -134,6 +138,9 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                     <input
                       className="input is-info"
                       type="number"
+                      name="minutes"
+                      value={data.minutes || ''}
+                      onChange={handleChange}
                       placeholder="Minutes" />
                   </p>
                 </div>
@@ -163,23 +170,21 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
               </div>
               <div className="field-body">
                 <div className="field">
-                  <p className="control ">
-                    <div className="select is-fullwidth">
-                      <select
-                        name="category"
-                        defaultValue="Please Choose..."
-                        onChange={handleChange}
-                        value={data.category}
-                        className="input is-info"
-                      >
-                        <option disabled>Please Choose...</option>
-                        <option value="" > Search All </option>
-                        <option> Sports </option>
-                        <option> Photography </option>
-                        <option> Gaming </option>
-                      </select>
-                    </div>
-                  </p>
+                  <div className="select is-fullwidth">
+                    <select
+                      name="category"
+                      defaultValue="Please Choose..."
+                      onChange={handleChange}
+                      value={data.category}
+                      className="input is-info"
+                    >
+                      <option disabled>Please Choose...</option>
+                      <option value="" > Search All </option>
+                      <option> Sports </option>
+                      <option> Photography </option>
+                      <option> Gaming </option>
+                    </select>
+                  </div>
                 </div>
                 {errors.category && <small className="help is-danger">{errors.category}</small>}
                 <div className="field-label is-normal">
@@ -191,12 +196,12 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                     defaultValue="Please Choose..."
                     onChange={handleClubChange}
                     className="input is-info"
+                    value={`${data.club.id},${data.club.name}`}
                   >
                     <option disabled>Please Choose...</option>
                     {clubs.map((club, i) =>
                       <option key={i} value={`${club.value},${club.label}`} > {club.label} </option>
                     )}
-                    <option value="" > Search All </option>
                   </select>
                 </div>
                 {errors.club && <small className="help is-danger">{errors.club}</small>}
@@ -231,27 +236,20 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
               </div>
               <div className="field-body">
                 <div className="field">
-                  <MapboxAutocomplete
-                    publicKey= {mapboxAutoComplete}
-
-                    inputClass="input is-info"
-                    onSuggestionSelect={suggestionSelect}
-                    resetSearch={false}
-                    onchange={handleChange}
-                    name="location"
-                    autocomplete={true}
-                    value={data.address}
-                  />
+                  {data.address && (
+                    <MapboxAutocomplete
+                      publicKey= {mapboxAutoComplete}
+                      inputClass="input is-info"
+                      onSuggestionSelect={suggestionSelect}
+                      onchange={handleChange}
+                      name="location"
+                      query={`${data.address}`}
+                    />
+                  )}
                 </div>
-                {errors.location && <small>{errors.location}</small>}
+                {errors.address && <small>{errors.address}</small>}
               </div>
             </div>
-
-
-
-
-
-
 
             <div>
               <button className="button is-medium is-fullwidth is-info">Submit</button>
