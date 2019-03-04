@@ -5,7 +5,6 @@ import Auth from '../../lib/Auth'
 
 const fileStack = process.env.FILESTACK_API_KEY
 const mapboxAutoComplete = process.env.MAP_BOX_TOKEN
-console.log(mapboxAutoComplete)
 
 // name, image, category, date, time, duration, lat, lng, description, max attendees, clubs(owners)
 

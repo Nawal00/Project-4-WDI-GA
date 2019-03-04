@@ -21,21 +21,23 @@ def index():
 @api.route('/events/<int:event_id>/traveltime', methods=['GET'])
 def travel_time(event_id):
     event = Event.query.get(event_id)
-    lat = request.headers.get('lat')
-    lng = request.headers.get('lng')
-    response = requests.get(f"https://developer.citymapper.com/api/1/traveltime/?startcoord={lat}%2C{lng}&endcoord={event.lat}%2C{event.lng}&key={city_mapper_key}")
-    print(type(response))
-    return jsonify(response.json())
+    lat = request.args.get('lat')
+    lng = request.args.get('lng')
+    url = 'https://developer.citymapper.com/api/1/traveltime'
+    params = {
+        'startcoord': f'{lat},{lng}',
+        'endcoord': f'{event.lat},{event.lng}',
+        'key': city_mapper_key
+    }
+    response = requests.get(url, params=params).json()
+    return jsonify(response)
 
-@api.route('/events/<int:event_id>/', methods=['GET'])
+
+@api.route('/events/<int:event_id>', methods=['GET'])
 def show(event_id):
     event = Event.query.get(event_id)
-    # response = requests.get(f"https://developer.citymapper.com/api/1/traveltime/?startcoord={event.lat}%2C{event.lng}&endcoord=51.4243877%2C-0.3474953&key={city_mapper_key}")
-    # print(response.json())
-    # event.travel_time = response.json()["travel_time_minutes"]
-    #
-    # event.save()
     return event_schema.jsonify(event)
+
 
 @api.route('/events', methods=['POST'])
 @secure_route
