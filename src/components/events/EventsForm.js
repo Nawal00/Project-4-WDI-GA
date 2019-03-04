@@ -10,13 +10,20 @@ const mapboxAutoComplete = process.env.MAP_BOX_TOKEN
 
 const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors, suggestionSelect, clubs  }) => {
   console.log(data.address)
+  let hours = []
+  let minutes = []
+  for (let i=0; i<=23; i++){
+    hours.push(i)
+  }
+  for (let i=0; i<=50; i +=10){
+    minutes.push(i)
+  }
   return (
     <div className="container">
       <div className="column is-8 is-offset-2">
         <h3 className="title has-text-centered">Organise Event</h3>
         <div className="box">
           <form onSubmit={handleSubmit}>
-
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Name</label>
@@ -29,14 +36,13 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                       placeholder="Name"
                       name="name"
                       onChange={handleChange}
-                      result={data.name || ''}
+                      value={data.name || ''}
                     />
                   </div>
                   {errors.name && <small className="help is-danger">{errors.name}</small>}
                 </div>
               </div>
             </div>
-
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Image</label>
@@ -55,21 +61,14 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                           }})
                       }}
                       onError={(err) => console.log(err)}
-                      buttonText={'Upload Image'}
+                      buttonText={data.image ? 'Image Uploaded' : 'Upload Image'}
                       buttonClass={'button is-info'}
                     />
                   </div>
-                  {data.image &&<span> Imaged Uploaded</span>}
-
                   {errors.image && <small className="help is-danger">{errors.image}</small>}
                 </div>
               </div>
             </div>
-
-
-
-
-
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Description</label>
@@ -82,17 +81,12 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                       onChange={handleChange}
                       value={data.description || ''}
                       className="textarea input is-info"
-                      placeholder="Let us a little bit about the club...">
+                      placeholder="Tell us a little bit about the event...">
                     </textarea>
                   </div>
                 </div>
               </div>
             </div>
-
-
-
-
-
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Date</label>
@@ -113,35 +107,51 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                 {errors.date && <small className="help is-danger">{errors.date}</small>}
               </div>
             </div>
-
-
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Time</label>
               </div>
               <div className="field-body">
                 <div className="field">
-                  <p className="control is-expanded has-icons-left">
-                    <input
-                      className="input is-info"
-                      type="number"
+                  <p className="control is-expanded">
+
+
+                    <select
                       name="hours"
-                      value={data.hours || ''}
+                      defaultValue="Hours"
                       onChange={handleChange}
-                      placeholder="Hours"/>
+                      value={data.hours}
+                      className="input is-info"
+                    >
+                      <option disabled>Hours</option>
+                      {
+                        hours.map((hour, i) => {
+                          return (<option key={i} value={hour} >{hour}</option>)
+                        })
+                      }
+                    </select>
                   </p>
                 </div>
                 {errors.hours && <small className="help is-danger">{errors.hours}</small>}
 
                 <div className="field">
-                  <p className="control is-expanded has-icons-left has-icons-right">
-                    <input
-                      className="input is-info"
-                      type="number"
+                  <p className="control is-expanded">
+
+
+                    <select
                       name="minutes"
-                      value={data.minutes || ''}
+                      defaultValue="Minutes"
                       onChange={handleChange}
-                      placeholder="Minutes" />
+                      value={data.minutes}
+                      className="input is-info"
+                    >
+                      <option disabled>Minutes</option>
+                      {
+                        minutes.map((minute, i) => {
+                          return (<option key={i} value={minute} >{minute}</option>)
+                        })
+                      }
+                    </select>
                   </p>
                 </div>
                 {errors.minutes && <small className="help is-danger">{errors.minutes}</small>}
@@ -161,9 +171,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                 {errors.duration && <small className="help is-danger">{errors.duration}</small>}
               </div>
             </div>
-
-
-
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Category</label>
@@ -193,22 +200,19 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                 <div className="select is-fullwidth">
                   <select
                     name="club"
-                    defaultValue="Please Choose..."
+                    defaultValue="Hours"
                     onChange={handleClubChange}
                     className="input is-info"
                     value={`${data.club.id},${data.club.name}`}
                   >
-                    <option disabled>Please Choose...</option>
                     {clubs.map((club, i) =>
                       <option key={i} value={`${club.value},${club.label}`} > {club.label} </option>
                     )}
                   </select>
                 </div>
                 {errors.club && <small className="help is-danger">{errors.club}</small>}
-
               </div>
             </div>
-
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Max Attendees</label>
@@ -229,7 +233,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                 {errors.max_attendees && <small className="help is-danger">{errors.max_attendees}</small>}
               </div>
             </div>
-
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Location</label>
@@ -250,7 +253,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                 {errors.address && <small>{errors.address}</small>}
               </div>
             </div>
-
             <div>
               <button className="button is-medium is-fullwidth is-info">Submit</button>
             </div>

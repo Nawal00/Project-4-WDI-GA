@@ -13,9 +13,9 @@ class ClubsEdit extends React.Component {
         name: '',
         image: '',
         description: '',
-        location: '',
         lat: '',
         lng: '',
+        address: {},
         category: ''
       },
       errors: ''
