@@ -11,8 +11,7 @@ const EventCard = ({ id, name, image, address, date, time }) => {
             <img src={image} alt={name}  className="eventImage"/>
           </figure>
 
-          <div className="card-content is-flex">
-          
+          <div className="card-content">
             <div className="media-left">
               <p> {moment(date).format('MMM').toUpperCase()}</p>
               <p> {moment(date).format('DD')} </p>

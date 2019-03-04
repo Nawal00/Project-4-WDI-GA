@@ -55,7 +55,7 @@ body{
 }
 
 .eventFormDiv-1{
-  background: #1E0A3C;
+  background: #F0C400;
   padding: 20px;
   z-index:1;
   top:-20px;
@@ -66,12 +66,12 @@ body{
     border: 0px;
     outline: none;
     color: white;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid white;
   }
 }
 
 .eventFormDiv-2{
-  background: #1E0A3C;
+  background: #F0C400;
   padding: 20px;
   top:-20px;
   left:50%;
@@ -82,7 +82,7 @@ body{
     border: 0px;
     outline: none;
     color: white;
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid white;
   }
 }
 
@@ -106,6 +106,15 @@ body{
 
 .is-horizontal-center {
   justify-content: center;
+}
+
+.dir-btn{
+  font-size: 0.8rem;
+  margin: 2px;
+ a {
+   text-decoration: none;
+   color: grey;
+ }
 }
 
 .column.events-img-Col{
@@ -408,9 +417,8 @@ div.sticky {
   }
 }
 
-
 // User page
-.eventColum, .event-show-col {
+.eventColum, .event-show-col, .user-events {
   margin-left: 15px;
 }
 

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import moment from 'moment'
 
 const MoreClubs = ({ id, name, time, date, eventLink }) => {
+
   return (
 
     <Link to={`/events/${id}`} onClick={eventLink}>

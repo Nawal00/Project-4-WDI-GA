@@ -57,8 +57,8 @@ class UserShow extends React.Component {
 
 
   render(){
+    console.log('state---', this.state)
     if(!this.state.user) return null
-    console.log(this.state.user)
     return (
 
       <div>
@@ -93,7 +93,7 @@ class UserShow extends React.Component {
           <div className="container">
             <h4 className="title is-4 has-text-dark">Clubs</h4>
             <hr/>
-            <div className="columns is-variable is-8">
+            <div className="columns is-multiline">
               {this.state.user.clubs_following.map(follow =>
                 <div key={follow.id} className="column event-show-col is-2">
                   <Link to={`/clubs/${follow.id}`}>
@@ -155,7 +155,7 @@ class UserShow extends React.Component {
                   <Link to={'/events/new'}>
                     <div className="user-club-img">
                       <figure className="image is-4by3">
-                        <img src="../../assets/images/add.png" alt='add'/>
+                        <img src="/assets/images/add.png" alt='add'/>
                         <div className="middle">
                           <div className="text">Add +</div>
                         </div>
