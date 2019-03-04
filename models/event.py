@@ -30,14 +30,12 @@ class Event(db.Model, BaseModel):
     attendees = db.relationship('User', secondary=event_attendees, backref='events_attending')
 
 
-
-
 class EventSchema(ma.ModelSchema, BaseSchema):
 
     owner = fields.Nested('UserSchema', only=('id', 'username'))
     club = fields.Nested('ClubSchema', only=('id', 'name', 'image', 'description', 'events'))
     attendees = fields.Nested('UserSchema', only=('id', 'username'), many=True)
-
+    
 
     class Meta:
         model = Event

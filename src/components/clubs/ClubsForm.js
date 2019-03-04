@@ -6,7 +6,6 @@ const fileStack = process.env.FILESTACK_API_KEY
 const mapbox = process.env.MAP_BOX_TOKEN
 
 
-
 const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
   return (
     <div className="container">
@@ -103,7 +102,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect
         </div>
       </div>
     </div>
-
   )
 }
 

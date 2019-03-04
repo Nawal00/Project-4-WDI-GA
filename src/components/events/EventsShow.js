@@ -36,20 +36,16 @@ class EventsShow extends React.Component {
             lng: position.coords.longitude
           }
         })
-        axios.get(`/api/events/${this.props.match.params.id}/traveltime`, {
-          headers: {
-            lat: `${this.state.userLocation.lat}`,
-            lng: `${this.state.userLocation.lng}`
-          }
-        })
-          .then(res => {
-            const event = {...this.state.event, travelTime: res.data.travel_time_minutes }
-
-            this.setState({ event })
-          }
-
-
-          )
+        // axios.get(`/api/events/${this.props.match.params.id}/`, {
+        //   headers: {
+        //     lat: `${this.state.userLocation.lat}`,
+        //     lng: `${this.state.userLocation.lng}`
+        //   }
+        // })
+        //   .then(res => {
+        //     const event = {...this.state.event, travelTime: res.data.travel_time_minutes }
+        //     this.setState({ event })
+        //   })
       })
     }
   }
@@ -66,15 +62,6 @@ class EventsShow extends React.Component {
     })
       .then(res => this.setState({event: res.data}))
   }
-
-
-  // handleFolllow(e){
-  //   e.preventDefault()
-  //   axios.get(`/api/clubs/${this.state.event.club.id}/follow`, {
-  //     headers: { Authorization: `Bearer ${Auth.getToken()}`}
-  //   })
-  //     .then(res => this.setState({club: res.data}))
-  // }
 
   render(){
     if(!this.state.event) return null
@@ -96,8 +83,13 @@ class EventsShow extends React.Component {
                 <p className="subtitle is-6"><strong> {name} </strong></p>
                 <p className="subtitle created has-text-grey"> Created by: {owner.username}</p>
                 <p className="subtitle created has-text-grey"> <i className="fas fa-map-marked"></i>: {travelTime} minutes to your event</p>
-                <a href={`https://citymapper.com/directions?startcoord=${this.state.userLocation.lat},${this.state.userLocation.lng}&endcoord=${lat},${lng}`}> Launch in City Mapper</a>
-                <a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.userLocation.lat},${this.state.userLocation.lng}&destination=${lat},${lng}`} target="blank" > Launch in Google Maps</a>
+                {this.state.userLocation.lat && (
+                  <div>
+                    <a href={`https://citymapper.com/directions?startcoord=${this.state.userLocation.lat},${this.state.userLocation.lng}&endcoord=${lat},${lng}`} target="blank"> Launch in City Mapper</a>
+                    <a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.userLocation.lat},${this.state.userLocation.lng}&destination=${lat},${lng}`} target="blank"> Launch in Google Maps</a>
+                  </div>
+                )}
+
                 {Auth.isAuthenticated() && Auth.isOwner(owner.id) && (
                   <Link to={`/events/${id}/edit`} className="button is-info"> Edit </Link>
                 )}

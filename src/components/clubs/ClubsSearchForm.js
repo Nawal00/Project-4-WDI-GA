@@ -3,7 +3,6 @@ import React from 'react'
 const ClubsForm = ({ handleChange }) => {
 
   return (
-
     <div className="field">
       <div className="control clubFormDiv is-flex">
         <label className="label is-searchform"> <strong> Explore by category </strong> </label>

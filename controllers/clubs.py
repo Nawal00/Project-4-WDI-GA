@@ -12,11 +12,13 @@ club_schema = ClubSchema()
 @api.route('/clubs', methods=['GET'])
 def index():
     clubs = Club.query.all()
+
     return clubs_schema.jsonify(clubs)
 
 @api.route('/clubs/<int:club_id>', methods=['GET'])
 def show(club_id):
     club = Club.query.get(club_id)
+    
     return club_schema.jsonify(club)
 
 @api.route('/clubs', methods=['POST'])

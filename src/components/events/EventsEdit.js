@@ -74,17 +74,6 @@ class EventsEdit extends React.Component {
       })
   }
 
-  // componentDidMount() {
-  //   axios.get('/api/clubs')
-  //     .then(res => {
-  //       console.log(res)
-  //       const clubs = res.data.map(club => {
-  //         return {'value': club.id, 'label': club.name, 'owner': club.owner.id}
-  //       })
-  //       this.setState({ clubs })
-  //     })
-  // }
-
   componentDidMount() {
     axios
       .get(`/api/events/${this.props.match.params.id}`)

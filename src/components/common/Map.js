@@ -8,12 +8,9 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 class Map extends React.Component {
 
   componentDidMount() {
-    // console.log('props there on Mount', this.props)
 
-    // Creates bounds
     const bounds = new mapboxgl.LngLatBounds()
 
-    // MAP Component new map made
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
       style: 'mapbox://styles/mapbox/light-v9'
@@ -22,11 +19,9 @@ class Map extends React.Component {
 
     this.markers = this.props.events.map(event => {
       const { lat, lng } = event
-      // const type = event.category
 
       bounds.extend([lng, lat])
 
-      // Added type to be category so can be diffrent colors for Category
       const markerElement = document.createElement('DIV')
       markerElement.className = 'custom-marker'
 
@@ -55,8 +50,6 @@ class Map extends React.Component {
 
       const { name, image, lat, lng} = event
 
-      //add a popup
-      // NOTE: view event Link needs to be updated for heroku
       this.markers[index].setPopup(
         this.popup = new mapboxgl.Popup({offset: 20})
           .setHTML(

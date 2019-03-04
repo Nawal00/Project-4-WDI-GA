@@ -18,14 +18,6 @@ def index():
     events = Event.query.all()
     return events_schema.jsonify(events)
 
-# @api.route('/events/<int:event_id>/<float:user_lat>/<float:user_lng>', methods=['GET'])
-# def travel_time(event_id, user_lat, user_lng):
-#     event = Event.query.get(event_id)
-#     response = requests.get(f"https://developer.citymapper.com/api/1/traveltime/?startcoord={event.lat}%2C{event.lng}&endcoord=51.4243877%2C-0.3474953&key={city_mapper_key}")
-#     print(response.json())
-#
-#     return {}
-
 @api.route('/events/<int:event_id>/traveltime', methods=['GET'])
 def travel_time(event_id):
     event = Event.query.get(event_id)
@@ -38,7 +30,6 @@ def travel_time(event_id):
 @api.route('/events/<int:event_id>/', methods=['GET'])
 def show(event_id):
     event = Event.query.get(event_id)
-    print(event)
     # response = requests.get(f"https://developer.citymapper.com/api/1/traveltime/?startcoord={event.lat}%2C{event.lng}&endcoord=51.4243877%2C-0.3474953&key={city_mapper_key}")
     # print(response.json())
     # event.travel_time = response.json()["travel_time_minutes"]

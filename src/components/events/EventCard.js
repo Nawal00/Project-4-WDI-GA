@@ -25,7 +25,6 @@ const EventCard = ({ id, name, image, address, date, time }) => {
               <p className="index-span">{address}</p>
             </div>
           </div>
-
         </div>
       </div>
 

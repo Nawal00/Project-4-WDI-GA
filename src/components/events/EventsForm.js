@@ -136,7 +136,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                     <option> Sport </option>
                     <option> Photography </option>
                     <option> Gaming </option>
-
                   </select>
                 </div>
                 {errors.category && <small className="help is-danger">{errors.category}</small>}
@@ -164,7 +163,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
             <label className="label">Location</label>
             <div className="control">
               <MapboxAutocomplete
-                publicKey= "pk.eyJ1IjoibmF3YWw5MyIsImEiOiJjanIyM2E1ZHcxMThiM3hwYzIxY2Nnb2c3In0.X6kjAz7ZDz_PCPHXaEqAxA"
+                publicKey= {mapboxAutoComplete}
                 inputClass="input"
                 onSuggestionSelect={suggestionSelect}
                 resetSearch={false}
@@ -181,7 +180,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
         </div>
       </div>
     </div>
-
   )
 }
 

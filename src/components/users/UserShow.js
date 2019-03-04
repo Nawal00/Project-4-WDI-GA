@@ -169,7 +169,7 @@ class UserShow extends React.Component {
               <div className="columns is-multiline">
                 {this.state.user.clubs_created.map(created =>
                   <div key={created.id} className="column is-3">
-                    <Link  to={`/events/${created.id}`}>
+                    <Link  to={`/clubs/${created.id}`}>
                       <div className="isImage user-club-img">
                         <figure className="image is-4by3">
                           <img src={created.image} alt={created.name}/>
@@ -197,53 +197,6 @@ class UserShow extends React.Component {
                 </div>
               </div>
             )}
-
-            {/*<hr/>
-          <div className="columns">
-            <div className="column is-6 is-multiline">
-              <h4 className="title is-4 has-text-primary">  Events </h4>
-              <div className="columns is-multiline">
-                {this.state.user.events_created.map(created =>
-                  <div  key={created.id} className="column is-4">
-                    <Link  to={`/events/${created.id}`}>
-                      <div className="isImage">
-                        <figure className="image is-4by3">
-                          <img src={created.image} alt={created.name}  className="gemImage"/>
-                          <div className="middle">
-                            <div className="text">{created.name}</div>
-                            <div className="text">{created.category}</div>
-                            <div className="text">{created.date}</div>
-                          </div>
-                        </figure>
-                      </div>
-                    </Link>
-                  </div>
-                )}
-              </div>
-
-            </div>
-            <div className="column is-6 is-multiline">
-              <h4 className="title is-4 has-text-primary">  Clubs </h4>
-              <div className="columns is-multiline">
-                {this.state.user.clubs_created.map(created =>
-                  <div key={created.id} className="column is-4">
-                    <Link to={`/clubs/${created.id}`}>
-                      <div>
-                        <h6 className="title is-6">Name: {created.name} </h6>
-                        <h6 className="title is-6">Location: {created.location} </h6>
-                        <h6 className="title is-6">Category: {created.category} </h6>
-
-                      </div>
-                    </Link>
-                  </div>
-                )}
-              </div>
-              <div className="column columns is-4">
-              </div>
-            </div>
-          </div>*/}
-
-
           </div>
         </section>
       </div>

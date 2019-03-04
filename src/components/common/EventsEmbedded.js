@@ -45,7 +45,6 @@ const EventsEmbedded = ({ events, currentEventsActive, handleToggle }) => {
             )
           )
         )}
-        
       </div>
       <div className="columns">
         {!currentEventsActive &&(
