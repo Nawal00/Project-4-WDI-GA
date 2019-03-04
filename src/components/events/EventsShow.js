@@ -66,6 +66,7 @@ class EventsShow extends React.Component {
   }
 
   render(){
+    console.log(this.state.event)
     if(!this.state.event) return null
     console.log(this.state)
     const { id, name, owner, date, image, duration, description, lat, lng, hours, minutes, attendees, max_attendees, travelTime, club } = this.state.event
@@ -88,8 +89,8 @@ class EventsShow extends React.Component {
                 <p className="subtitle created has-text-grey"> <i className="fas fa-map-marked"></i>: {travelTime} minutes to your event</p>
                 {this.state.userLocation.lat && (
                   <div>
-                    <a href={`https://citymapper.com/directions?startcoord=${this.state.userLocation.lat},${this.state.userLocation.lng}&endcoord=${lat},${lng}`} target="blank"> Launch in City Mapper</a>
-                    <a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.userLocation.lat},${this.state.userLocation.lng}&destination=${lat},${lng}`} target="blank"> Launch in Google Maps</a>
+                    <button className="button dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.userLocation.lat},${this.state.userLocation.lng}&endcoord=${lat},${lng}`} target="blank"> Launch in City Mapper</a></button>
+                    <button className="button dir-btn is-outlined is-info"><a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.userLocation.lat},${this.state.userLocation.lng}&destination=${lat},${lng}`} target="blank"> Launch in Google Maps</a></button>
                   </div>
                 )}
 
@@ -161,7 +162,8 @@ class EventsShow extends React.Component {
           </div>
 
           <div>
-            {club.events.map(clubEvent=> <div key={clubEvent.id}>
+
+            {club.events.filter(clubEvent => clubEvent.id !== id).map(clubEvent=> <div key={clubEvent.id}>
               <MoreClubs
                 {...clubEvent}
                 eventLink = {this.eventLink}

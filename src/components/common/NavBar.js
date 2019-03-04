@@ -23,7 +23,7 @@ class Navbar extends React.Component {
 
   logout() {
     Auth.removeToken()
-    this.props.history.push('/events')
+    this.props.history.push('/')
   }
 
   componentDidUpdate(prevProps) {
@@ -57,6 +57,10 @@ class Navbar extends React.Component {
           </div>
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-item has-dropdown is-hoverable navbar-start">
+              <a
+                className="navbar-link">
+                Browse
+              </a>
               <div className="navbar-dropdown">
                 <Link to="/events" className="navbar-item has-text-black">
                  Events
@@ -70,10 +74,6 @@ class Navbar extends React.Component {
           </div>
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
-              <a
-                className="navbar-link">
-                Browse
-              </a>
               {Auth.isAuthenticated() &&
                 <div className="navbar-item has-dropdown is-hoverable">
                   <a className="navbar-link">
