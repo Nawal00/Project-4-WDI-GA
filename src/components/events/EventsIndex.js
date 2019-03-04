@@ -5,14 +5,15 @@ import EventsSearchForm from './EventsSearchForm'
 import EventsShow from './EventsShow'
 import Carousels from './Carousel'
 
-
 class EventsIndex extends React.Component {
 
   constructor() {
     super()
     this.state = {
       events: [],
-      category: 'All'
+      category: 'All',
+      location: '',
+      date: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -40,6 +41,7 @@ class EventsIndex extends React.Component {
 
   render() {
     console.log(this.state.events)
+    console.log(this.state.date)
 
     if(!this.state.events.length === 0){
       return(
@@ -60,17 +62,19 @@ class EventsIndex extends React.Component {
           </div>
         </section>
 
-        <section className="section">
-          <div className="container">
-            <div className="columns is-multiline">
-              {this.filteredEvents().map(event =>
-                <div key={event.id} className="column is-4">
-                  <EventCard {...event} />
-                </div>
-              )}
+        <div className="box has-background-white-ter">
+          <section className="section">
+            <div className="container">
+              <div className="columns is-multiline">
+                {this.filteredEvents().map(event =>
+                  <div key={event.id} className="column is-4">
+                    <EventCard {...event} />
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     )
   }

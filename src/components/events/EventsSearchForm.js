@@ -4,8 +4,8 @@ const EventsForm = ({ handleChange }) => {
 
   return (
 
-    <div className="columns is multiline">
-      <div className="column is-4 eventFormDiv-1">
+    <div className="columns is-multiline">
+      <div className="column is-3 eventFormDiv-1">
         <div className="field">
           <div className="control">
 
@@ -28,12 +28,12 @@ const EventsForm = ({ handleChange }) => {
         </div>
       </div>
 
-      <div className="column is-4 eventFormDiv-2">
+      <div className="column is-3 eventFormDiv-2">
         <div className="field">
           <div className="control">
             <label className="label"> <strong className="has-text-white"> Search By City </strong> </label>
             <form>
-              <input name="location" className="is-rounded" type="text" placeholder="Location" onChange={handleChange} />
+              <input name="location" type="text" placeholder="Location" onChange={handleChange} />
             </form>
           </div>
         </div>

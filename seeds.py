@@ -10,7 +10,7 @@ with app.app_context():
     db.create_all()
 
     Mark, errors = user_schema.load({
-        'username': 'mark',
+        'username': 'Mark',
         'email':'mark@gmail.com',
         'image': 'nawal.png',
         'password':'password',
@@ -22,7 +22,7 @@ with app.app_context():
     Mark.save()
 
     Wendy, errors = user_schema.load({
-        'username': 'wendy',
+        'username': 'Wendy',
         'email':'wendy@gmail.com',
         'image': 'wendy.png',
         'password':'password',
@@ -46,7 +46,7 @@ with app.app_context():
     Dwight.save()
 
     Nawal, errors = user_schema.load({
-        'username': 'nawal',
+        'username': 'Nawal',
         'email':'nawal@gmail.com',
         'image': 'https://tinyurl.com/y3n62bu6',
         'password':'password',
@@ -58,7 +58,7 @@ with app.app_context():
     Nawal.save()
 
     Jody, errors = user_schema.load({
-        'username': 'jody',
+        'username': 'Jody',
         'email':'jody@gmail.com',
         'image': 'jody.png',
         'password':'password',
@@ -70,7 +70,7 @@ with app.app_context():
     Jody.save()
 
     Ed, errors = user_schema.load({
-        'username': 'ed',
+        'username': 'Ed',
         'email':'ed@gmail.com',
         'image': 'ed.png',
         'password':'password',
