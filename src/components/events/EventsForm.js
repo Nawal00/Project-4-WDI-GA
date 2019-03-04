@@ -11,156 +11,186 @@ const mapboxAutoComplete = process.env.MAP_BOX_TOKEN
 const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors, suggestionSelect, clubs  }) => {
   return (
     <div className="container">
-      <div className="column is-6 is-offset-3 ">
+      <div className="column is-8 is-offset-2 is-info">
         <h3 className="title has-text-centered">Organise Event</h3>
         <div className="box">
           <form onSubmit={handleSubmit}>
-            <div className="field">
-              <label className="label">Name</label>
-              <div className="control">
-                <input
-                  className="input"
-                  placeholder="Name"
-                  name="name"
-                  onChange={handleChange}
-                  value={data.name || ''}
-                />
-                {errors.name && <small className="help is-danger">{errors.name}</small>}
+
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Name</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  <div className="control">
+                    <input
+                      className="input is-info"
+                      placeholder="Name"
+                      name="name"
+                      onChange={handleChange}
+                      value={data.name || ''}
+                    />
+                  </div>
+                  {errors.name && <small className="help is-danger">{errors.name}</small>}
+                </div>
               </div>
             </div>
-            <div className="field">
-              <label className="label">Image</label>
-              <div className="control">
-                <ReactFilestack
-                  apikey={`${fileStack}`}
-                  mode={'pick'}
-                  onSuccess={(res) => {
-                    handleChange({
-                      target: {
-                        name: 'image',
-                        value: res.filesUploaded[0].url
-                      }})
-                  }}
-                  onError={(err) => console.log(err)}
-                  buttonText={'Upload Image'}
-                  buttonClass={'button is-dark is-rounded'}
-                />
-                {data.image &&<small> Imaged Uploaded</small>}
-                <br/>
-                {errors.image && <small className="help is-danger">{errors.image}</small>}
+
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Image</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  <div className="control is-info">
+                    <ReactFilestack
+                      apikey={`${fileStack}`}
+                      mode={'pick'}
+                      onSuccess={(res) => {
+                        handleChange({
+                          target: {
+                            name: 'image',
+                            value: res.filesUploaded[0].url
+                          }})
+                      }}
+                      onError={(err) => console.log(err)}
+                      buttonText={'Upload Image'}
+                      buttonClass={'button is-info'}
+                    />
+                  </div>
+                  {data.image &&<small> Imaged Uploaded</small>}
+
+                  {errors.image && <small className="help is-danger">{errors.image}</small>}
+                </div>
               </div>
             </div>
-            <div className="field">
-              <label className="label">Description</label>
-              <div className="control">
-                <input
-                  className="input"
-                  placeholder="Description"
-                  name="description"
-                  onChange={handleChange}
-                  value={data.description || ''}
-                />
-                {errors.description && <small className="help is-danger">{errors.description}</small>}
+
+
+
+
+
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Description</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  <div className="control">
+                    <textarea
+                      name="description"
+                      onChange={handleChange}
+                      value={data.description || ''}
+                      className="textarea input is-info"
+                      placeholder="Let us a little bit about the club...">
+                    </textarea>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="field">
-              <label className="label">Date</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="date"
-                  placeholder="Date"
-                  name="date"
-                  onChange={handleChange}
-                  value={data.date || ''}
-                />
+
+
+
+
+
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Date</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  <p className="control is-expanded has-icons-left">
+                    <input
+                      className="input is-info"
+                      type="date"
+                      placeholder="Date"
+                      name="date"
+                      onChange={handleChange}
+                      value={data.date || ''}
+                    />
+                  </p>
+                </div>
                 {errors.date && <small className="help is-danger">{errors.date}</small>}
               </div>
             </div>
-            <div className="field">
-              <label className="label">Hours</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="number"
-                  placeholder="Hours"
-                  name="hours"
-                  onChange={handleChange}
-                  value={data.hours || ''}
-                />
+
+
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Time</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  <p className="control is-expanded has-icons-left">
+                    <input
+                      className="input is-info"
+                      type="number"
+                      placeholder="Hours"/>
+                  </p>
+                </div>
                 {errors.hours && <small className="help is-danger">{errors.hours}</small>}
-              </div>
-            </div>
-            <div className="field">
-              <label className="label">Minutes</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="number"
-                  placeholder="Minutes"
-                  name="minutes"
-                  onChange={handleChange}
-                  value={data.minutes || ''}
-                />
+
+                <div className="field">
+                  <p className="control is-expanded has-icons-left has-icons-right">
+                    <input
+                      className="input is-info"
+                      type="number"
+                      placeholder="Minutes" />
+                  </p>
+                </div>
                 {errors.minutes && <small className="help is-danger">{errors.minutes}</small>}
-              </div>
-            </div>
-            <div className="field">
-              <label className="label">Duration (Min)</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="number"
-                  placeholder="Duration"
-                  name="duration"
-                  onChange={handleChange}
-                  value={data.duration || ''}
-                />
+
+                <div className="field">
+                  <p className="control is-expanded has-icons-left has-icons-right">
+                    <input
+                      className="input is-info"
+                      type="number"
+                      placeholder="Duration"
+                      name="duration"
+                      onChange={handleChange}
+                      value={data.duration || ''}
+                    />
+                  </p>
+                </div>
                 {errors.duration && <small className="help is-danger">{errors.duration}</small>}
               </div>
             </div>
-            <div className="field">
-              <label className="label">Max Attendees</label>
-              <div className="control">
-                <input
-                  className="input"
-                  type="number"
-                  placeholder="Max Attendees"
-                  name="max_attendees"
-                  onChange={handleChange}
-                  value={data.max_attendees || ''}
-                />
-                {errors.max_attendees && <small className="help is-danger">{errors.max_attendees}</small>}
+
+
+
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Category</label>
               </div>
-            </div>
-            <div className="field">
-              <label className="label">Category</label>
-              <div className="control">
-                <div className="select is-fullwidth">
-                  <select
-                    name="category"
-                    defaultValue="Please Choose..."
-                    onChange={handleChange}
-                    value={data.category}
-                  >
-                    <option disabled>Please Choose...</option>
-                    <option value="" > Search All </option>
-                    <option> Sports </option>
-                    <option> Photography </option>
-                    <option> Gaming </option>
-                  </select>
+              <div className="field-body">
+                <div className="field">
+                  <p className="control ">
+                    <div className="select is-fullwidth">
+                      <select
+                        name="category"
+                        defaultValue="Please Choose..."
+                        onChange={handleChange}
+                        value={data.category}
+                        className="input is-info"
+                      >
+                        <option disabled>Please Choose...</option>
+                        <option value="" > Search All </option>
+                        <option> Sports </option>
+                        <option> Photography </option>
+                        <option> Gaming </option>
+                      </select>
+                    </div>
+                  </p>
                 </div>
                 {errors.category && <small className="help is-danger">{errors.category}</small>}
-              </div>
-            </div>
-            <div className="field">
-              <label className="label">Club</label>
-              <div className="control">
+                <div className="field-label is-normal">
+                  <label className="label">Club</label>
+                </div>
                 <div className="select is-fullwidth">
                   <select
                     name="club"
                     defaultValue="Please Choose..."
                     onChange={handleClubChange}
+                    className="input is-info"
                   >
                     <option disabled>Please Choose...</option>
                     {clubs.map((club, i) =>
@@ -170,24 +200,61 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                   </select>
                 </div>
                 {errors.club && <small className="help is-danger">{errors.club}</small>}
+
               </div>
             </div>
-            <label className="label">Location</label>
-            <div className="control">
-              <MapboxAutocomplete
-                publicKey= {mapboxAutoComplete}
-                inputClass="input"
-                onSuggestionSelect={suggestionSelect}
-                resetSearch={false}
-                onchange={handleChange}
-                name="location"
-                autocomplete={true}
-                value={data.address}
-              />
-              {errors.location && <small>{errors.location}</small>}
+
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Max Attendees</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  <p className="control is-expanded has-icons-left">
+                    <input
+                      className="input is-info"
+                      type="number"
+                      placeholder="Max Attendees"
+                      name="max_attendees"
+                      onChange={handleChange}
+                      value={data.max_attendees || ''}
+                    />
+                  </p>
+                </div>
+                {errors.max_attendees && <small className="help is-danger">{errors.max_attendees}</small>}
+              </div>
             </div>
+
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Location</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  <MapboxAutocomplete
+                    publicKey= {mapboxAutoComplete}
+
+                    inputClass="input is-info"
+                    onSuggestionSelect={suggestionSelect}
+                    resetSearch={false}
+                    onchange={handleChange}
+                    name="location"
+                    autocomplete={true}
+                    value={data.address}
+                  />
+                </div>
+                {errors.location && <small>{errors.location}</small>}
+              </div>
+            </div>
+
+
+
+
+
+
+
             <div>
-              <button className="button is-rounded is-medium is-fullwidth is-info">Submit</button>
+              <button className="button is-medium is-fullwidth is-info">Submit</button>
             </div>
           </form>
         </div>
