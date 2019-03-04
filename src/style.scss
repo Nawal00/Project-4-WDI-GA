@@ -21,8 +21,11 @@ $tabs-boxed-link-active-border-color: $yellow;
 @import "~bulma/sass/grid/_all.sass";
 @import "~bulma/sass/layout/section.sass";
 
+@import url('https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700');
+
 body{
   background: #FAFAFA;
+  font-family: 'Barlow', sans-serif;
 }
 
 .home{
@@ -33,21 +36,10 @@ body{
   p:first-child  {
     color: red;
   }
-  .card-equal-height {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    }
-    img{
-      max-width: 100%;
-      max-height: 100%;
-      margin: 0 auto;
-      margin-top: auto;
-    }
-      &:hover{
-        transition: all 0.5s;
-      	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
+  &:hover{
+    transition: all 0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 }
 
 .slider-slide > img{
@@ -226,9 +218,28 @@ div.sticky {
 
 //-------Club Index page ----
 
+.clubFormDiv-1{
+  background: #F0C400;
+  margin: 5px;
+  padding: 20px;
+  select{
+    background: inherit;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid white;
+  }
+  input {
+    background: inherit;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid white;
+  }
+}
+
+
 .clubHero{
   margin: 10px 0 10px 0;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgb(0, 0, 0);
   border-radius: 4px;
 }
 
@@ -262,7 +273,7 @@ div.sticky {
   transform: scale(1.2);
 }
 
-.child::before {
+.child:before {
   content: "";
   display: none;
   height: 100%;
@@ -278,6 +289,18 @@ div.sticky {
   display: block;
 }
 
+p.club-txt {
+  display: none;
+   font-size: 35px;
+   color: #ffffff;
+   font-family: sans-serif;
+   text-align: center;
+   height: 50px;
+}
+
+.parent:hover p, .parent:focus p {
+    display: block;
+}
 //-----------Club Show ----------------
 
 .columns{

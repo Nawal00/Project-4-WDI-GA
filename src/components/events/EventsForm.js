@@ -10,6 +10,8 @@ const mapboxAutoComplete = process.env.MAP_BOX_TOKEN
 
 const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors, suggestionSelect, clubs  }) => {
   console.log(data.address)
+
+
   return (
     <div className="container">
       <div className="column is-8 is-offset-2">
@@ -88,9 +90,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                 </div>
               </div>
             </div>
-
-
-
 
 
             <div className="field is-horizontal">
@@ -190,13 +189,14 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                 <div className="field-label is-normal">
                   <label className="label">Club</label>
                 </div>
+
                 <div className="select is-fullwidth">
                   <select
                     name="club"
                     defaultValue="Please Choose..."
                     onChange={handleClubChange}
-                    className="input is-info"
                     value={`${data.club.id},${data.club.name}`}
+                    className="input is-info"
                   >
                     <option disabled>Please Choose...</option>
                     {clubs.map((club, i) =>

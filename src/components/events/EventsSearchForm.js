@@ -33,7 +33,11 @@ const EventsForm = ({ handleChange }) => {
           <div className="control">
             <label className="label"> <strong className="has-text-white"> Search By City </strong> </label>
             <form>
-              <input name="location" type="text" placeholder="Location" onChange={handleChange} />
+              <input
+                name="location"
+                type="text"
+                placeholder="Location"
+                onChange={handleChange} />
             </form>
           </div>
         </div>

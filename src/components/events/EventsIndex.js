@@ -12,8 +12,7 @@ class EventsIndex extends React.Component {
     this.state = {
       events: [],
       category: 'All',
-      location: '',
-      date: ''
+      location: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -67,7 +66,7 @@ class EventsIndex extends React.Component {
             <div className="container">
               <div className="columns is-multiline">
                 {this.filteredEvents().map(event =>
-                  <div key={event.id} className="column is-4">
+                  <div key={event.id} className="column is-one-third">
                     <EventCard {...event} />
                   </div>
                 )}

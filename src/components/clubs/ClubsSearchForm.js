@@ -3,30 +3,44 @@ import React from 'react'
 const ClubsForm = ({ handleChange }) => {
 
   return (
-    <div className="field">
-      <div className="control">
-        <label className="label is-searchform"> <strong> Explore by category </strong> </label>
-        <div className="select is-rounded ">
-          <select
-            name="category"
-            onChange={handleChange}
-          >
-            <option> All </option>
-            <option> Mums Club </option>
-            <option> Sports Club </option>
-            <option> Music Club </option>
-            <option> Photography Club </option>
-          </select>
-        </div>
+    <div className="columns">
+
+      <div className="column is-3 clubFormDiv-1 is-offset-3 ">
         <div className="field">
-          <div className="control is-flex">
-            <label className="label is-searchform"> <strong> Search By City </strong> </label>
+          <div className="control">
+            <label className="label"> <strong className="has-text-white">  Explore by category </strong> </label>
+
+            <select
+              className="select"
+              name="category"
+              onChange={handleChange}
+            >
+              <option> All </option>
+              <option> Mums Club </option>
+              <option> Sports Club </option>
+              <option> Music Club </option>
+              <option> Photography Club </option>
+            </select>
+
+          </div>
+        </div>
+      </div>
+
+      <div className="column is-3 clubFormDiv-1 ">
+        <div className="field">
+          <div className="control">
+            <label className="label has-text-white">  Search By City </label>
             <form>
-              <input name="location" className="input searchBar is-rounded" type="text" placeholder="Location" onChange={handleChange} />
+              <input
+                name="location"
+                type="text"
+                placeholder="Location" 
+                onChange={handleChange} />
             </form>
           </div>
         </div>
       </div>
+
     </div>
   )
 }
