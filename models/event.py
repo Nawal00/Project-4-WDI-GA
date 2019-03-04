@@ -35,7 +35,7 @@ class EventSchema(ma.ModelSchema, BaseSchema):
     owner = fields.Nested('UserSchema', only=('id', 'username'))
     club = fields.Nested('ClubSchema', only=('id', 'name', 'image', 'description', 'events'))
     attendees = fields.Nested('UserSchema', only=('id', 'username'), many=True)
-    
+
 
     class Meta:
         model = Event

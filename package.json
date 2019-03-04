@@ -38,7 +38,8 @@
     "slick-carousel": "^1.8.1",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "copy-webpack-plugin": "^4.6.0"
   },
   "devDependencies": {
     "@babel/register": "^7.0.0",
