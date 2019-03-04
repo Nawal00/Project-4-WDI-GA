@@ -13,7 +13,7 @@ class ClubsNew extends React.Component {
         name: '',
         image: '',
         description: '',
-        location: '',
+        location: '.',
         lat: '',
         lng: '',
         category: ''

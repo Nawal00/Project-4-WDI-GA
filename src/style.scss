@@ -379,6 +379,8 @@ p.club-txt {
     height: 250px;
     width: 100%;
     overflow: scroll;
+    display: flex;
+    flex-direction: column-reverse;;
     >.club-message{
       margin: 30px;
       display: flex;

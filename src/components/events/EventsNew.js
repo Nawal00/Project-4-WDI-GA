@@ -16,8 +16,8 @@ class EventsNew extends React.Component {
         description: '',
         club: {},
         address: '.',
-        hours: '',
-        minutes: '',
+        hours: 'Hours',
+        minutes: 'Minutes',
         date: '',
         lat: '',
         lng: ''

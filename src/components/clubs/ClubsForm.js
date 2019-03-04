@@ -9,94 +9,119 @@ const mapbox = process.env.MAP_BOX_TOKEN
 const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
   return (
     <div className="container">
-      <div className="column is-6 is-offset-3 ">
+      <div className="column is-8 is-offset-2 ">
         <h3 className="title has-text-centered">Create A Club</h3>
         <div className="box">
           <form onSubmit={handleSubmit}>
-            <div className="field">
-              <label className="label">Name</label>
-              <div className="control">
-                <input
-                  className="input"
-                  placeholder="Name"
-                  name="name"
-                  onChange={handleChange}
-                  value={data.name || ''}
-                />
-                {errors.name && <small className="help is-danger">{errors.name}</small>}
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Name</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  <div className="control">
+                    <input
+                      className="input is-info"
+                      placeholder="Name"
+                      name="name"
+                      onChange={handleChange}
+                      value={data.name || ''}
+                    />
+                  </div>
+                  {errors.name && <small className="help is-danger">{errors.name}</small>}
+                </div>
               </div>
             </div>
-            <div className="field">
-              <label className="label">Image</label>
-              <div className="control">
-                <ReactFilestack
-                  apikey={`${fileStack}`}
-                  mode={'pick'}
-                  onSuccess={(res) => {
-                    handleChange({
-                      target: {
-                        name: 'image',
-                        value: res.filesUploaded[0].url
-                      }})
-                  }}
-                  onError={(err) => console.log(err)}
-                  buttonText={'Upload Image'}
-                  buttonClass={'button is-dark is-rounded'}
-                />
-                {data.image &&<small> Imaged Uploaded</small>}
-                <br/>
-                {errors.image && <small className="help is-danger">{errors.image}</small>}
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Image</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  <div className="control is-info">
+                    <ReactFilestack
+                      apikey={`${fileStack}`}
+                      mode={'pick'}
+                      onSuccess={(res) => {
+                        handleChange({
+                          target: {
+                            name: 'image',
+                            value: res.filesUploaded[0].url
+                          }})
+                      }}
+                      onError={(err) => console.log(err)}
+                      buttonText={data.image ? 'Image Uploaded' : 'Upload Image'}
+                      buttonClass={'button is-info'}
+                    />
+                  </div>
+                  {errors.image && <small className="help is-danger">{errors.image}</small>}
+                </div>
               </div>
             </div>
-            <div className="field">
-              <label className="label">Description</label>
-              <div className="control">
-                <input
-                  className="input"
-                  placeholder="Description"
-                  name="description"
-                  onChange={handleChange}
-                  value={data.description || ''}
-                />
-                {errors.description && <small className="help is-danger">{errors.description}</small>}
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Description</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  <div className="control">
+                    <textarea
+                      name="description"
+                      onChange={handleChange}
+                      value={data.description || ''}
+                      className="textarea input is-info"
+                      placeholder="Tell us a little bit about the club...">
+                    </textarea>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="field">
-              <label className="label">Category</label>
-              <div className="control">
-                <div className="select is-fullwidth">
-                  <select
-                    name="category"
-                    defaultValue="Please Choose..."
-                    onChange={handleChange}
-                    value={data.category}
-                  >
-                    <option disabled>Please Choose...</option>
-                    <option> Sport </option>
-                    <option> Gaming </option>
-                    <option> Mum Clubs </option>
-                    <option> Food & Drink </option>
-
-                  </select>
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Category</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  <div className="select is-fullwidth">
+                    <select
+                      name="category"
+                      defaultValue="Please Choose..."
+                      onChange={handleChange}
+                      value={data.category}
+                      className="input is-info"
+                    >
+                      <option disabled>Please Choose...</option>
+                      <option> Sports </option>
+                      <option> Photography </option>
+                      <option> Gaming </option>
+                    </select>
+                  </div>
                 </div>
                 {errors.category && <small className="help is-danger">{errors.category}</small>}
               </div>
             </div>
-            <label className="label">Location</label>
-            <div className="control">
-              <MapboxAutocomplete
-                publicKey= {mapbox}
-                inputClass="input"
-                onSuggestionSelect={suggestionSelect}
-                resetSearch={false}
-                onchange={handleChange}
-                name="location"
-                value={data.address}
-              />
-              {errors.location && <small>{errors.location}</small>}
+            <div className="field is-horizontal">
+              <div className="field-label is-normal">
+                <label className="label">Location</label>
+              </div>
+              <div className="field-body">
+                <div className="field">
+                  {data.location && (
+                    <MapboxAutocomplete
+                      publicKey= {mapbox}
+                      inputClass="input is-info"
+                      onSuggestionSelect={suggestionSelect}
+                      onchange={handleChange}
+                      name="location"
+                      query={`${data.location}`}
+                    />
+                  )}
+                </div>
+                {errors.location && <small>{errors.location}</small>}
+              </div>
             </div>
             <div>
-              <button className="button is-rounded is-medium is-fullwidth is-info">Submit</button>
+              <button className="button is-medium is-fullwidth is-info">Submit</button>
             </div>
           </form>
         </div>
