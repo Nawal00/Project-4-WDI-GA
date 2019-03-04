@@ -19,7 +19,8 @@ class EventsEdit extends React.Component {
         time: '',
         date: '',
         lat: '',
-        lng: ''
+        lng: '',
+        club: {}
       },
       errors: '',
       clubs: []

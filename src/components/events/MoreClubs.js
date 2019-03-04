@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 
-const MoreClubs = ({ id, name, time, date, eventLink }) => {
-
+const MoreClubs = ({ id, name, hours, minutes, date, eventLink }) => {
   return (
 
     <Link to={`/events/${id}`} onClick={eventLink}>
@@ -15,7 +14,7 @@ const MoreClubs = ({ id, name, time, date, eventLink }) => {
         </div>
 
         <div className="column is-2 date-icon">
-          {time}
+          {('0' + hours).slice(-2)}:{('0' + minutes).slice(-2)}
         </div>
 
         <div className="column is-3">

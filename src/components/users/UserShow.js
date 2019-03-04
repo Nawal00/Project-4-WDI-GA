@@ -184,7 +184,7 @@ class UserShow extends React.Component {
                   </div>
                 )}
                 <div className="column is-3">
-                  <Link to={'/events/new'}>
+                  <Link to={'/clubs/new'}>
                     <div className="user-club-img">
                       <figure className="image is-4by3">
                         <img src="../../assets/images/add.png" alt='add'/>

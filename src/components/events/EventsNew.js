@@ -14,9 +14,10 @@ class EventsNew extends React.Component {
         name: '',
         image: '',
         description: '',
-        club_id: '',
-        address: '',
-        time: '',
+        club: {},
+        address: '.',
+        hours: '',
+        minutes: '',
         date: '',
         lat: '',
         lng: ''
