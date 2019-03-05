@@ -21,7 +21,6 @@ class UserShow extends React.Component {
     this.handleManageToggle = this.handleManageToggle.bind(this)
   }
 
-
   componentDidMount() {
     this.userRequest()
   }
@@ -58,13 +57,12 @@ class UserShow extends React.Component {
     return (
 
       <div>
-
         <section className="section has-background-dark user-header">
           <div className="container">
             <div className="columns is-variable is-8">
               <div className="column">
-                <figure className="image">
-                  <img className="image-cropper profile-pic" src={this.state.user.image ==='' ?  '/assets/images/BeeLogo.png' : this.state.user.image}  alt={this.state.user.username} />
+                <figure className="image image-cropper">
+                  <img className=" profile-pic" src={this.state.user.image ==='' ?  '/assets/images/BeeLogo.png' : this.state.user.image}  alt={this.state.user.username} />
                 </figure>
               </div>
               <div className="column is-4">
