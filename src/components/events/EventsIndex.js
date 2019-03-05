@@ -63,7 +63,7 @@ class EventsIndex extends React.Component {
         </section>
 
         <div className="box has-background-white-ter">
-          <section className="section">
+          <section className="section panels">
             <div className="container">
               <div className="columns is-multiline">
                 {this.filteredEvents().map(event =>
@@ -75,6 +75,7 @@ class EventsIndex extends React.Component {
             </div>
           </section>
         </div>
+
       </div>
     )
   }

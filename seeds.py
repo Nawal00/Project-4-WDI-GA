@@ -12,7 +12,7 @@ with app.app_context():
     Mark, errors = user_schema.load({
         'username': 'Mark',
         'email':'mark@gmail.com',
-        'image': 'nawal.png',
+        'image': '',
         'password':'password',
         'password_confirmation':'password'
     })

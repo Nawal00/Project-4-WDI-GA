@@ -14,6 +14,7 @@ class UserShow extends React.Component {
       user: null,
       currentEventsActive: true,
       manageClubActive: true
+
     }
 
     // this.handleFollow = this.handleFollow.bind(this)
@@ -55,10 +56,10 @@ class UserShow extends React.Component {
     this.setState({manageClubActive: !this.state.manageClubActive})
   }
 
-
   render(){
-    console.log('state---', this.state)
+    console.log('user state---', this.state.user)
     if(!this.state.user) return null
+
     return (
 
       <div>
@@ -66,9 +67,9 @@ class UserShow extends React.Component {
         <section className="section has-background-dark user-header">
           <div className="container">
             <div className="columns is-variable is-8">
-              <div className="column is-2">
+              <div className="column">
                 <figure className="image">
-                  <img className="image-cropper" src={this.state.user.image} alt={this.state.user.username} />
+                  <img className="image-cropper profile-pic" src={this.state.user.image ==='' ?  '/assets/images/BeeLogo.png' : this.state.user.image}  alt={this.state.user.username} />
                 </figure>
               </div>
               <div className="column is-4">
@@ -91,13 +92,13 @@ class UserShow extends React.Component {
 
         <section className="section">
           <div className="container">
-            <h4 className="title is-4 has-text-dark">Clubs</h4>
+            <h4 className="title is-4 has-text-dark">Clubs Following</h4>
             <hr/>
-            <div className="columns is-multiline">
+            <div className="columns is-variable is-1 is-multiline">
               {this.state.user.clubs_following.map(follow =>
-                <div key={follow.id} className="column event-show-col is-2">
+                <div key={follow.id} className="column is-one-fifth">
                   <Link to={`/clubs/${follow.id}`}>
-                    <div className="isImageCircle">
+                    <div className="isImage">
                       <figure className="image is-4by3">
                         <img src={follow.image} alt={follow.name}  className="clubImage"/>
                         <div className="middle">
@@ -138,7 +139,7 @@ class UserShow extends React.Component {
                 {this.state.user.events_created.map(created =>
                   <div  key={created.id} className="column is-3">
                     <Link  to={`/events/${created.id}`}>
-                      <div className="user-club-img">
+                      <div className="isImage">
                         <figure className="image is-4by3">
                           <img src={created.image} alt={created.name}/>
                           <div className="middle">
@@ -151,16 +152,12 @@ class UserShow extends React.Component {
                     </Link>
                   </div>
                 )}
-                <div className="column is-3">
+                <div className="column is-3 event-btn-div">
                   <Link to={'/events/new'}>
-                    <div className="user-club-img">
-                      <figure className="image is-4by3">
-                        <img src="/assets/images/add.png" alt='add'/>
-                        <div className="middle">
-                          <div className="text">Add +</div>
-                        </div>
-                      </figure>
+                    <div>
+                      <button className="button is-info"> <i className="fas fa-plus-circle"></i>  </button>
                     </div>
+
                   </Link>
                 </div>
               </div>
@@ -170,7 +167,7 @@ class UserShow extends React.Component {
                 {this.state.user.clubs_created.map(created =>
                   <div key={created.id} className="column is-3">
                     <Link  to={`/clubs/${created.id}`}>
-                      <div className="isImage user-club-img">
+                      <div className="isImage">
                         <figure className="image is-4by3">
                           <img src={created.image} alt={created.name}/>
                           <div className="middle">
@@ -183,16 +180,9 @@ class UserShow extends React.Component {
                     </Link>
                   </div>
                 )}
-                <div className="column is-3">
+                <div className="column is-3 club-btn-div">
                   <Link to={'/clubs/new'}>
-                    <div className="user-club-img">
-                      <figure className="image is-4by3">
-                        <img src="../../assets/images/add.png" alt='add'/>
-                        <div className="middle">
-                          <div className="text">Add +</div>
-                        </div>
-                      </figure>
-                    </div>
+                    <button className="button is-info"><i className="fas fa-plus-circle"></i> </button>
                   </Link>
                 </div>
               </div>
