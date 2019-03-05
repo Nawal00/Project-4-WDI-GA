@@ -22,7 +22,6 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
         <h3 className="title has-text-centered">Organise Event</h3>
         <div className="box">
           {errors && <div className="notification is-info">Missing Information</div>}
-
           <form onSubmit={handleSubmit}>
             <div className="field is-horizontal">
               <div className="field-label is-normal">
@@ -32,7 +31,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                 <div className="field">
                   <div className="control">
                     <input
-                      className={errors.name ? 'input is-danger' :  'input is-info'}
+                      className={errors.name ? 'input is-danger' : 'input is-info'}
                       placeholder="Name"
                       name="name"
                       onChange={handleChange}
@@ -41,8 +40,8 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                   </div>
                 </div>
               </div>
-
             </div>
+
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Image</label>
@@ -62,13 +61,13 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                       }}
                       onError={(err) => console.log(err)}
                       buttonText={data.image ? 'Image Uploaded' : 'Upload Image'}
-                      buttonClass={errors.image ? 'button is-danger' :  'button is-info'}
+                      buttonClass={errors.image ? 'button is-danger' : 'button is-info'}
                     />
                   </div>
                 </div>
-
               </div>
             </div>
+
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Description</label>
@@ -87,6 +86,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                 </div>
               </div>
             </div>
+
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Date</label>
@@ -95,7 +95,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                 <div className="field">
                   <p className="control is-expanded">
                     <input
-                      className={errors.date ? 'input is-danger' :  'input is-info'}
+                      className={errors.date ? 'input is-danger' : 'input is-info'}
                       type="date"
                       placeholder="Date"
                       name="date"
@@ -106,6 +106,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                 </div>
               </div>
             </div>
+
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Time</label>
@@ -118,7 +119,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                       defaultValue="Hours"
                       onChange={handleChange}
                       value={data.hours}
-                      className={errors.hours ? 'input is-danger' :  'input is-info'}
+                      className={errors.hours ? 'input is-danger' : 'input is-info'}
                     >
                       <option disabled>Hours</option>
                       {
@@ -128,7 +129,6 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                       }
                     </select>
                   </p>
-
                 </div>
                 <div className="field">
                   <p className="control is-expanded">
@@ -137,7 +137,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                       defaultValue="Minutes"
                       onChange={handleChange}
                       value={data.minutes}
-                      className={errors.minutes ? 'input is-danger' :  'input is-info'}
+                      className={errors.minutes ? 'input is-danger' : 'input is-info'}
                     >
                       <option disabled>Minutes</option>
                       {
@@ -151,7 +151,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                 <div className="field">
                   <p className="control is-expanded">
                     <input
-                      className={errors.duration ? 'input is-danger' :  'input is-info'}
+                      className={errors.duration ? 'input is-danger' : 'input is-info'}
                       type="number"
                       placeholder="Duration"
                       step="10"
@@ -161,10 +161,10 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                       value={data.duration || ''}
                     />
                   </p>
-
                 </div>
               </div>
             </div>
+
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Category</label>
@@ -177,7 +177,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                       defaultValue="Please Choose..."
                       onChange={handleChange}
                       value={data.category}
-                      className={errors.category ? 'input is-danger' :  'input is-info'}
+                      className={errors.category ? 'input is-danger' : 'input is-info'}
                     >
                       <option disabled>Please Choose...</option>
                       <option> Sports </option>
@@ -185,7 +185,6 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                       <option> Gaming </option>
                     </select>
                   </div>
-
                 </div>
                 <div className="field-label is-normal">
                   <label className="label">Club</label>
@@ -196,7 +195,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                     defaultValue="Please Choose..."
                     onChange={handleClubChange}
                     value={`${data.club.id},${data.club.name}`}
-                    className={errors.club ? 'input is-danger' :  'input is-info'}
+                    className={errors.club ? 'input is-danger' : 'input is-info'}
                   >
                     <option disabled>Please Choose...</option>
                     {clubs.map((club, i) =>
@@ -204,10 +203,9 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                     )}
                   </select>
                 </div>
-
               </div>
-
             </div>
+
             <div className="field is-horizontal">
               <div className="field-label is-normal">
                 <label className="label">Max Attendees</label>
@@ -216,7 +214,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                 <div className="field">
                   <p className="control is-expanded">
                     <input
-                      className={errors.max_attendees ? 'input is-danger' :  'input is-info'}
+                      className={errors.max_attendees ? 'input is-danger' : 'input is-info'}
                       type="number"
                       placeholder="Max Attendees"
                       name="max_attendees"
@@ -237,7 +235,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                   {(data.address || newform) && (
                     <MapboxAutocomplete
                       publicKey= {mapboxAutoComplete}
-                      inputClass={errors.lat ? 'input is-danger' :  'input is-info'}
+                      inputClass={errors.lat ? 'input is-danger' : 'input is-info'}
                       onSuggestionSelect={suggestionSelect}
                       onchange={handleChange}
                       name="address"
@@ -247,11 +245,16 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                 </div>
               </div>
             </div>
+
             <div>
+
               <button className="button is-medium is-fullwidth is-dark">
-                <span className="icon is-medium is-white"> <img src="/assets/images/BeeLogo.png"/> </span>
+                <span className="icon is-medium is-white">
+                  <img src="/assets/images/BeeLogo.png"/>
+                </span>
                 Submit
               </button>
+
             </div>
           </form>
         </div>
