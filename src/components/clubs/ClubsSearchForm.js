@@ -16,17 +16,18 @@ const ClubsForm = ({ handleChange }) => {
               onChange={handleChange}
             >
               <option> All </option>
-              <option> Mums Club </option>
-              <option> Sports Club </option>
-              <option> Music Club </option>
-              <option> Photography Club </option>
+              <option> Mums </option>
+              <option> Sports </option>
+              <option> Music </option>
+              <option> Computer Games </option>
+              <option> Photography </option>
             </select>
 
           </div>
         </div>
       </div>
 
-      <div className="column is-3 clubFormDiv-1 ">
+      <div className="column is-3 clubFormDiv-1">
         <div className="field">
           <div className="control">
             <label className="label has-text-white">  Search By City </label>
@@ -34,7 +35,7 @@ const ClubsForm = ({ handleChange }) => {
               <input
                 name="location"
                 type="text"
-                placeholder="Location" 
+                placeholder="Location"
                 onChange={handleChange} />
             </form>
           </div>

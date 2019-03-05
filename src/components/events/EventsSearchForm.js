@@ -4,8 +4,9 @@ const EventsForm = ({ handleChange }) => {
 
   return (
 
-    <div className="columns is-multiline">
-      <div className="column is-3 eventFormDiv-1">
+    <div className="columns">
+
+      <div className="column is-3 clubFormDiv-1 is-offset-3">
         <div className="field">
           <div className="control">
 
@@ -28,7 +29,7 @@ const EventsForm = ({ handleChange }) => {
         </div>
       </div>
 
-      <div className="column is-3 eventFormDiv-2">
+      <div className="column is-3 clubFormDiv-1">
         <div className="field">
           <div className="control">
             <label className="label"> <strong className="has-text-white"> Search By City </strong> </label>

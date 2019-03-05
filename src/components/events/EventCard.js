@@ -21,17 +21,19 @@ const EventCard = ({ id, name, image, address, date, hours, minutes }) => {
               </div>
             </div>
 
-            <div className="media-right">
-              <div className="media-content">
+
+            <div className="content">
+              <div className="media-right">
                 <h6><strong>{name}</strong></h6>
-                <p className="index-span">{moment(date).format('ddd, MMMM D')}</p>
-                <p className="index-span"> at {('0' + hours).slice(-2)}:{('0' + minutes).slice(-2)}</p>
+                <span className="index-span">{moment(date).format('ddd, MMMM D')}</span>
+                <span className="index-span"> at {('0' + hours).slice(-2)}:{('0' + minutes).slice(-2)}</span>
                 <p className="index-span-p">{address}</p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
 
     </Link>
   )

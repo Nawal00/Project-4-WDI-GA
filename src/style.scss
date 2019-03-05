@@ -46,54 +46,6 @@ body{
   height: 450px;
 }
 
-.eventFormDiv-1{
-  background: #F0C400;
-  padding: 20px;
-  z-index:1;
-  top:-20px;
-  left:24%;
-  position: absolute;
-  select {
-    background: inherit;
-    border: 0px;
-    outline: none;
-    color: white;
-    border-bottom: 1px solid white;
-  }
-}
-
-.eventFormDiv-2{
-  background: #F0C400;
-  padding: 20px;
-  top:-20px;
-  left:50%;
-  position: absolute;
-  z-index:1;
-  input{
-    background: inherit;
-    border: 0px;
-    outline: none;
-    color: white;
-    border-bottom: 1px solid white;
-  }
-}
-
-// .eventFormDiv-3{
-//   background: #1E0A3C;
-//   padding: 20px;
-//   // top:-20px;
-//   // left:50%;
-//   // position: absolute;
-//   // z-index:1;
-//   input{
-//     background: red;
-//     border: 0px;
-//     outline: none;
-//     color: white;
-//     border-bottom: 1px solid red;
-//   }
-// }
-
 //----- Eventshow page -----
 
 .is-horizontal-center {
@@ -322,8 +274,14 @@ p.club-txt {
 }
 
 .clubBox{
-  margin-top: 30px;
+  margin: auto;
+  padding: 0;
+  background: #F5F5F5;
 }
+
+.club-col {
+   margin: 4px 60px;
+ }
 
 .column{
   .event-card{

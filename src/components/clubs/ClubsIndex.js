@@ -29,7 +29,7 @@ class ClubsIndex extends React.Component {
     const re = new RegExp(this.state.location, 'i')
     if(!this.state.category && !this.state.location) return this.state.clubs
     return this.state.clubs.filter(club => {
-      return re.test(club.address) && (this.state.category === 'All' || club.category === this.state.category)
+      return re.test(club.location) && (this.state.category === 'All' || club.category === this.state.category)
     })
   }
 
