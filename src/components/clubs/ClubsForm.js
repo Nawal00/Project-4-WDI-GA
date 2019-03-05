@@ -120,7 +120,7 @@ const EventsForm = ({ data, newform,  handleChange, handleSubmit, errors, sugges
               </div>
             </div>
             <div>
-              <button className="button is-medium is-fullwidth is-info">Submit</button>
+              <button className="button is-medium is-fullwidth is-dark">Submit</button>
             </div>
           </form>
         </div>

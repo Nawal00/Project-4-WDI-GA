@@ -180,6 +180,9 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
                       className={errors.category ? 'input is-danger' : 'input is-info'}
                     >
                       <option disabled>Please Choose...</option>
+                      <option> Board Games </option>
+                      <option> Food & Drink </option>
+                      <option> Mums </option>
                       <option> Sports </option>
                       <option> Photography </option>
                       <option> Gaming </option>
@@ -249,9 +252,7 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
             <div>
 
               <button className="button is-medium is-fullwidth is-dark">
-                <span className="icon is-medium is-white">
-                  <img src="/assets/images/BeeLogo.png"/>
-                </span>
+
                 Submit
               </button>
 

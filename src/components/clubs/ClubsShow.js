@@ -116,7 +116,7 @@ class ClubsShow extends React.Component {
                 {followed_by.map((follower) => {
                   return <Link to={`/users/${follower.id}`}key={follower.id}>
                     <div className="image-cropper">
-                      <img src="../../assets/images/BeeLogo.png" alt="avatar" className="profile-pic"/>
+                      <img src={follower.image === '' ?  '/assets/images/BeeLogo.png' : follower.image} alt="avatar"/>
                     </div>
                   </Link>
                 })}
