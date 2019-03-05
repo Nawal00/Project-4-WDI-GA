@@ -49,7 +49,7 @@ class ClubsIndex extends React.Component {
       <section className="section">
         <div className="container">
           <section className="section">
-            <h2 className="title has-text-centered is-title-light is-size-2">The Clubs</h2>
+            <h2 className="title has-text-centered is-title-light is-size-2">Clubs</h2>
           </section>
           <hr />
           <ClubsSearchForm handleChange={this.handleChange} />

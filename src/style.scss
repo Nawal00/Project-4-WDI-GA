@@ -227,6 +227,7 @@ div.sticky {
     border: none;
     outline: none;
     border-bottom: 1px solid white;
+    color: grey;
   }
   input {
     background: inherit;
@@ -516,4 +517,9 @@ p.club-txt {
 .user-club-img{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 0.5rem;
+}
+
+.small-icon{
+  max-width: auto;
+  max-height: 35px;
 }
