@@ -6,6 +6,7 @@ import Map from '../common/Map'
 import MoreClubs from './MoreClubs'
 import Auth from '../../lib/Auth'
 import {Link} from 'react-router-dom'
+import WeatherIcon from 'react-icons-weather'
 
 class EventsShow extends React.Component {
   constructor(){
