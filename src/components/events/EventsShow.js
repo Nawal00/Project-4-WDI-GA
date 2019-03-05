@@ -51,6 +51,15 @@ class EventsShow extends React.Component {
     }
   }
 
+  getIconClass(icon) {
+    const className = icon.replace('partly-', '')
+      .split('-')
+      .reverse()
+      .join('-')
+
+    return `wi wi-${className} is-size-1`
+  }
+
 
   eventLink(){
     axios.get(`/api/events/${this.props.match.params.id}`)
@@ -69,7 +78,7 @@ class EventsShow extends React.Component {
     console.log(this.state.event)
     if(!this.state.event) return null
     console.log(this.state)
-    const { id, name, owner, date, image, duration, description, lat, lng, hours, minutes, attendees, max_attendees, travelTime, club } = this.state.event
+    const { id, name, owner, date, image, duration, description, lat, lng, hours, minutes, attendees, max_attendees, travelTime, club, weather } = this.state.event
     return (
       <div className="container">
         <div className="box">
@@ -91,7 +100,13 @@ class EventsShow extends React.Component {
                   <div>
                     <button className="button dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.userLocation.lat},${this.state.userLocation.lng}&endcoord=${lat},${lng}`} target="blank"> Launch in City Mapper</a></button>
                     <button className="button dir-btn is-outlined is-info"><a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.userLocation.lat},${this.state.userLocation.lng}&destination=${lat},${lng}`} target="blank"> Launch in Google Maps</a></button>
+                    {weather && (
+                      <p> Weather:
+                        <i className={this.getIconClass(weather)}></i>
+                      </p>
+                    )}
                   </div>
+
                 )}
 
                 {Auth.isAuthenticated() && Auth.isOwner(owner.id) && (

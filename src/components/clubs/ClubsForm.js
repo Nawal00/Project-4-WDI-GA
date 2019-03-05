@@ -6,7 +6,7 @@ const fileStack = process.env.FILESTACK_API_KEY
 const mapbox = process.env.MAP_BOX_TOKEN
 
 
-const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
+const EventsForm = ({ data, newform,  handleChange, handleSubmit, errors, suggestionSelect }) => {
   return (
     <div className="container">
       <div className="column is-8 is-offset-2 ">
@@ -106,7 +106,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect
               </div>
               <div className="field-body">
                 <div className="field">
-                  {data.location && (
+                  {(data.location || newform ) && (
                     <MapboxAutocomplete
                       publicKey= {mapbox}
                       inputClass="input is-info"
