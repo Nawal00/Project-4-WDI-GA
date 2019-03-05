@@ -24,7 +24,7 @@ with app.app_context():
     Wendy, errors = user_schema.load({
         'username': 'Wendy',
         'email':'wendy@gmail.com',
-        'image': 'wendy.png',
+        'image': '',
         'password':'password',
         'password_confirmation':'password'
     })
@@ -36,7 +36,7 @@ with app.app_context():
     Dwight, errors = user_schema.load({
         'username': 'Dwight',
         'email':'Dwight@gmail.com',
-        'image': 'Dwight.png',
+        'image': '',
         'password':'password',
         'password_confirmation':'password'
     })
@@ -60,7 +60,7 @@ with app.app_context():
     Jody, errors = user_schema.load({
         'username': 'Jody',
         'email':'jody@gmail.com',
-        'image': 'jody.png',
+        'image': '',
         'password':'password',
         'password_confirmation':'password'
     })
@@ -72,7 +72,7 @@ with app.app_context():
     Ed, errors = user_schema.load({
         'username': 'Ed',
         'email':'ed@gmail.com',
-        'image': 'ed.png',
+        'image': '',
         'password':'password',
         'password_confirmation':'password'
     })
