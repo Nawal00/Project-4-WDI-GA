@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import moment from 'moment'
 import EventCard from './EventCard'
 import EventsSearchForm from './EventsSearchForm'
 import EventsShow from './EventsShow'
@@ -32,7 +33,7 @@ class EventsIndex extends React.Component {
     const re = new RegExp(this.state.location, 'i')
     if(!this.state.category && !this.state.location) return this.state.events
     return this.state.events.filter(event => {
-      return re.test(event.address) && (this.state.category === 'All' || event.category === this.state.category)
+      return re.test(event.address) && (moment(event.date) > new Date()) && (this.state.category === 'All' || event.category === this.state.category)
     })
   }
 
