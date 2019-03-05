@@ -13,7 +13,7 @@ class ClubsNew extends React.Component {
         name: '',
         image: '',
         description: '',
-        location: '.',
+        location: '',
         lat: '',
         lng: '',
         category: ''
@@ -60,6 +60,7 @@ class ClubsNew extends React.Component {
       <div className="section">
         <ClubsForm
           data={this.state.data}
+          newform={true}
           errors={this.state.errors}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}

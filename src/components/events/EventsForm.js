@@ -5,7 +5,7 @@ import ReactFilestack from 'react-filestack'
 const fileStack = process.env.FILESTACK_API_KEY
 const mapboxAutoComplete = process.env.MAP_BOX_TOKEN
 
-const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors, suggestionSelect, clubs  }) => {
+const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChange, errors, suggestionSelect, clubs  }) => {
   // creating  elements for time hours and minutes dropdowns
   let hours = []
   let minutes = []
@@ -224,7 +224,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
               </div>
               <div className="field-body">
                 <div className="field">
-                  {data.address && (
+                  {(data.address || newform) && (
                     <MapboxAutocomplete
                       publicKey= {mapboxAutoComplete}
                       inputClass="input is-info"

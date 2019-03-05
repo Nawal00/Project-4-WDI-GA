@@ -15,7 +15,7 @@ class EventsNew extends React.Component {
         image: '',
         description: '',
         club: {},
-        address: '.',
+        address: '',
         hours: 'Hours',
         minutes: 'Minutes',
         date: '',
@@ -95,6 +95,7 @@ class EventsNew extends React.Component {
           data={this.state.data}
           clubs={this.state.clubs}
           errors={this.state.errors}
+          newform={true}
           handleChange={this.handleChange}
           handleClubChange={this.handleClubChange}
           handleSubmit={this.handleSubmit}
