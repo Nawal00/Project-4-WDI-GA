@@ -125,13 +125,11 @@ class EventsShow extends React.Component {
             <div className="columns sticky is-centered">
               <div className="column is-4 has-text-centered">
                 {Auth.isAuthenticated() && !Auth.isAttending(attendees) && (
-                  <button className="button is-fullwidth is-info" onClick={this.handleAttendee}> Attend
-                    <span className="icon is-medium"><img src="/assets/images/BeeLogo.png"/> </span>
+                  <button className="button is-fullwidth is-outlined is-info" onClick={this.handleAttendee}> Attend
                   </button>
                 )}
                 {Auth.isAuthenticated() && Auth.isAttending(attendees) && (
                   <button className="button is-fullwidth is-info"> Attending
-                    <span className="icon is-medium"><img src="/assets/images/BeeLogo.png"/> </span>
                   </button>
                 )}
               </div>

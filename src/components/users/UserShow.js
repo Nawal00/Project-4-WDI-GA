@@ -17,15 +17,9 @@ class UserShow extends React.Component {
 
     }
 
-    // this.handleFollow = this.handleFollow.bind(this)
     this.handleToggle = this.handleToggle.bind(this)
     this.handleManageToggle = this.handleManageToggle.bind(this)
   }
-
-  // handleFollow(){
-  //   axios.post(`/api/user/${this.props.match.params.id}/follow/${Auth.getUserId()}`)
-  //     .then(res => this.setState({ user: res.data }))
-  // }
 
   componentDidMount() {
     this.userRequest()
@@ -63,13 +57,12 @@ class UserShow extends React.Component {
     return (
 
       <div>
-
         <section className="section has-background-dark user-header">
           <div className="container">
             <div className="columns is-variable is-8">
               <div className="column">
-                <figure className="image">
-                  <img className="image-cropper profile-pic" src={this.state.user.image ==='' ?  '/assets/images/BeeLogo.png' : this.state.user.image}  alt={this.state.user.username} />
+                <figure className="image image-cropper">
+                  <img className=" profile-pic" src={this.state.user.image ==='' ?  '/assets/images/BeeLogo.png' : this.state.user.image}  alt={this.state.user.username} />
                 </figure>
               </div>
               <div className="column is-4">
@@ -121,13 +114,11 @@ class UserShow extends React.Component {
               <ul>
                 <li className={this.state.manageClubActive ? 'is-active': ''} onClick={this.handleManageToggle}>
                   <a>
-                    <span className="icon is-small"><i className="fas fa-image" aria-hidden="true"></i></span>
                     <span>Events</span>
                   </a>
                 </li>
                 <li className={this.state.manageClubActive ? '' : 'is-active'}  onClick={this.handleManageToggle}>
                   <a>
-                    <span className="icon is-small"><i className="fas fa-music" aria-hidden="true"></i></span>
                     <span>Clubs</span>
                   </a>
                 </li>

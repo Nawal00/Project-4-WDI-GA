@@ -47,54 +47,6 @@ body{
 
 }
 
-.eventFormDiv-1{
-  background: #F0C400;
-  padding: 20px;
-  z-index:1;
-  top:-20px;
-  left:24%;
-  position: absolute;
-  select {
-    background: inherit;
-    border: 0px;
-    outline: none;
-    color: white;
-    border-bottom: 1px solid white;
-  }
-}
-
-.eventFormDiv-2{
-  background: #F0C400;
-  padding: 20px;
-  top:-20px;
-  left:50%;
-  position: absolute;
-  z-index:1;
-  input{
-    background: inherit;
-    border: 0px;
-    outline: none;
-    color: white;
-    border-bottom: 1px solid white;
-  }
-}
-
-// .eventFormDiv-3{
-//   background: #1E0A3C;
-//   padding: 20px;
-//   // top:-20px;
-//   // left:50%;
-//   // position: absolute;
-//   // z-index:1;
-//   input{
-//     background: red;
-//     border: 0px;
-//     outline: none;
-//     color: white;
-//     border-bottom: 1px solid red;
-//   }
-// }
-
 //----- Eventshow page -----
 
 .is-horizontal-center {
@@ -325,11 +277,11 @@ p.club-txt {
 .clubBox{
   margin: auto;
   padding: 0;
-  background: #EEEEEE;
+  background: #F5F5F5;
 }
 
 .club-col {
-   margin: 4px 50px;
+   margin: 4px 60px;
  }
 
 .column{
@@ -338,9 +290,10 @@ p.club-txt {
   }
 }
 
-.image-cropper, .profile-pic  {
-    width: 50px;
-    height: 50px;
+
+.image-cropper {
+    width: 100px;
+    height: 100px;
     margin: auto;
     position: relative;
     overflow: hidden;
@@ -350,7 +303,7 @@ p.club-txt {
       display: inline;
       margin: 0 auto;
       height: 100%;
-      max-width: 50%;
+      width: auto;
     }
 }
 
@@ -381,7 +334,7 @@ p.club-txt {
   width: 50%;
   height: 300px;
   border: $yellow solid 2px;
-  // margin: auto;
+  margin: auto;
   .messages-show{
     height: 250px;
     width: 100%;
@@ -418,8 +371,13 @@ p.club-txt {
     }
   }
 
+  .message-area{
+
+
+  }
   .messages-input{
     height: 50px;
+    background-color: $yellow;
     margin-bottom:0;
     display: flex;
     align-items:center;
@@ -431,10 +389,8 @@ p.club-txt {
       input{
         flex-grow: 1;
         border-radius: 15px;
-        border: 1px solid #EEEEEE;
+        border: none;
         margin: 2px;
-        outline: none;
-        padding: 0.4rem;
       }
       button{
         flex-grow: 0;
@@ -450,12 +406,6 @@ p.club-txt {
 .eventColum, .event-show-col, .user-events {
   margin-left: 15px;
 }
-
-.event-btn-div, .club-btn-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
- }
 
 .isImageCircle {
   text-align: center;
@@ -485,43 +435,33 @@ p.club-txt {
   }
 }
 
-.isImage {
-  text-align: center;
-  max-height: 400px;
-  margin: 10px;
-  transition: all .2s ease-in-out;
-  .image img{
-     height: 100%;
-     width: 100%;
-    }
-  &:hover {
-    box-shadow: 0 4px 5px 0 rgba(0,0,0, 0.3);
-    margin: 5px;
-  }
-}
-
 .middle {
   transition: .5s ease;
   opacity: 0;
   position: absolute;
   top: 50%;
   left: 50%;
-  max-width: 100%;
+  width: 100%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   text-align: center;
-  margin: 5px;
-  background: rgba(0,0,0, 0.3);
 }
 
 .text {
   color: white;
   font-weight: 300px;
-
+  padding: 10% 10%;
 }
 
-.isImage:hover .clubImage {
+.isImageCircle:hover .clubImage {
+  opacity: 0.3;
+}
+
+.isImageCircle:hover .middle {
   opacity: 1;
+}
+.isImage:hover .clubImage {
+  opacity: 0.3;
 }
 
 .isImage:hover .middle {

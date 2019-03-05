@@ -32,7 +32,7 @@ class ClubSchema(ma.ModelSchema, BaseSchema):
         only=('id', 'name', 'date', 'hours', 'minutes', 'attendees', 'max_attendees'),
         many=True
         )
-    followed_by = fields.Nested('UserSchema', only=('id', 'username'), many=True)
+    followed_by = fields.Nested('UserSchema', only=('id', 'username', 'image'), many=True)
 
     class Meta:
         model = Club

@@ -16,11 +16,12 @@ const ClubsForm = ({ handleChange }) => {
               onChange={handleChange}
             >
               <option> All </option>
+              <option> Board Games </option>
+              <option> Food & Drink </option>
               <option> Mums </option>
               <option> Sports </option>
-              <option> Music </option>
-              <option> Computer Games </option>
               <option> Photography </option>
+              <option> Gaming </option>
             </select>
 
           </div>
