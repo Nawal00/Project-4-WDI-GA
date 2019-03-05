@@ -167,7 +167,7 @@ with app.app_context():
         location='Shoreditch',
         lat=51.515617,
         lng=-0.070839,
-        description='Computers games club for those in and around Croydon',
+        description=' Five-a-side football at Shoreditch',
         category='Sports'
     )
     east_london_five.save()
@@ -184,6 +184,32 @@ with app.app_context():
         category='Sports'
     )
     football.save()
+
+    board_games = Club(
+        name='Board Game Club',
+        image='https://tinyurl.com/y2vmkz7d',
+        owner=Nawal,
+        followed_by=[Ed, Nawal],
+        location='Hammersmith, London',
+        lat=51.4927027,
+        lng=-0.2558098,
+        description='Monthly Meeting',
+        category='Board Games'
+    )
+    board_games.save()
+
+    food_club = Club(
+        name='Food Club',
+        image='https://tinyurl.com/y3jhtfs2',
+        owner=Ed,
+        followed_by=[Ed, Nawal, Mark],
+        location='Illford, London',
+        lat=51.5786412,
+        lng=0.0146417,
+        description='Monthly italian food prep',
+        category='Food & Drink'
+    )
+    food_club.save()
 
     club_comment_1 = ClubComment(
         content='Has anyone can any ideas for the next group meeting?',
@@ -266,8 +292,8 @@ with app.app_context():
     badminton_doubles.save()
 
     greenwich_photo_tour = Event(
-        name='Greenwich Photography Trip',
-        image='https://images.unsplash.com/photo-1510265236892-329bfd7de7a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
+        name='Greenwich Photography Event',
+        image='https://tinyurl.com/y5cd2kbz',
         owner=Nawal,
         max_attendees=6,
         date='2019-03-15',
@@ -343,7 +369,7 @@ with app.app_context():
 
     champions_chess = Event(
         name='Champions Chess Tournement',
-        image='https://images.unsplash.com/photo-1505461296292-7d67beed10a2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80g',
+        image='https://tinyurl.com/y5m9pvd8',
         owner=Nawal,
         max_attendees=6,
         date='2019-03-20',
@@ -362,7 +388,7 @@ with app.app_context():
 
     richmond_park = Event(
         name='March Richmond Park Walk',
-        image='https://images.unsplash.com/photo-1514218802252-3112865be60d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1933&q=80',
+        image='https://tinyurl.com/y3r8k2e7',
         owner=Nawal,
         max_attendees=6,
         date='2019-03-15',
@@ -375,7 +401,7 @@ with app.app_context():
         lng=-0.2779614,
         description='Great walk around Richmond Park',
         category='Sports',
-        address='58 The Drive, Greenwich'
+        address='58 The Drive, Richmond'
     )
     richmond_park.save()
 
@@ -383,7 +409,7 @@ with app.app_context():
         name='Mums BreakFast Stoke On Trent',
         image='http://tinyurl.com/y6ayg466',
         owner=Wendy,
-        max_attendees=6,
+        max_attendees=20,
         date='2019-05-30',
         hours=10,
         minutes=00,
@@ -397,3 +423,60 @@ with app.app_context():
         address='4 City Rd, Stoke-on-Trent'
     )
     mums_breakfast.save()
+
+    go_board = Event(
+        name='Mums BreakFast Stoke On Trent',
+        image='http://tinyurl.com/y6ayg466',
+        owner=Wendy,
+        max_attendees=10,
+        date='2019-04-20',
+        hours=14,
+        minutes=00,
+        duration=60,
+        club=board_games,
+        attendees=[Wendy, Dwight, Mark],
+        lat=51.4927027,
+        lng=-0.2558098,
+        description='Play various board games with a prize to win',
+        category='Board Games',
+        address='22-26 Hammersmith Broadway'
+    )
+    go_board.save()
+
+    monopoly_board = Event(
+        name='Monopoly',
+        image='https://images-na.ssl-images-amazon.com/images/I/915NTWZUtjL._SL1500_.jpg',
+        owner=Wendy,
+        max_attendees=5,
+        date='2019-04-21',
+        hours=15,
+        minutes=00,
+        duration=60,
+        club=board_games,
+        attendees=[Wendy, Dwight, Mark, Ed],
+        lat=51.4927027,
+        lng=-0.2558098,
+        description='If you enjoy monopoly then play with us with a prize to win',
+        category='Board Games',
+        address='1 Hammersmith Broadway'
+    )
+    monopoly_board.save()
+
+    pasta_day = Event(
+        name='Pasta Cooking Session',
+        image='https://tinyurl.com/yxd6b62b',
+        owner=Ed,
+        max_attendees=10,
+        date='2019-05-10',
+        hours=18,
+        minutes=00,
+        duration=30,
+        club=food_club,
+        attendees=[Wendy, Dwight, Mark, Ed, Nawal],
+        lat=51.5576056,
+        lng=0.0715469,
+        description='Learn home cooked itlian food',
+        category='Food & Drinks',
+        address='1 Illford Broadway'
+    )
+    pasta_day.save()
