@@ -1,15 +1,12 @@
 import React from 'react'
 import MapboxAutocomplete from 'react-mapbox-autocomplete'
 import ReactFilestack from 'react-filestack'
-import Auth from '../../lib/Auth'
 
 const fileStack = process.env.FILESTACK_API_KEY
 const mapboxAutoComplete = process.env.MAP_BOX_TOKEN
 
-// name, image, category, date, time, duration, lat, lng, description, max attendees, clubs(owners)
-
 const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors, suggestionSelect, clubs  }) => {
-  console.log(data.address)
+  // creating  elements for time hours and minutes dropdowns
   let hours = []
   let minutes = []
   for (let i=0; i<=23; i++){
@@ -40,7 +37,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                       value={data.name || ''}
                     />
                   </div>
-                  {errors.name && <small className="help is-danger">{errors.name}</small>}
                 </div>
               </div>
             </div>
@@ -66,7 +62,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                       buttonClass={'button is-info'}
                     />
                   </div>
-                  {errors.image && <small className="help is-danger">{errors.image}</small>}
                 </div>
               </div>
             </div>
@@ -94,7 +89,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
               </div>
               <div className="field-body">
                 <div className="field">
-                  <p className="control is-expanded has-icons-left">
+                  <p className="control is-expanded">
                     <input
                       className="input is-info"
                       type="date"
@@ -105,7 +100,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                     />
                   </p>
                 </div>
-                {errors.date && <small className="help is-danger">{errors.date}</small>}
               </div>
             </div>
             <div className="field is-horizontal">
@@ -115,8 +109,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
               <div className="field-body">
                 <div className="field">
                   <p className="control is-expanded">
-
-
                     <select
                       name="hours"
                       defaultValue="Hours"
@@ -127,18 +119,14 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                       <option disabled>Hours</option>
                       {
                         hours.map((hour, i) => {
-                          return (<option key={i} value={hour} >{hour}</option>)
+                          return (<option key={i} value={hour} >{('0' + hour).slice(-2)}</option>)
                         })
                       }
                     </select>
                   </p>
                 </div>
-                {errors.hours && <small className="help is-danger">{errors.hours}</small>}
-
                 <div className="field">
                   <p className="control is-expanded">
-
-
                     <select
                       name="minutes"
                       defaultValue="Minutes"
@@ -149,27 +137,26 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                       <option disabled>Minutes</option>
                       {
                         minutes.map((minute, i) => {
-                          return (<option key={i} value={minute} >{minute}</option>)
+                          return (<option key={i} value={minute} >{('0' + minute).slice(-2)}</option>)
                         })
                       }
                     </select>
                   </p>
                 </div>
-                {errors.minutes && <small className="help is-danger">{errors.minutes}</small>}
-
                 <div className="field">
-                  <p className="control is-expanded has-icons-left has-icons-right">
+                  <p className="control is-expanded">
                     <input
                       className="input is-info"
                       type="number"
                       placeholder="Duration"
+                      step="10"
+                      min="0"
                       name="duration"
                       onChange={handleChange}
                       value={data.duration || ''}
                     />
                   </p>
                 </div>
-                {errors.duration && <small className="help is-danger">{errors.duration}</small>}
               </div>
             </div>
             <div className="field is-horizontal">
@@ -194,11 +181,9 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                     </select>
                   </div>
                 </div>
-                {errors.category && <small className="help is-danger">{errors.category}</small>}
                 <div className="field-label is-normal">
                   <label className="label">Club</label>
                 </div>
-
                 <div className="select is-fullwidth">
                   <select
                     name="club"
@@ -212,7 +197,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                     )}
                   </select>
                 </div>
-                {errors.club && <small className="help is-danger">{errors.club}</small>}
               </div>
             </div>
             <div className="field is-horizontal">
@@ -221,7 +205,7 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
               </div>
               <div className="field-body">
                 <div className="field">
-                  <p className="control is-expanded has-icons-left">
+                  <p className="control is-expanded">
                     <input
                       className="input is-info"
                       type="number"
@@ -232,7 +216,6 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                     />
                   </p>
                 </div>
-                {errors.max_attendees && <small className="help is-danger">{errors.max_attendees}</small>}
               </div>
             </div>
             <div className="field is-horizontal">
@@ -247,16 +230,18 @@ const EventsForm = ({ data, handleChange, handleSubmit, handleClubChange, errors
                       inputClass="input is-info"
                       onSuggestionSelect={suggestionSelect}
                       onchange={handleChange}
-                      name="location"
+                      name="address"
                       query={`${data.address}`}
                     />
                   )}
                 </div>
-                {errors.address && <small>{errors.address}</small>}
               </div>
             </div>
             <div>
-              <button className="button is-medium is-fullwidth is-info">Submit</button>
+              <button className="button is-medium is-fullwidth is-dark">
+                <span className="icon is-medium is-white"> <img src="/assets/images/BeeLogo.png"/> </span>
+                Submit
+              </button>
             </div>
           </form>
         </div>
