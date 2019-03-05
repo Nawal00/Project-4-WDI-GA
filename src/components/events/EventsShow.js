@@ -57,7 +57,12 @@ class EventsShow extends React.Component {
       .split('-')
       .reverse()
       .join('-')
-
+    if(className === 'day-clear') {
+      return 'wi wi-day-sunny is-size-3'
+    }
+    if(className === 'wind') {
+      return 'wi wi-day-windy is-size-3'
+    }
     return `wi wi-${className} is-size-3`
   }
 
