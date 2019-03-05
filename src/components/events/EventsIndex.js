@@ -5,6 +5,7 @@ import EventCard from './EventCard'
 import EventsSearchForm from './EventsSearchForm'
 import EventsShow from './EventsShow'
 import Carousels from './Carousel'
+import LoadingPage from '../common/LoadingPage'
 
 class EventsIndex extends React.Component {
 
@@ -40,18 +41,8 @@ class EventsIndex extends React.Component {
 
 
   render() {
-    console.log(this.state.events)
-    console.log(this.state.date)
+    if(this.state.events.length === 0) return  <LoadingPage />
 
-    if(!this.state.events.length === 0){
-      return(
-        <section className="section">
-          <div className="container">
-            <h4 className="title is-4">Loading...</h4>
-          </div>
-        </section>
-      )
-    }
     return (
 
       <div>

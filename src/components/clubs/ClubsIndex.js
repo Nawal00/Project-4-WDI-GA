@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import ClubSection from './ClubSection'
 import ClubsSearchForm from './ClubsSearchForm'
+import LoadingPage from '../common/LoadingPage'
+
 
 class ClubsIndex extends React.Component {
 
@@ -35,15 +37,10 @@ class ClubsIndex extends React.Component {
 
   render() {
 
-    if(!this.state.clubs.length === 0){
-      return(
-        <section className="section">
-          <div className="container">
-            <h4 className="title is-4">Loading...</h4>
-          </div>
-        </section>
-      )
-    }
+    if(this.state.clubs.length === 0) return  <LoadingPage />
+
+    console.log('state club index', this.state.clubs)
+
     console.log(this.state.clubs)
     return (
       <section className="section">

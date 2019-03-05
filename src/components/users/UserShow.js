@@ -3,6 +3,8 @@ import axios from 'axios'
 import Auth from '../../lib/Auth'
 import EventsEmbedded from '../common/EventsEmbedded'
 import moment from 'moment'
+import LoadingPage from '../common/LoadingPage'
+
 
 import { Link } from 'react-router-dom'
 
@@ -51,8 +53,8 @@ class UserShow extends React.Component {
   }
 
   render(){
-    console.log('user state---', this.state.user)
-    if(!this.state.user) return null
+
+    if(!this.state.user) return <LoadingPage />
 
     return (
 
@@ -143,7 +145,7 @@ class UserShow extends React.Component {
                     </Link>
                   </div>
                 )}
-                <div className="column is-3 event-btn-div">
+                <div className="column is-3 user-add-btn">
                   <Link to={'/events/new'}>
                     <div>
                       <button className="button is-info"> <i className="fas fa-plus-circle"></i>  </button>
@@ -171,7 +173,7 @@ class UserShow extends React.Component {
                     </Link>
                   </div>
                 )}
-                <div className="column is-3 club-btn-div">
+                <div className="column is-3 user-add-btn">
                   <Link to={'/clubs/new'}>
                     <button className="button is-info"><i className="fas fa-plus-circle"></i> </button>
                   </Link>

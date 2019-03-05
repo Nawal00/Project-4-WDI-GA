@@ -407,6 +407,12 @@ p.club-txt {
   margin-left: 15px;
 }
 
+.user-add-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .isImageCircle {
   text-align: center;
   max-height: 200px;
@@ -481,4 +487,28 @@ p.club-txt {
 .small-icon{
   max-width: auto;
   max-height: 35px;
+}
+
+
+//-----Loading page ----/
+
+.loader {
+  position: relative;
+  background: url(assets/images/BeeLogo.png) no-repeat;
+  background-position: center;
+  border: 14px inset $yellow;
+  width: 220px;
+  height: 220px;
+  margin: 200px auto;
+  background-size: 120px;
+  animation: spin 4s linear infinite;
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);}
 }
