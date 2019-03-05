@@ -17,15 +17,10 @@ class UserShow extends React.Component {
 
     }
 
-    // this.handleFollow = this.handleFollow.bind(this)
     this.handleToggle = this.handleToggle.bind(this)
     this.handleManageToggle = this.handleManageToggle.bind(this)
   }
 
-  // handleFollow(){
-  //   axios.post(`/api/user/${this.props.match.params.id}/follow/${Auth.getUserId()}`)
-  //     .then(res => this.setState({ user: res.data }))
-  // }
 
   componentDidMount() {
     this.userRequest()
