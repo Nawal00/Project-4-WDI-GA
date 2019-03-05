@@ -18,7 +18,6 @@ const EventsEmbedded = ({ events, currentEventsActive, handleToggle }) => {
             </li>
             <li className={currentEventsActive ? '' : 'is-active'}  onClick={handleToggle}>
               <a>
-                <span className="icon is-small"><i className="fas fa-music" aria-hidden="true"></i></span>
                 <span>Past Events</span>
               </a>
             </li>
