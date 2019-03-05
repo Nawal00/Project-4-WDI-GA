@@ -67,6 +67,7 @@ class ClubsEdit extends React.Component {
         <ClubsForm
           data={this.state.data}
           errors={this.state.errors}
+          newform={false}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           suggestionSelect={this.suggestionSelect}

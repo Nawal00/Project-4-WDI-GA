@@ -128,7 +128,6 @@ class Register extends React.Component {
                       value={this.state.data.password_confirmation || ''}
                     />
                     {this.state.errors.password && <small className="help is-danger">{this.state.errors.password}</small>}
-
                   </div>
                 </div>
                 <button className="button is-info is-medium is-fullwidth is-rounded">Sign Up</button>

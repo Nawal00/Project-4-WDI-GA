@@ -1,9 +1,10 @@
-import requests
+import requests, time, datetime
 from flask import Blueprint, request, jsonify, g
 from models.event import Event, EventSchema
 from models.club import Club, ClubSchema
 from lib.secure_route import secure_route
-from config.environment import city_mapper_key
+from config.environment import city_mapper_key, darksky_key
+
 
 api = Blueprint('events', __name__)
 
@@ -21,15 +22,29 @@ def index():
 @api.route('/events/<int:event_id>/traveltime', methods=['GET'])
 def travel_time(event_id):
     event = Event.query.get(event_id)
-    lat = request.args.get('lat')
-    lng = request.args.get('lng')
-    url = 'https://developer.citymapper.com/api/1/traveltime'
-    params = {
-        'startcoord': f'{lat},{lng}',
-        'endcoord': f'{event.lat},{event.lng}',
-        'key': city_mapper_key
+    # lat = request.args.get('lat')
+    # lng = request.args.get('lng')
+    # citymapper_url = 'https://developer.citymapper.com/api/1/traveltime'
+    # params = {
+    #     'startcoord': f'{lat},{lng}',
+    #     'endcoord': f'{event.lat},{event.lng}',
+    #     'key': city_mapper_key
+    # }
+    # citymapper_response = requests.get(citymapper_url, params=params).json()
+    # print(citymapper_response)
+
+    unix_date = int(time.mktime(datetime.datetime.strptime(f'{event.date}', "%Y-%m-%d").timetuple()))
+    print(unix_date)
+
+    darksky_url = f'https://api.darksky.net/forecast/{darksky_key}/{event.lat},{event.lng},{unix_date}?exclude=currently,flags,hourly,minutely,%20alerts'
+    darksky_response = requests.get(darksky_url).json()
+    print(darksky_response)
+    response = {
+        # 'citymapper': citymapper_response['travel_time_minutes'],
+        'weather': darksky_response['daily']['data'][0]['icon']
     }
-    response = requests.get(url, params=params).json()
+    print(response)
+
     return jsonify(response)
 
 

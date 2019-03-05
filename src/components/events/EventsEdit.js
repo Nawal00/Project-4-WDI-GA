@@ -100,6 +100,7 @@ class EventsEdit extends React.Component {
           data={this.state.data}
           clubs={this.state.clubs}
           errors={this.state.errors}
+          newform={false}
           handleChange={this.handleChange}
           handleClubChange={this.handleClubChange}
           handleSubmit={this.handleSubmit}
