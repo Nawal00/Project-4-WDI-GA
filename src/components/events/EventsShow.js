@@ -6,6 +6,7 @@ import Map from '../common/Map'
 import MoreClubs from './MoreClubs'
 import Auth from '../../lib/Auth'
 import {Link} from 'react-router-dom'
+import 'weather-icons/css/weather-icons.css'
 
 class EventsShow extends React.Component {
   constructor(){
@@ -57,7 +58,7 @@ class EventsShow extends React.Component {
       .reverse()
       .join('-')
 
-    return `wi wi-${className} is-size-1`
+    return `wi wi-${className} is-size-3`
   }
 
 
@@ -91,8 +92,11 @@ class EventsShow extends React.Component {
             </div>
             <div className="column event-top-text is-4">
               <div className="content">
-                <span className="subtitle">{moment(date).format('MMM')} </span> <br />
-                <span className="subtitle date">{moment(date).format('DD')} </span>
+                <div style={{display: 'inline-block'}}>
+                  <span className="subtitle">{moment(date).format('MMM')} </span> <br />
+                  <span className="subtitle date">{moment(date).format('DD')} </span>
+                </div>
+                {weather && (<span> <i className={this.getIconClass(weather)}></i> </span>)}
                 <p className="subtitle is-6"><strong> {name} </strong></p>
                 <p className="subtitle created has-text-grey"> Created by: {owner.username}</p>
                 <p className="subtitle created has-text-grey"> <i className="fas fa-map-marked"></i>: {travelTime} minutes to your event</p>
@@ -100,11 +104,7 @@ class EventsShow extends React.Component {
                   <div>
                     <button className="button dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.userLocation.lat},${this.state.userLocation.lng}&endcoord=${lat},${lng}`} target="blank"> Launch in City Mapper</a></button>
                     <button className="button dir-btn is-outlined is-info"><a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.userLocation.lat},${this.state.userLocation.lng}&destination=${lat},${lng}`} target="blank"> Launch in Google Maps</a></button>
-                    {weather && (
-                      <p> Weather:
-                        <i className={this.getIconClass(weather)}></i>
-                      </p>
-                    )}
+
                   </div>
 
                 )}
