@@ -121,21 +121,22 @@ class EventsShow extends React.Component {
             </div>
           </div>
           <hr className="event-hr"/>
-
-          <div className="columns sticky is-centered">
-            <div className="column is-4 has-text-centered">
-              {Auth.isAuthenticated() && !Auth.isAttending(attendees) && (
-                <button className="button is-fullwidth is-info" onClick={this.handleAttendee}> Attend
-                  <span className="icon is-medium"><img src="/assets/images/BeeLogo.png"/> </span>
-                </button>
-              )}
-              {Auth.isAuthenticated() && Auth.isAttending(attendees) && (
-                <button className="button is-fullwidth is-info"> Attending
-                  <span className="icon is-medium"><img src="/assets/images/BeeLogo.png"/> </span>
-                </button>
-              )}
+          {(moment(date) > new Date()) &&
+            <div className="columns sticky is-centered">
+              <div className="column is-4 has-text-centered">
+                {Auth.isAuthenticated() && !Auth.isAttending(attendees) && (
+                  <button className="button is-fullwidth is-info" onClick={this.handleAttendee}> Attend
+                    <span className="icon is-medium"><img src="/assets/images/BeeLogo.png"/> </span>
+                  </button>
+                )}
+                {Auth.isAuthenticated() && Auth.isAttending(attendees) && (
+                  <button className="button is-fullwidth is-info"> Attending
+                    <span className="icon is-medium"><img src="/assets/images/BeeLogo.png"/> </span>
+                  </button>
+                )}
+              </div>
             </div>
-          </div>
+          }
 
           <hr/>
           <div className="columns">
@@ -167,15 +168,16 @@ class EventsShow extends React.Component {
           <div className="section">
             <div className="columns is-centered">
               <div className="column is-half has-text-centered">
-                <div className="is-flex image-cropper">
-                  <figure className="image club-pro-pic">
-                    <img className="eventClubImg" src={club.image} alt={club.name} />
-                  </figure>
-                </div>
+                <Link to={`/clubs/${club.id}`}>
+                  <div className="is-flex image-cropper">
+                    <figure className="image club-pro-pic">
+                      <img className="eventClubImg" src={club.image} alt={club.name} />
+                    </figure>
+                  </div>
+                </Link>
                 <h4> {club.name} </h4>
                 <p> Organiser of {name} </p>
                 <p> {club.description} </p>
-                <button className="button is-outlined is-info" onClick={this.handleFolllow}> Follow  </button>
               </div>
             </div>
           </div>
