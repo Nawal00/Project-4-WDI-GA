@@ -82,7 +82,7 @@ class EventsShow extends React.Component {
     const { id, name, owner, date, image, duration, description, lat, lng, hours, minutes, attendees, max_attendees, travelTime, club, weather } = this.state.event
     return (
       <div className="container">
-        <div className="box">
+        <div className="box eventsBox">
 
           <div className="columns">
             <div className="column events-img-Col is-8">
