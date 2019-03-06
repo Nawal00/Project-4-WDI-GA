@@ -11,7 +11,6 @@ const EventCard = ({ id, name, image, address, date, hours, minutes }) => {
             <img src={image} alt={name}  className="eventImage"/>
           </figure>
         </div>
-
         <div className="card-content">
           <div className="media">
             <div className="media-left">
@@ -20,8 +19,6 @@ const EventCard = ({ id, name, image, address, date, hours, minutes }) => {
                 <p> {moment(date).format('DD')} </p>
               </div>
             </div>
-
-
             <div className="content">
               <div className="media-right">
                 <h6><strong>{name}</strong></h6>
@@ -33,8 +30,6 @@ const EventCard = ({ id, name, image, address, date, hours, minutes }) => {
           </div>
         </div>
       </div>
-
-
     </Link>
   )
 }

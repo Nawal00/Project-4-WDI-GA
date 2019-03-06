@@ -21,7 +21,6 @@ const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChang
       <div className="column is-8 is-offset-2">
         <h3 className="title has-text-centered">Organise Event</h3>
         <div className="box">
-          {errors && <div className="notification is-info">Missing Information</div>}
           <form onSubmit={handleSubmit}>
             <div className="field is-horizontal">
               <div className="field-label is-normal">

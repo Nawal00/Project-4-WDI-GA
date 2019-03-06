@@ -52,7 +52,9 @@ class Register extends React.Component {
                     <span className="icon is-small is-left">
                       <i className="fas fa-user"></i>
                     </span>
-                    {this.state.errors.username && <small className="help is-danger">{this.state.errors.username}</small>}
+                    {this.state.errors.username && (
+                      <small className="help is-danger">{this.state.errors.username}</small>
+                    )}
                   </div>
                 </div>
                 <div className="field">
@@ -113,7 +115,9 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.data.password || ''}
                     />
-                    {this.state.errors.password && <small className="help is-danger">{this.state.errors.password}</small>}
+                    {this.state.errors.password && (
+                      <small className="help is-danger">{this.state.errors.password}</small>
+                    )}
                   </div>
                 </div>
                 <div className="field">
@@ -127,7 +131,9 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.data.password_confirmation || ''}
                     />
-                    {this.state.errors.password && <small className="help is-danger">{this.state.errors.password}</small>}
+                    {this.state.errors.password && (
+                      <small className="help is-danger">{this.state.errors.password}</small>
+                    )}
                   </div>
                 </div>
                 <button className="button is-info is-medium is-fullwidth is-rounded">Sign Up</button>

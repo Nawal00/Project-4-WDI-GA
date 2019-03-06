@@ -18,6 +18,10 @@ class EventsShow extends React.Component {
       userLocation: {
         lat: '',
         lng: ''
+      },
+      eventInformation: {
+        weather: '',
+        travelTime: ''
       }
     }
 
@@ -29,7 +33,6 @@ class EventsShow extends React.Component {
     axios.get(`/api/events/${this.props.match.params.id}`)
       .then(res => this.setState({ event: res.data }))
 
-    // also get the user location...
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
         this.setState({
@@ -45,9 +48,8 @@ class EventsShow extends React.Component {
           }
         })
           .then(res => {
-            console.log(res)
-            const event = {...this.state.event, travelTime: res.data.citymapper, weather: res.data.weather }
-            this.setState({ event })
+            const event = {...this.state.eventInformation, travelTime: res.data.citymapper, weather: res.data.weather }
+            this.setState( {eventInformation: event} )
           })
       })
     }
@@ -66,7 +68,6 @@ class EventsShow extends React.Component {
     }
     return `wi wi-${className} is-size-3`
   }
-
 
   eventLink(){
     axios.get(`/api/events/${this.props.match.params.id}`)
@@ -89,7 +90,6 @@ class EventsShow extends React.Component {
     return (
       <div className="container">
         <div className="box eventsBox">
-
           <div className="columns">
             <div className="column events-img-Col is-8">
               <figure className="event-image">
@@ -102,19 +102,16 @@ class EventsShow extends React.Component {
                   <span className="subtitle">{moment(date).format('MMM')} </span> <br />
                   <span className="subtitle date">{moment(date).format('DD')} </span>
                 </div>
-                {weather && (<span> <i className={this.getIconClass(weather)}></i> </span>)}
+                {this.state.eventInformation.weather && (<span> <i className={this.getIconClass(this.state.eventInformation.weather)}></i> </span>)}
                 <p className="subtitle is-6"><strong> {name} </strong></p>
                 <p className="subtitle created has-text-grey"> Created by: {owner.username}</p>
-                <p className="subtitle created has-text-grey"> <i className="fas fa-map-marked"></i>: {travelTime} minutes to your event</p>
+                <p className="subtitle created has-text-grey"> <i className="fas fa-map-marked"></i>: {this.state.eventInformation.travelTime} minutes to your event</p>
                 {this.state.userLocation.lat && (
                   <div>
                     <button className="button dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.userLocation.lat},${this.state.userLocation.lng}&endcoord=${lat},${lng}`} target="blank"> Launch in City Mapper</a></button>
                     <button className="button dir-btn is-outlined is-info"><a href={`https://www.google.com/maps/dir/?api=1&origin=${this.state.userLocation.lat},${this.state.userLocation.lng}&destination=${lat},${lng}`} target="blank"> Launch in Google Maps</a></button>
-
                   </div>
-
                 )}
-
                 {Auth.isAuthenticated() && Auth.isOwner(owner.id) && (
                   <Link to={`/events/${id}/edit`} className="button is-info"> Edit </Link>
                 )}
@@ -136,7 +133,6 @@ class EventsShow extends React.Component {
               </div>
             </div>
           }
-
           <hr/>
           <div className="columns">
             <div className="column des-col is-8">
@@ -149,21 +145,18 @@ class EventsShow extends React.Component {
                 <p>Filling all three floors of the Saatchi Gallery, Collect profiles the exceptional skill and intellectual rigour behind contemporary craft, featuring works in ceramics, glass, metal, wood and textiles alongside makers working in non-traditional materials with experimental techniques. </p>
               </div>
             </div>
-
             <div className="column mid-text is-4">
               <div className="content">
                 <p> Date And Time </p>
-                <span>{moment(date).format('dddd, MMMM Do YYYY')} </span>
-                <span>{('0' + hours).slice(-2)}:{('0' + minutes).slice(-2)}</span>
-                <p>Duration: {duration} mins</p>
-                <p>Max attendees: {max_attendees}</p>
-                <p>Attendees: {attendees.length}</p>
+                <span> {moment(date).format('dddd, MMMM Do YYYY')} </span>
+                <span> {('0' + hours).slice(-2)}:{('0' + minutes).slice(-2)} </span>
+                <p> Duration: {duration} mins </p>
+                <p> Max attendees: {max_attendees} </p>
+                <p> Attendees: {attendees.length} </p>
               </div>
             </div>
           </div>
-
           <hr />
-
           <div className="section">
             <div className="columns is-centered">
               <div className="column is-half has-text-centered">
@@ -180,14 +173,10 @@ class EventsShow extends React.Component {
               </div>
             </div>
           </div>
-
-
           <div className="section has-text-centered">
             <h3 className="title is-6"> More events from the organiser </h3>
           </div>
-
           <div>
-
             {club.events.filter(clubEvent => clubEvent.id !== id).map(clubEvent=> <div key={clubEvent.id}>
               <MoreClubs
                 {...clubEvent}
@@ -196,8 +185,6 @@ class EventsShow extends React.Component {
             </div>
             )}
           </div>
-
-
           <Map
             lat={lat}
             lng={lng}
@@ -206,8 +193,6 @@ class EventsShow extends React.Component {
             type= "event"
           />
         </div>
-
-
       </div>
     )
   }

@@ -52,7 +52,7 @@ class Login extends React.Component {
                     <input
                       className="input"
                       name="email"
-                      placeholder=" Your Email"
+                      placeholder="Your Email"
                       value={this.state.data.email || ''}
                       onChange={this.handleChange}
                     />

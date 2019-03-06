@@ -42,7 +42,9 @@ const EventsEmbedded = ({ events, currentEventsActive, handleToggle }) => {
                             <h1 className="title is-1">{moment(event.date).format('DD')} </h1>
                           </div>
                           <div className="column is-9">
-                            <h6 className="title is-6 has-text-dark">{event.name.toUpperCase()} - {('0' + event.hours).slice(-2)}:{('0' + event.minutes).slice(-2)} </h6>
+                            <h6 className="title is-6 has-text-dark">
+                              {event.name.toUpperCase()} - {('0' + event.hours).slice(-2)}:{('0' + event.minutes).slice(-2)}
+                            </h6>
                             <h6 className="title is-6">Attendees: {event.attendees.length} - <span className="has-text-danger">Only {event.max_attendees - event.attendees.length} spots left! </span> </h6>
                           </div>
                         </div>

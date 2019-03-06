@@ -16,7 +16,6 @@ class Map extends React.Component {
       style: 'mapbox://styles/mapbox/light-v9'
     })
 
-
     this.markers = this.props.events.map(event => {
       const { lat, lng } = event
 

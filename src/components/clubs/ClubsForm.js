@@ -12,7 +12,6 @@ const EventsForm = ({ data, newform,  handleChange, handleSubmit, errors, sugges
       <div className="column is-8 is-offset-2 ">
         <h3 className="title has-text-centered">Create A Club</h3>
         <div className="box">
-          {errors && <div className="notification is-info">Missing Information</div>}
           <form onSubmit={handleSubmit}>
             <div className="field is-horizontal">
               <div className="field-label is-normal">
@@ -90,6 +89,9 @@ const EventsForm = ({ data, newform,  handleChange, handleSubmit, errors, sugges
                       className="input is-info"
                     >
                       <option disabled>Please Choose...</option>
+                      <option> Board Games </option>
+                      <option> Food & Drink </option>
+                      <option> Mums </option>
                       <option> Sports </option>
                       <option> Photography </option>
                       <option> Gaming </option>
