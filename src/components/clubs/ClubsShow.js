@@ -89,27 +89,32 @@ class ClubsShow extends React.Component {
               </div>
             </div>
           </div>
-          <div className="columns">
-            <div className="column is-3 club-col">
+          <div className="columns club-columns">
+            <div className="column is-4">
               <h6 className="title is-6">Category: {category}</h6>
               {Auth.isAuthenticated() && Auth.isOwner(owner.id) && (
                 <Link to={`/clubs/${id}/edit`} className="button is-info"> Edit </Link>
               )}
             </div>
-            <div className="column is-3 club-col">
+            <div className="column is-4">
               <h6 className="title is-6">About the Club</h6>
               <p> {description}</p>
             </div>
-            <div className="column is-3 club-col">
+            <div className="column is-4">
               <h6 className="title is-6">Members ({followed_by.length})</h6>
-              <div className="members-area">
+              <div className="members-area columns is-multiline">
                 {followed_by.map((follower) => {
-                  return <Link to={`/users/${follower.id}`}key={follower.id}>
-                    <div className="image-cropper">
-                      <img src={follower.image === '' ? '/assets/images/BeeLogo.png' : follower.image} alt="avatar"/>
+                  return (
+                    <div className="column is-3" key={follower.id}>
+                      <Link to={`/users/${follower.id}`}>
+                        <div className="image-cropper-club">
+                          <img className="profile-pic" src={follower.image === '' ? '/assets/images/BeeLogo.png' : follower.image} alt="avatar"/>
+                        </div>
+                      </Link>
                     </div>
-                  </Link>
-                })}
+                  )
+                }
+                )}
               </div>
             </div>
           </div>

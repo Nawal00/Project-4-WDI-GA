@@ -294,8 +294,23 @@ p.club-txt {
   background: #F5F5F5;
 }
 
-.club-col {
-   margin: 4px 60px;
+.club-columns {
+  >.column{
+    padding-top: 30px;
+    >h6{
+      text-align: center;
+    }
+    p{
+      text-align: center;
+    }
+    .members-area{
+      >.column{
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
  }
 
 .column{
@@ -304,10 +319,25 @@ p.club-txt {
   }
 }
 
-
 .image-cropper {
     width: 100px;
     height: 100px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    border: $yellow solid 2px;
+    >.profile-pic {
+      display: inline;
+      margin: 0 auto;
+      height: 100%;
+      width: auto;
+    }
+}
+
+.image-cropper-club {
+    width: 70px;
+    height: 70px;
     margin: auto;
     position: relative;
     overflow: hidden;
