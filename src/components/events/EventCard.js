@@ -5,7 +5,7 @@ import moment from 'moment'
 const EventCard = ({ id, name, image, address, date, hours, minutes }) => {
   return (
     <Link to={`/events/${id}`}>
-      <div className="card">
+      <div className="card is-box-shadow">
         <div className="card-image">
           <figure className="image is-4by3">
             <img src={image} alt={name}  className="eventImage"/>

@@ -8,6 +8,7 @@ $tabs-toggle-link-active-border-color: $yellow;
 $tabs-border-bottom-color: $yellow;
 $tabs-toggle-link-border-color: $yellow;
 $tabs-boxed-link-active-border-color: $yellow;
+$box-shadow: 0 0 0 0 rgba($yellow, 0.1);
 
 @import "~bulma/sass/utilities/_all.sass";
 @import "~bulma/sass/base/_all.sass";
@@ -33,17 +34,19 @@ body{
 }
 
 .card{
+  box-shadow: $box-shadow;
   p:first-child  {
     color: red;
   }
   &:hover{
-    transition: all 0.5s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.2s;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   }
 }
 
-.slider-slide > img{
-  height: 450px;
+div.slider{
+  height: 400px !important
 
 }
 
@@ -397,8 +400,6 @@ p.club-txt {
         margin: 2px;
       }
     }
-
-
   }
 }
 
@@ -441,6 +442,27 @@ p.club-txt {
   }
 }
 
+.isImage {
+  text-align: center;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+  background: rgba(0,0,0,0.8);
+  border-radius: 10px;
+  transition: all .2s ease-in-out;
+  .image img{
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+    display: inline;
+    margin: 0 auto;
+    height: 100%;
+    width: auto;
+    }
+    &:hover {
+      box-shadow: 0 4px 5px 0 rgba(0,0,0,0.3);
+      margin-left: 2px;
+  }
+}
+
 .middle {
   transition: .5s ease;
   opacity: 0;
@@ -466,6 +488,7 @@ p.club-txt {
 .isImageCircle:hover .middle {
   opacity: 1;
 }
+
 .isImage:hover .clubImage {
   opacity: 0.3;
 }

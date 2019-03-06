@@ -53,17 +53,17 @@ class EventsIndex extends React.Component {
           </div>
         </section>
 
-        <div className="box has-background-white-ter">
+        <div className="box">
           <section className="section panels">
-            <div className="container">
-              <div className="columns is-multiline">
-                {this.filteredEvents().map(event =>
-                  <div key={event.id} className="column is-one-third">
-                    <EventCard {...event} />
-                  </div>
-                )}
-              </div>
+
+            <div className="columns is-multiline">
+              {this.filteredEvents().map(event =>
+                <div key={event.id} className="column is-one-third">
+                  <EventCard {...event} />
+                </div>
+              )}
             </div>
+
           </section>
         </div>
 
