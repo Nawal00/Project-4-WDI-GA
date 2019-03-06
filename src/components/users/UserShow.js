@@ -57,10 +57,8 @@ class UserShow extends React.Component {
     if(!this.state.user) return <LoadingPage />
 
     return (
-
       <div>
         <section className="section has-background-dark user-header">
-
           <div className="columns is-multiline">
             <div className="column is-full">
               <figure className="image image-cropper">
@@ -74,9 +72,7 @@ class UserShow extends React.Component {
             <div className="column is-4">
             </div>
           </div>
-
         </section>
-
         <div>
           <EventsEmbedded
             events={this.state.user.events_attending}
@@ -84,7 +80,6 @@ class UserShow extends React.Component {
             handleToggle={this.handleToggle}
           />
         </div>
-
         <section className="section">
           <div className="container">
             <h4 className="title is-4 has-text-dark">Clubs Following</h4>
@@ -107,7 +102,6 @@ class UserShow extends React.Component {
             </div>
           </div>
         </section>
-
         <section className="section">
           <div className="container">
             <h4 className="title is-4">Manage Your Events</h4>
@@ -124,7 +118,6 @@ class UserShow extends React.Component {
                     <span>Clubs</span>
                   </a>
                 </li>
-
               </ul>
             </div>
             {this.state.manageClubActive &&(
