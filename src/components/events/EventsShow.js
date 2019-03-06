@@ -84,7 +84,7 @@ class EventsShow extends React.Component {
 
   render(){
 
-    // if(!this.state.event) return <LoadingPage />
+    if(!this.state.event) return <LoadingPage />
 
     const { id, name, owner, date, image, duration, description, lat, lng, hours, minutes, attendees, max_attendees, travelTime, club, weather } = this.state.event
     return (
