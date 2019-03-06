@@ -34,7 +34,6 @@ class ClubsIndex extends React.Component {
   }
 
   render() {
-
     if(!this.state.clubs.length === 0){
       return(
         <section className="section">
@@ -44,7 +43,6 @@ class ClubsIndex extends React.Component {
         </section>
       )
     }
-    console.log(this.state.clubs)
     return (
       <section className="section">
         <div className="container">

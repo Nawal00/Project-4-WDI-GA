@@ -17,6 +17,10 @@ class EventsShow extends React.Component {
       userLocation: {
         lat: '',
         lng: ''
+      },
+      eventInformation: {
+        weather: '',
+        travelTime: ''
       }
     }
 
@@ -45,8 +49,8 @@ class EventsShow extends React.Component {
         })
           .then(res => {
             console.log(res)
-            const event = {...this.state.event, travelTime: res.data.citymapper, weather: res.data.weather }
-            this.setState({ event })
+            const event = {...this.state.eventInformation, travelTime: res.data.citymapper, weather: res.data.weather }
+            this.setState( {eventInformation: event} )
           })
       })
     }
@@ -101,10 +105,10 @@ class EventsShow extends React.Component {
                   <span className="subtitle">{moment(date).format('MMM')} </span> <br />
                   <span className="subtitle date">{moment(date).format('DD')} </span>
                 </div>
-                {weather && (<span> <i className={this.getIconClass(weather)}></i> </span>)}
+                {this.state.eventInformation.weather && (<span> <i className={this.getIconClass(this.state.eventInformation.weather)}></i> </span>)}
                 <p className="subtitle is-6"><strong> {name} </strong></p>
                 <p className="subtitle created has-text-grey"> Created by: {owner.username}</p>
-                <p className="subtitle created has-text-grey"> <i className="fas fa-map-marked"></i>: {travelTime} minutes to your event</p>
+                <p className="subtitle created has-text-grey"> <i className="fas fa-map-marked"></i>: {this.state.eventInformation.travelTime} minutes to your event</p>
                 {this.state.userLocation.lat && (
                   <div>
                     <button className="button dir-btn is-outlined is-info"><a href={`https://citymapper.com/directions?startcoord=${this.state.userLocation.lat},${this.state.userLocation.lng}&endcoord=${lat},${lng}`} target="blank"> Launch in City Mapper</a></button>

@@ -1,11 +1,9 @@
 import React from 'react'
 import axios from 'axios'
-import moment from 'moment'
 
 import Auth from '../../lib/Auth'
 import ClubsChat from './ClubsChat'
 import EventsEmbedded from '../common/EventsEmbedded'
-// import Comments from '../common/Comments'
 
 import {Link} from 'react-router-dom'
 
@@ -25,26 +23,16 @@ class ClubsShow extends React.Component {
     this.handleFolllow = this.handleFolllow.bind(this)
     this.handleMessageSubmit = this.handleMessageSubmit.bind(this)
     this.handleMessageChange = this.handleMessageChange.bind(this)
-    // this.scrollToBottom = this.scrollToBottom.bind(this)
   }
 
-  // messagesEnd = React.createRef()
-
   componentDidMount() {
-    // this.scrollToBottom()
     axios.get(`/api/clubs/${this.props.match.params.id}`)
       .then(res => this.setState({ club: res.data }))
   }
 
-  // scrollToBottom() {
-  //   this.messagesEnd.current.scrollIntoView({ behavior: 'smooth' })
-  // }
-
   handleToggle(e) {
-    if(e.currentTarget.textContent === 'Future Events' && this.state.currentEventsActive){
-      return
-    }
-    if(e.currentTarget.textContent === 'Past Events' && !this.state.currentEventsActive){
+    if(e.currentTarget.textContent === 'Future Events' && this.state.currentEventsActive ||
+      e.currentTarget.textContent === 'Past Events' && !this.state.currentEventsActive){
       return
     }
     this.setState({currentEventsActive: !this.state.currentEventsActive})
@@ -95,7 +83,6 @@ class ClubsShow extends React.Component {
                 {Auth.isAuthenticated() && Auth.doesFollow(followed_by) &&(
                   <button className="button is-info"  > Following  </button>
                 )}
-
               </div>
             </div>
           </div>
@@ -116,7 +103,7 @@ class ClubsShow extends React.Component {
                 {followed_by.map((follower) => {
                   return <Link to={`/users/${follower.id}`}key={follower.id}>
                     <div className="image-cropper">
-                      <img src={follower.image === '' ?  '/assets/images/BeeLogo.png' : follower.image} alt="avatar"/>
+                      <img src={follower.image === '' ? '/assets/images/BeeLogo.png' : follower.image} alt="avatar"/>
                     </div>
                   </Link>
                 })}

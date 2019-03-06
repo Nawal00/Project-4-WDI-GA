@@ -33,12 +33,10 @@ class EventsNew extends React.Component {
   }
 
   handleChange({ target: { name, value } }) {
-    // if(name === 'time'){
-    //   value = moment(value, 'HH:MM:SS')
-    // }
+
     const data = {...this.state.data, [name]: value }
     const errors = { ...this.state.errors, [name]: '' }
-    this.setState({ data, errors })
+    this.setState({ data })
   }
 
   handleClubChange({ target }) {
