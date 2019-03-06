@@ -100,12 +100,12 @@ with app.app_context():
         owner=Wendy,
         followed_by=[Ed, Nawal],
         location='Surbiton, Greater London, England, United Kingdom',
-        lat=53.0219186,
-        lng=-2.2297829,
+        lat=51.3862921,
+        lng=-0.3090997,
         description='A great environment for Mums & Mums to be to connect and let their hair down',
         category='Mums'
     )
-    mums_club_stokeontrent.save()
+    mums_club_Surbiton.save()
 
     chess_club_islington = Club(
         name='Chess Club Islington',
