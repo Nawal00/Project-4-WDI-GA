@@ -69,7 +69,7 @@ class ClubsShow extends React.Component {
   }
 
   render(){
-    if(!this.state.club) return  <LoadingPage />
+    // if(!this.state.club) return  <LoadingPage />
 
     const { id, name, image, category, description, user, location, events,owner, followed_by, club_comments} = this.state.club
     return (
