@@ -94,12 +94,12 @@ with app.app_context():
     )
     badminton_north_london.save()
 
-    mums_club_stokeontrent = Club(
-        name='Mums Meetup Club',
+    mums_club_Surbiton = Club(
+        name='Mums Meetup Club Surbiton',
         image='http://tinyurl.com/y5oj22bz',
         owner=Wendy,
         followed_by=[Ed, Nawal],
-        location='Stoke On Trent',
+        location='Surbiton, Greater London, England, United Kingdom',
         lat=53.0219186,
         lng=-2.2297829,
         description='A great environment for Mums & Mums to be to connect and let their hair down',

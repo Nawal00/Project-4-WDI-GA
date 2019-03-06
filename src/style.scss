@@ -293,7 +293,11 @@ p.club-txt {
       text-align: center;
     }
     .members-area{
-      text-align: center;
+      >.column{
+        padding: 0;
+        display: flex;
+        justify-content: center;
+      }
     }
   }
  }
