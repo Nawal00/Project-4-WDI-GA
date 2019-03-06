@@ -405,27 +405,27 @@ with app.app_context():
     )
     richmond_park.save()
 
-    mums_breakfast = Event(
-        name='Mums BreakFast Stoke On Trent',
-        image='http://tinyurl.com/y6ayg466',
-        owner=Wendy,
+    fifa_tourney = Event(
+        name='Fifa Tourney',
+        image='https://tinyurl.com/y2hr5mua',
+        owner=Nawal,
         max_attendees=20,
-        date='2019-05-30',
+        date='2019-09-13',
         hours=10,
         minutes=00,
-        duration=120,
-        club=mums_club_stokeontrent,
-        attendees=[Jody, Ed],
+        duration=160,
+        club=south_londoner_gamer,
+        attendees=[Jody, Mark, Ed, Nawal],
         lat=53.0219186,
         lng=-2.2297829,
-        description='A great environment for Mums & Mums to be to connect and let their hair down',
-        category='Mums',
-        address='4 City Rd, Stoke-on-Trent'
+        description='Play with the best fifa players in South London',
+        category='Gaming',
+        address='149 Hook Rise South, Chessington, Surbiton'
     )
-    mums_breakfast.save()
+    fifa_tourney.save()
 
     go_board = Event(
-        name='Mums BreakFast Stoke On Trent',
+        name='Go Board',
         image='http://tinyurl.com/y6ayg466',
         owner=Wendy,
         max_attendees=10,

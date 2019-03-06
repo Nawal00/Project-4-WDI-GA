@@ -29,6 +29,15 @@ body{
   font-family: 'Barlow', sans-serif;
 }
 
+a.navbar-item{
+  transition: 0.5s;
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: $yellow;
+  }
+}
+
+
 .home{
   background: white;
 }
