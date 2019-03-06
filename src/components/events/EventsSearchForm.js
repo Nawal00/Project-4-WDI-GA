@@ -13,7 +13,7 @@ const EventsForm = ({ handleChange }) => {
             <label className="label"> <strong className="has-text-white"> Explore by category </strong> </label>
 
             <select
-              className="select"
+              className="select has-text-white"
               name="category"
               onChange={handleChange}
             >
