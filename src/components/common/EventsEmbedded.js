@@ -23,6 +23,7 @@ const EventsEmbedded = ({ events, currentEventsActive, handleToggle }) => {
             </li>
           </ul>
         </div>
+
         <div className="columns is-multiline">
           <div className="container">
             {currentEventsActive && (

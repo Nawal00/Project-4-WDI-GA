@@ -7,6 +7,7 @@ import MoreClubs from './MoreClubs'
 import Auth from '../../lib/Auth'
 import {Link} from 'react-router-dom'
 import 'weather-icons/css/weather-icons.css'
+import LoadingPage from '../common/LoadingPage'
 
 class EventsShow extends React.Component {
   constructor(){
@@ -82,9 +83,10 @@ class EventsShow extends React.Component {
   }
 
   render(){
-    console.log(this.state.event)
-    if(!this.state.event) return null
-    const { id, name, owner, date, image, duration, lat, lng, hours, minutes, attendees, max_attendees, club } = this.state.event
+
+    if(!this.state.event) return <LoadingPage />
+
+    const { id, name, owner, date, image, duration, description, lat, lng, hours, minutes, attendees, max_attendees, travelTime, club, weather } = this.state.event
     return (
       <div className="container">
         <div className="box eventsBox">

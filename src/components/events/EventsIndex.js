@@ -5,6 +5,7 @@ import EventCard from './EventCard'
 import EventsSearchForm from './EventsSearchForm'
 import EventsShow from './EventsShow'
 import Carousels from './Carousel'
+import LoadingPage from '../common/LoadingPage'
 
 class EventsIndex extends React.Component {
 
@@ -40,18 +41,8 @@ class EventsIndex extends React.Component {
 
 
   render() {
-    console.log(this.state.events)
-    console.log(this.state.date)
+    if(this.state.events.length === 0) return  <LoadingPage />
 
-    if(!this.state.events.length === 0){
-      return(
-        <section className="section">
-          <div className="container">
-            <h4 className="title is-4">Loading...</h4>
-          </div>
-        </section>
-      )
-    }
     return (
 
       <div>
@@ -62,17 +53,17 @@ class EventsIndex extends React.Component {
           </div>
         </section>
 
-        <div className="box has-background-white-ter">
+        <div className="box">
           <section className="section panels">
-            <div className="container">
-              <div className="columns is-multiline">
-                {this.filteredEvents().map(event =>
-                  <div key={event.id} className="column is-one-third">
-                    <EventCard {...event} />
-                  </div>
-                )}
-              </div>
+
+            <div className="columns is-multiline">
+              {this.filteredEvents().map(event =>
+                <div key={event.id} className="column is-one-third">
+                  <EventCard {...event} />
+                </div>
+              )}
             </div>
+
           </section>
         </div>
 

@@ -3,6 +3,8 @@ import axios from 'axios'
 import Auth from '../../lib/Auth'
 import EventsEmbedded from '../common/EventsEmbedded'
 import moment from 'moment'
+import LoadingPage from '../common/LoadingPage'
+
 
 import { Link } from 'react-router-dom'
 
@@ -51,28 +53,28 @@ class UserShow extends React.Component {
   }
 
   render(){
-    console.log('user state---', this.state.user)
-    if(!this.state.user) return null
+
+    if(!this.state.user) return <LoadingPage />
 
     return (
 
       <div>
         <section className="section has-background-dark user-header">
-          <div className="container">
-            <div className="columns is-variable is-8">
-              <div className="column">
-                <figure className="image">
-                  <img className="image-cropper profile-pic" src={this.state.user.image ==='' ?  '/assets/images/BeeLogo.png' : this.state.user.image}  alt={this.state.user.username} />
-                </figure>
-              </div>
-              <div className="column is-4">
-                <h3 className="title is-3 has-text-info"> {this.state.user.username} </h3>
-                <h6 className="title is-6 has-text-info">Member since: {moment(this.state.user.created_at).format('YYYY')} </h6>
-              </div>
-              <div className="column is-4">
-              </div>
+
+          <div className="columns is-multiline">
+            <div className="column is-full">
+              <figure className="image image-cropper">
+                <img className=" profile-pic" src={this.state.user.image ==='' ?  '/assets/images/BeeLogo.png' : this.state.user.image}  alt={this.state.user.username} />
+              </figure>
+            </div>
+            <div className="column is-full has-text-centered">
+              <h5 className="title is-5 has-text-info"> {this.state.user.username} </h5>
+              <h6 className="title is-6 has-text-info">Member since {moment(this.state.user.created_at).format('YYYY')} </h6>
+            </div>
+            <div className="column is-4">
             </div>
           </div>
+
         </section>
 
         <div>
@@ -93,7 +95,7 @@ class UserShow extends React.Component {
                   <Link to={`/clubs/${follow.id}`}>
                     <div className="isImage">
                       <figure className="image is-4by3">
-                        <img src={follow.image} alt={follow.name}  className="clubImage"/>
+                        <img src={follow.image} alt={follow.name} className="clubImage"/>
                         <div className="middle">
                           <div className="text">{follow.name}</div>
                         </div>
@@ -132,18 +134,17 @@ class UserShow extends React.Component {
                     <Link  to={`/events/${created.id}`}>
                       <div className="isImage">
                         <figure className="image is-4by3">
-                          <img src={created.image} alt={created.name}/>
+                          <img src={created.image} alt={created.name} className="clubImage"/>
                           <div className="middle">
                             <div className="text">{created.name}</div>
                             <div className="text">{created.category}</div>
-                            <div className="text">{created.date}</div>
                           </div>
                         </figure>
                       </div>
                     </Link>
                   </div>
                 )}
-                <div className="column is-3 event-btn-div">
+                <div className="column is-3 user-add-btn">
                   <Link to={'/events/new'}>
                     <div>
                       <button className="button is-info"> <i className="fas fa-plus-circle"></i>  </button>
@@ -160,18 +161,17 @@ class UserShow extends React.Component {
                     <Link  to={`/clubs/${created.id}`}>
                       <div className="isImage">
                         <figure className="image is-4by3">
-                          <img src={created.image} alt={created.name}/>
+                          <img src={created.image} alt={created.name} className="clubImage"/>
                           <div className="middle">
                             <div className="text">{created.name}</div>
                             <div className="text">{created.category}</div>
-                            <div className="text">{created.date}</div>
                           </div>
                         </figure>
                       </div>
                     </Link>
                   </div>
                 )}
-                <div className="column is-3 club-btn-div">
+                <div className="column is-3 user-add-btn">
                   <Link to={'/clubs/new'}>
                     <button className="button is-info"><i className="fas fa-plus-circle"></i> </button>
                   </Link>
