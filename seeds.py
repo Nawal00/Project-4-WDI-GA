@@ -86,7 +86,7 @@ with app.app_context():
         image='https://tinyurl.com/y2zjeusz',
         owner=Nawal,
         followed_by=[Ed, Nawal],
-        location='Finsbury Park',
+        location='Finsbury Park, London, Greater London, England, United Kingdom',
         lat=51.534969,
         lng=-0.103750,
         description='Friendly club to play weekly badminton on a Wednesday',
@@ -125,11 +125,11 @@ with app.app_context():
         image='https://tinyurl.com/y3gc763z',
         owner=Ed,
         followed_by=[Ed, Nawal],
-        location='Croydon',
+        location='Croydon, Greater London, England, United Kingdom',
         lat=51.376163,
         lng=-0.098234,
         description='Computers games club for those in and around Croydon',
-        category='Computer Games'
+        category='Gaming'
     )
     south_londoner_gamer.save()
 
@@ -138,7 +138,7 @@ with app.app_context():
         image='https://tinyurl.com/j2lwsjz',
         owner=Ed,
         followed_by=[Ed, Wendy, Mark],
-        location='London',
+        location='London, Greater London, England, United Kingdom',
         lat=51.376163,
         lng=-0.098234,
         description='Monthly group to capture areas of the city',
@@ -151,7 +151,7 @@ with app.app_context():
         image='https://tinyurl.com/yxehbrk8',
         owner=Ed,
         followed_by=[Ed, Nawal, Jody, Dwight],
-        location='Teddington',
+        location='Teddington, Greater London, England, United Kingdom',
         lat=51.376163,
         lng=-0.098234,
         description='Lovely walks around the surrey countryside',
@@ -164,7 +164,7 @@ with app.app_context():
         image='https://tinyurl.com/y5s8wns5',
         owner=Ed,
         followed_by=[Ed, Mark, Jody],
-        location='Shoreditch',
+        location='Shoreditch, London, Greater London, England, United Kingdom',
         lat=51.515617,
         lng=-0.070839,
         description=' Five-a-side football at Shoreditch',
@@ -173,14 +173,14 @@ with app.app_context():
     east_london_five.save()
 
     football = Club(
-        name='Football Club',
+        name='Sutton Football Club',
         image='https://tinyurl.com/yxq3hdqc',
         owner=Nawal,
         followed_by=[Ed, Nawal],
-        location='London',
-        lat=51.515617,
-        lng=-0.070839,
-        description='Footy club',
+        location='London, Greater London, England, United Kingdom',
+        lat=51.3587483,
+        lng=-0.2402007,
+        description='Football club in Sutton area for a kick around',
         category='Sports'
     )
     football.save()
@@ -202,7 +202,7 @@ with app.app_context():
         name='Food Club',
         image='https://tinyurl.com/y3jhtfs2',
         owner=Ed,
-        followed_by=[Ed, Nawal, Mark],
+        followed_by=[Ed, Nawal, Mark, Wendy],
         location='Illford, London',
         lat=51.5786412,
         lng=0.0146417,
@@ -221,14 +221,14 @@ with app.app_context():
     club_comment_2 = ClubComment(
         content='I was in Greenwich last weekend and thought that was quite a lot of potential spots there',
         club=london_photography,
-        creator=Nawal
+        creator=Wendy
     )
     club_comment_2.save()
 
     club_comment_3 = ClubComment(
         content='Also the Thames Barrier is well worth a visit whilst in that area',
         club=london_photography,
-        creator=Nawal
+        creator=Wendy
     )
     club_comment_3.save()
 
@@ -254,7 +254,7 @@ with app.app_context():
     club_comment_6.save()
 
     badminton_day = Event(
-        name='Badminton Club',
+        name='Badminton Club Tottenham',
         image='https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F55930430%2F3256470838%2F1%2Foriginal.jpg?w=800&auto=compress&rect=258%2C0%2C2180%2C1090&s=dff8d8034e2a483f7524662d89f5e58f',
         owner=Ed,
         max_attendees=20,
@@ -264,11 +264,11 @@ with app.app_context():
         duration=300,
         club=badminton_north_london,
         attendees=[Nawal, Jody, Dwight, Wendy, Mark],
-        lat=51.5564869,
-        lng=-0.1172063,
+        lat=51.6784598,
+        lng=-0.3447658,
         description='Team tournement followed by a BBQ and party',
         category='Sports',
-        address='Park Road, LINCOLN'
+        address='Tottenham Hale, London, Greater London, England, United Kingdom'
     )
     badminton_day.save()
 
@@ -283,11 +283,11 @@ with app.app_context():
         duration=60,
         club=badminton_north_london,
         attendees=[Nawal],
-        lat=51.5564869,
-        lng=-0.1172063,
+        lat=51.6784598,
+        lng=-0.3447658,
         description='Friendly game of doubles for anyone who fancies it',
         category='Sports',
-        address='183 New Street, Preston'
+        address='Tottenham Hale, London, Greater London, England, United Kingdom'
     )
     badminton_doubles.save()
 
@@ -306,7 +306,7 @@ with app.app_context():
         lng=-0.012965,
         description='Lovely club',
         category='Photography',
-        address='411 George Street, East London'
+        address='Greenwich, London, Greater London, England, United Kingdom'
     )
     greenwich_photo_tour.save()
 
@@ -325,7 +325,7 @@ with app.app_context():
         lng=-0.1107947,
         description='Little trip around the square mile',
         category='Photography',
-        address='796 Chester Road, Norwich'
+        address='Bank, Princes St, London, England EC3V 3NR, United Kingdom'
     )
     city_photo_tour.save()
 
@@ -344,7 +344,7 @@ with app.app_context():
         lng=-0.1203346,
         description='The February issue of our monthly five-a-side',
         category='Sports',
-        address='8 North Road, Preston'
+        address='Shoreditch, London, Greater London, England, United Kingdom'
     )
     feb_five_a_side.save()
 
@@ -363,14 +363,14 @@ with app.app_context():
         lng=-0.1203346,
         description='The January issue of our monthly five-a-side',
         category='Sports',
-        address='58 The Drive, Luton'
+        address='Shoreditch, London, Greater London, England, United Kingdom'
     )
     jan_five_a_side.save()
 
     champions_chess = Event(
         name='Champions Chess Tournement',
         image='https://tinyurl.com/y5m9pvd8',
-        owner=Nawal,
+        owner=Jody,
         max_attendees=6,
         date='2019-03-20',
         hours=18,
@@ -378,11 +378,11 @@ with app.app_context():
         duration=120,
         club=chess_club_islington,
         attendees=[Jody, Ed],
-        lat=51.5343973,
-        lng=-0.1054455,
+        lat=51.5389083,
+        lng=-0.109142,
         description='It is that time of the year again!',
         category='Sports',
-        address='The Hoodland, Liverpool'
+        address='The Old Queens Head, 44 Essex Rd, London, England N1 2SZ, United Kingdom'
     )
     champions_chess.save()
 
@@ -401,12 +401,12 @@ with app.app_context():
         lng=-0.2779614,
         description='Great walk around Richmond Park',
         category='Sports',
-        address='58 The Drive, Richmond'
+        address='Richmond Park, Richmond, Richmond, England, United Kingdom'
     )
     richmond_park.save()
 
     mums_breakfast = Event(
-        name='Mums BreakFast Stoke On Trent',
+        name='Mums BreakFast May',
         image='http://tinyurl.com/y6ayg466',
         owner=Wendy,
         max_attendees=20,
@@ -414,19 +414,19 @@ with app.app_context():
         hours=10,
         minutes=00,
         duration=120,
-        club=mums_club_stokeontrent,
+        club=mums_club_Surbiton,
         attendees=[Jody, Ed],
-        lat=53.0219186,
-        lng=-2.2297829,
+        lat=51.3908113,
+        lng=-0.3158732,
         description='A great environment for Mums & Mums to be to connect and let their hair down',
         category='Mums',
-        address='4 City Rd, Stoke-on-Trent'
+        address='Surbiton Cafe, Brighton Road, Surbiton, England KT6 5PL, United Kingdom'
     )
     mums_breakfast.save()
 
     go_board = Event(
-        name='Mums BreakFast Stoke On Trent',
-        image='http://tinyurl.com/y6ayg466',
+        name='April Go Meet Up',
+        image='https://images.unsplash.com/photo-1509314315934-8d1fffb65dd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80',
         owner=Wendy,
         max_attendees=10,
         date='2019-04-20',
@@ -477,6 +477,6 @@ with app.app_context():
         lng=0.0715469,
         description='Learn home cooked itlian food',
         category='Food & Drinks',
-        address='1 Illford Broadway'
+        address='University of East London, Water Ln, London, England E15 4NQ, United Kingdom'
     )
     pasta_day.save()

@@ -142,7 +142,6 @@ class UserShow extends React.Component {
                     <div>
                       <button className="button is-info"> <i className="fas fa-plus-circle"></i>  </button>
                     </div>
-
                   </Link>
                 </div>
               </div>
