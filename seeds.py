@@ -294,7 +294,7 @@ with app.app_context():
     greenwich_photo_tour = Event(
         name='Greenwich Photography Event',
         image='https://tinyurl.com/y5cd2kbz',
-        owner=Nawal,
+        owner=Jody,
         max_attendees=6,
         date='2019-03-15',
         hours=14,
