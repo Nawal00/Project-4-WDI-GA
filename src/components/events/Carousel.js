@@ -11,9 +11,9 @@ class Carousels extends React.Component {
         wrapAround={true}
         withoutControls={true}
         heightMode={'first'}>
-        <img src="/assets/images/Events4.jpg" />
-        <img src="/assets/images/sing.jpg" />
-        <img src="/assets/images/tun.jpg" />
+        <img src="assets/images/Events4.jpg" />
+        <img src="assets/images/sing.jpg" />
+        <img src="assets/images/tun.jpg" />
       </Carousel>
     )
   }
