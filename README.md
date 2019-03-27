@@ -51,9 +51,8 @@ The frontend of the app is made with React.js and Python, MySQL on the backend. 
 
 2. Event Show - The event show page will show date of the event, weather on the date, estimated journey time from user current location and city mapper or google maps directions to the event.
 
-<img width="974" alt="Screenshot 2019-03-27 at 14 10 53" src="https://user-images.githubusercontent.com/42609274/55082850-51daf300-509a-11e9-8f96-229c0e60827b.png">
-
-<img width="974" alt="Screenshot 2019-03-27 at 14 12 01" src="https://user-images.githubusercontent.com/42609274/55082851-530c2000-509a-11e9-83c5-7c40de918500.png">
+<img width="1004" alt="Screenshot 2019-03-27 at 17 42 51" src="https://user-images.githubusercontent.com/42609274/55099605-e3a52900-50b7-11e9-908c-4cf359e302b1.png">
+<img width="970" alt="Screenshot 2019-03-27 at 17 43 17" src="https://user-images.githubusercontent.com/42609274/55099608-e4d65600-50b7-11e9-976e-1fb3028f1cef.png">
 
 
 3. Club Index - The clubs index page is a list of specific clubs i.e. badminton club, mums breakfast club, gamers club.
@@ -71,6 +70,9 @@ The frontend of the app is made with React.js and Python, MySQL on the backend. 
 <img width="1009" alt="Screenshot 2019-03-27 at 14 37 52" src="https://user-images.githubusercontent.com/42609274/55085460-9ec0c880-509e-11e9-9422-6daf584d2b19.png">
 <img width="993" alt="Screenshot 2019-03-27 at 14 55 27" src="https://user-images.githubusercontent.com/42609274/55086486-5e624a00-50a0-11e9-92ae-5ae81d8a98c4.png">
 
+6. New Gem - A logged in user is able to create a new 'Event' or 'Club' for the Organise tab on the navbar.
+
+<img width="1091" alt="Screenshot 2019-03-27 at 17 44 50" src="https://user-images.githubusercontent.com/42609274/55099669-08999c00-50b8-11e9-8942-c90b20a52fdc.png">
 
 ## Process
 This was a paired project with one other developer and we managed our workload by running sprint session every morning and at the end of the day. We used Trello to prioritise and delegate work, keep a track of our progress and Slack to communicate while working remotely. Features were prioritised using the MoSCoW method and were created on separate git branches before being merged into the development branch.
@@ -90,7 +92,7 @@ Once we finalised the data structure we had to figure out how to join tables. We
 ### Frontend
 With backend up and running, we produced wireframes for the layout of our users journey on the frontend. This later was useful to maintain consistency with the design while adding features and styling. I created Home Page, Events Show Page, Clubs Index Page, Clubs Show page, Registration forms, Loading screen and helped with style fixes on other pages. The site was styled with Bulma CSS Framework but heavily customised with SCSS, so that the site has its own look and feel and is consistent with the overall branding.
 
-One of the requirement for this project was to test a functional and classical React component which I was responsible for. For testing on React Components on frontend I used Enzyme, Mocha and Chai. We then set up JSDOM, so that we can run front-end tests that output to the terminal. To test the EventsCard, a functional component, we used Enzyme to check that the correct DOM elements have been rendered along with the props to check that it renders any data correctly. To test the Events Show page, a classical component, we used Enzyme's mount method, and Sinon to create a fake Axios request. This allowed us to check that the data being stored in state was accurate and being rendered correctly.
+One of the requirement for this project was to test a functional and classical React component which I was responsible for. For testing React Components on frontend I used Enzyme, Mocha and Chai. I then set up JSDOM, so that front-end tests can run that output to the terminal. To test the EventsCard, a functional component, we used Enzyme to check that the correct DOM elements have been rendered along with the props to check that it renders any data correctly. To test the Events Show page, a classical component, we used Enzyme's mount method, and Sinon to create a fake Axios request. This allowed us to check that the data being stored in state was accurate and being rendered correctly.
 
 ### Challenges
 The main challenge on this project was to build follow, comment features and to create relationships (ERD) between models/tables in MySQL Database. SQL database was new to us and the therefore creating and managing the database took a lot of time planning, reading documentation and figuring out as we were trying to make it work.
