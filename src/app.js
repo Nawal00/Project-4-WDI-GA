@@ -22,7 +22,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import UserShow from './components/users/UserShow'
 
-import Navbar from './components/common/Navbar'
+import NavBar from './components/common/NavBar'
 import FlashMessages from './components/common/FlashMessages'
 
 class App extends React.Component {
@@ -31,7 +31,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <main>
-          <Navbar />
+          <NavBar />
           <FlashMessages />
           <Switch>
             <SecureRoute path="/events/new" component={EventsNew} />

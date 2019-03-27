@@ -45,6 +45,9 @@
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3"
   },
+  "engines": {
+  "node": "11.2.0"
+  },
   "devDependencies": {
     "@babel/register": "^7.0.0",
     "chai": "^4.2.0",
