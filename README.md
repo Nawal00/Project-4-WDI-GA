@@ -51,7 +51,7 @@ The frontend of the app is made with React.js and Python, MySQL on the backend. 
 
 2. Event Show - The event show page will show date of the event, weather on the date, estimated journey time from user current location and city mapper or google maps directions to the event.
 
-<img width="1004" alt="Screenshot 2019-03-27 at 17 42 51" src="https://user-images.githubusercontent.com/42609274/55099605-e3a52900-50b7-11e9-908c-4cf359e302b1.png">
+<img width="970" alt="Screenshot 2019-03-27 at 17 42 51" src="https://user-images.githubusercontent.com/42609274/55099605-e3a52900-50b7-11e9-908c-4cf359e302b1.png">
 <img width="970" alt="Screenshot 2019-03-27 at 17 43 17" src="https://user-images.githubusercontent.com/42609274/55099608-e4d65600-50b7-11e9-976e-1fb3028f1cef.png">
 
 
@@ -65,12 +65,12 @@ The frontend of the app is made with React.js and Python, MySQL on the backend. 
 <img width="951" alt="Screenshot 2019-03-27 at 14 29 39" src="https://user-images.githubusercontent.com/42609274/55084311-e6deeb80-509c-11e9-83d7-31d5714caf04.png">
 <img width="951" alt="Screenshot 2019-03-27 at 14 30 17" src="https://user-images.githubusercontent.com/42609274/55084299-e2b2ce00-509c-11e9-950e-6a17be06c9c9.png">
 
-5. User Page - The user pages shows future and past events that the user is attending as well as the clubs they follow and events they've created.
+5. User Page - The user pages shows past and future events that the user is attending as well as the clubs they follow and events they've created.
 
 <img width="1009" alt="Screenshot 2019-03-27 at 14 37 52" src="https://user-images.githubusercontent.com/42609274/55085460-9ec0c880-509e-11e9-9422-6daf584d2b19.png">
 <img width="993" alt="Screenshot 2019-03-27 at 14 55 27" src="https://user-images.githubusercontent.com/42609274/55086486-5e624a00-50a0-11e9-92ae-5ae81d8a98c4.png">
 
-6. New Gem - A logged in user is able to create a new 'Event' or 'Club' for the Organise tab on the navbar.
+6. New Gem Form - A logged in user is able to create a new 'Event' or 'Club' for the Organise tab on the navbar.
 
 <img width="1091" alt="Screenshot 2019-03-27 at 17 44 50" src="https://user-images.githubusercontent.com/42609274/55099669-08999c00-50b8-11e9-8942-c90b20a52fdc.png">
 
@@ -87,12 +87,12 @@ We decided on following models,
 * many-to-many between attendees and events
 * many-to-many between followers and clubs
 
-Once we finalised the data structure we had to figure out how to join tables. We referred to the docs and  were able to implement attending and following functionality associated with 'Events' and 'Clubs'. From here, we moved on to creating backend functionality and tested all relationship in Insomnia and fixed any bugs.  
+Once we finalised the data structure we had to figure out how to join tables. We referred to the docs and  were able to implement attending and following functionality associated with 'Events' and 'Clubs'. From here, we moved on to creating backend functionality and tested all relationships in Insomnia and fixed any bugs.  
 
 ### Frontend
 With backend up and running, we produced wireframes for the layout of our users journey on the frontend. This later was useful to maintain consistency with the design while adding features and styling. I created Home Page, Events Show Page, Clubs Index Page, Clubs Show page, Registration forms, Loading screen and helped with style fixes on other pages. The site was styled with Bulma CSS Framework but heavily customised with SCSS, so that the site has its own look and feel and is consistent with the overall branding.
 
-One of the requirement for this project was to test a functional and classical React component which I was responsible for. For testing React Components on frontend I used Enzyme, Mocha and Chai. I then set up JSDOM, so that front-end tests can run that output to the terminal. To test the EventsCard, a functional component, we used Enzyme to check that the correct DOM elements have been rendered along with the props to check that it renders any data correctly. To test the Events Show page, a classical component, we used Enzyme's mount method, and Sinon to create a fake Axios request. This allowed us to check that the data being stored in state was accurate and being rendered correctly.
+One of the requirement for this project was to test a functional and classical React component which I was responsible for. For testing React Components on frontend I used Enzyme, Mocha and Chai. I then set up JSDOM, so that front-end tests can run that output to the terminal. To test the EventsCard, a functional component, I used Enzyme to check that the correct DOM elements have been rendered along with the props to check that it renders any data correctly. To test the Events Show page, a classical component, I used Enzyme's mount method, and Sinon to create a fake Axios request. This allowed to check that the data being stored in state was accurate and being rendered correctly.
 
 ### Challenges
 The main challenge on this project was to build follow, comment features and to create relationships (ERD) between models/tables in MySQL Database. SQL database was new to us and the therefore creating and managing the database took a lot of time planning, reading documentation and figuring out as we were trying to make it work.
@@ -102,7 +102,7 @@ I am very pleased with how the site turned out and how well we worked together a
 
 I am particularly proud of the code below that takes address from the new 'Event' form, converts it into lan and lat which is used by Mapbox API to display the location on the map.
 
-<img width="993" alt="Screenshot 2019-03-27 at 14 55 27" src="https://user-images.githubusercontent.com/42609274/55086486-5e624a00-50a0-11e9-92ae-5ae81d8a98c4.png">
+<img width="481" alt="Screenshot 2019-03-27 at 17 57 11" src="https://user-images.githubusercontent.com/42609274/55100401-c1aca600-50b9-11e9-8083-c07bb4cc6809.png">
 
 
 ## Future features
