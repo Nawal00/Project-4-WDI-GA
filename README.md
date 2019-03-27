@@ -91,10 +91,14 @@ Once we finalised the data structure we had to figure out how to join tables. We
 With backend up and running, we produced wireframes for the layout of our users journey on the frontend. This later was useful to maintain consistency with the design while adding features and styling. I created Home Page, Events Show Page, Clubs Index Page, Clubs Show page, Registration forms, Loading screen and helped with style fixes on other pages. The site was styled with Bulma CSS Framework but heavily customised with SCSS, so that the site has its own look and feel and is consistent with the overall branding.  
 
 ### Challenges
-The main challenge on this project was to build follow, comment features and to create relationships between models/tables in MySQL Database. SQL database was new to us and the therefore creating and managing the database took a lot of time planning, reading documentation and figuring out as we were trying to make it work.
+The main challenge on this project was to build follow, comment features and to create relationships (ERD) between models/tables in MySQL Database. SQL database was new to us and the therefore creating and managing the database took a lot of time planning, reading documentation and figuring out as we were trying to make it work.
 
 ### Wins
-I am very pleased with how the site turned out and how well we worked together as a team. We reached a solid MVP state which allowed us then to explore with external APIs to enhance our sites features. We looked into DarkSky API and managed to incorporate it on our app to give user real time weather report on the day of the event. Additionally, we utilised City Mapper API to present user with estimated journey time to the event.  
+I am very pleased with how the site turned out and how well we worked together as a team. We reached a solid MVP state which then allowed us to explore external APIs to enhance our app features. We looked into DarkSky API and managed to incorporate it on our app to give user real time weather report on the day of the event. Additionally, we utilised City Mapper API to present user with estimated journey time to the event.
+
+I am particularly proud of the code below that takes address from the new 'Event' form, converts it into lan and lat which is used by Mapbox API to display the location on the map.
+
+<img width="993" alt="Screenshot 2019-03-27 at 14 55 27" src="https://user-images.githubusercontent.com/42609274/55086486-5e624a00-50a0-11e9-92ae-5ae81d8a98c4.png">
 
 
 ## Future features
