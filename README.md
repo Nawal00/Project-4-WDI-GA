@@ -21,14 +21,10 @@ This was a pair project with one other developer. The project was managed using 
 
 ## Installation
 
-1. Set up a project repo by a git master
-2. Clone the repo
-3. Created all the back-end and front-end files
-4. Set up Package.json Webpack, Pipenv and installed all the dependencies packages
-5. Set up and run the server
-6. Open the `index.html` on the browser
-7.
-8. Deployed on Heroku
+1. Clone or download the repo
+2. Install yarn, pipenv in Terminal
+3. Run flask server - yarn serve:flask
+4. Run webpack - yarn serve:react
 
 ## App - Social Bee
 
@@ -40,13 +36,13 @@ You can find a hosted version here https://social-bee.herokuapp.com/
 
 ### App overview
 
-Social Bee is an app that allows users to create activity clubs and organise events. This web app is targeted towards local communities to help them find common interest and do it together.
+Social Bee is an app that allows users to create activity clubs and organise events. This web app is targeted towards local communities to help them find common interest and collaborate together.
 
-The app utilises the Dark Skies API to give real time weather reports for the date and location of the event and City Mapper to give direction and estimated journey time from user's location to the event.
+The frontend of the app is made with React.js and Python, MySQL on the backend. The app utilises the Dark Skies API to give real time weather reports for the date and location of the event and City Mapper to give direction and estimated journey time from user's location to the event.
 
 
 ### App Instructions
-Home Page - the home page will display set of carousel images that portray our app/brand messages, followed by search bars and list of upcoming events ordered by the date.
+Home Page - the home page will display set of carousel images that portray our app/brand messages, followed by search bars and list of upcoming events.
 
 <img width="1268" alt="Screenshot 2019-03-27 at 13 45 45" src="https://user-images.githubusercontent.com/42609274/55080973-ee02fb00-5096-11e9-9ee6-0bbbfc3210db.png">
 <img width="1262" alt="Screenshot 2019-03-27 at 13 46 36" src="https://user-images.githubusercontent.com/42609274/55082083-ec3a3700-5098-11e9-87c3-1bcb0fca054a.png">
@@ -75,10 +71,22 @@ User Page - The user pages shows future and past events that the user is attendi
 
 
 ## Process
-First step for the project was to work on how to structure and create relationship on MySQL database. Once we finalised the data structure we moved on to wireframe and basic structure of the frontend.
+This was a paired project with one other developer and we managed our workload by running sprint session every morning and at the end of the day. We used Trello to prioritise and delegate work, keep a track of our progress and Slack to communicate while working remotely. Features were prioritised using the MoSCoW method and were created on separate git branches before being merged into the development branch.
 
-This was a paired project with one other developer and we managed our workload by running sprint session every morning and at the end of the day. We used Trello to prioritise and delegate work, keep a track of our progress and Slack to communicate while working remotely. Features were prioritised using the MoSCoW method. Features were created on separate git branches before being merged into the development branch.
+## Back End
+First step for the project was to work on how to structure and create relationship on PostgreSQL database. As we were both new to Python and SQL database we pair coded to establish relationships diagrams (ERDs) for the database.
+We decided on
 
+* one-to-many users and clubs
+* one-to-many users and events
+* one-to-one relationships between comments and clubs
+* many-to-many between attendees and events
+* many-to-many between followers and clubs
+
+Once we finalised the data structure we had to figure out how to join tables. We referred to the docs and  were able to implement attending and following functionality associated with 'Events' and 'Clubs'. From here, we moved on to creating backend functionality and tested all relationship in Insomnia and fixed any bugs.  
+
+## Front End
+With backend up and running we produced wireframes for the layout of our users journey on the frontend. This later was useful when we started adding key features on front end. 
 
 ### Challenges
 The main challenge on this project was to build follow, comment features and to create relationships between models/tables in MySQL Database. SQL database was new to us and the therefore creating and managing the database took a lot of time planning and figuring out as we were trying to make it work.
@@ -88,4 +96,6 @@ The main challenge on this project was to build follow, comment features and to 
 
 
 ## Future features
-Some extra features that I would’ve loved on the app is a calendar and push notification when users receive a message.
+Some extra features that I would’ve loved on the app are
+* A Calendar and push notification when users receive a message.
+* Search functionality with date
