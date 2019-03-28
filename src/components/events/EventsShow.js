@@ -192,6 +192,7 @@ class EventsShow extends React.Component {
             events={[this.state.event]}
             type= "event"
           />
+
         </div>
       </div>
     )

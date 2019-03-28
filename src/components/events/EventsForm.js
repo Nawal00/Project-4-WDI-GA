@@ -7,8 +7,8 @@ const mapboxAutoComplete = process.env.MAP_BOX_TOKEN
 
 const EventsForm = ({ newform, data, handleChange, handleSubmit, handleClubChange, errors, suggestionSelect, clubs  }) => {
   // creating  elements for time hours and minutes dropdowns
-  let hours = []
-  let minutes = []
+  const hours = []
+  const minutes = []
   for (let i=0; i<=23; i++){
     hours.push(i)
   }
